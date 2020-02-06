@@ -1,9 +1,13 @@
 import React from "react";
 import Main from "../main/main.jsx";
-
-const App = () => {
+// eslint-disable-next-line react/prop-types
+const App = ({title, genre, date}) => {
   return (
-    <Main/>
+    <Main
+      title ={title}
+      genre = {genre}
+      date ={date}
+    />
   );
 };
 
