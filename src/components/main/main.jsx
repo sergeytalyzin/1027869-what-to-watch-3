@@ -1,6 +1,9 @@
 import React from "react";
-// eslint-disable-next-line react/prop-types
-const Main = ({title, genre, date}) => {
+import PropTypes from "prop-types";
+
+
+const Main = (props) => {
+  const {listFilms, title, genre, date} = props;
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -96,35 +99,16 @@ const Main = ({title, genre, date}) => {
         </ul>
 
         <div className="catalog__movies-list">
-          <article className="small-movie-card catalog__movies-card">
+          {listFilms.map((it, i) => <article key= {i} className="small-movie-card catalog__movies-card">
             <div className="small-movie-card__image">
               <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
                 alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
             </div>
             <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of
-                  Grindelwald</a>
+              <a className="small-movie-card__link" href="movie-page.html">{it}</a>
             </h3>
           </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175"/>
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175"/>
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-            </h3>
-          </article>
-
+          )}
           <article className="small-movie-card catalog__movies-card">
             <div className="small-movie-card__image">
               <img src="img/aviator.jpg" alt="Aviator" width="280" height="175"/>
@@ -307,6 +291,11 @@ const Main = ({title, genre, date}) => {
   </React.Fragment>
   );
 };
-
+Main.propTypes = {
+  title: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
+  listFilms: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Main;
