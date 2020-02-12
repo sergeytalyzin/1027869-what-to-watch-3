@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 const Main = (props) => {
-  const {listFilms, title, genre, date} = props;
+  const {listFilms, title, genre, date, onTitleClick} = props;
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -36,7 +36,7 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{title}</h2>
+            <h2 onClick = {onTitleClick} className="movie-card__title">{title}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{genre}</span>
               <span className="movie-card__year">{date}</span>
@@ -296,6 +296,7 @@ Main.propTypes = {
   genre: PropTypes.string.isRequired,
   date: PropTypes.number.isRequired,
   listFilms: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default Main;
