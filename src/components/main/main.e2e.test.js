@@ -3,12 +3,22 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
 
-const data = {
-  genre: `Comedy`,
-  title: `Terminator`,
-  date: 1812,
-  listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`],
-};
+const data = [
+  {
+    id: Math.random(),
+    title: `Mindhunter`,
+    src: `img/mindhunter.jpg`,
+    genre: `Comedy`,
+    date: 1812,
+  },
+  {
+    id: Math.random(),
+    title: `Midnight Special`,
+    src: `img/midnight-special.jpg`,
+    genre: `Comedy`,
+    date: 1812,
+  }
+];
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -19,10 +29,7 @@ it(`Should title click be pressed`, () => {
 
   const main = shallow(
       <Main
-        title={data.title}
-        genre={data.genre}
-        date={data.date}
-        listFilms={data.listFilms}
+        films={data}
         onTitleClick={onTitleClick}
       />
   );

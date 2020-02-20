@@ -6,7 +6,6 @@ export default [
     src: `img/mindhunter.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -14,7 +13,6 @@ export default [
     src: `img/midnight-special.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -22,7 +20,6 @@ export default [
     src: `img/war-of-the-worlds.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -30,7 +27,6 @@ export default [
     src: `img/dardjeeling-limited.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -38,7 +34,6 @@ export default [
     src: `img/orlando.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -46,7 +41,6 @@ export default [
     src: `img/seven-years-in-tibet.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -54,7 +48,6 @@ export default [
     src: `img/moonrise-kingdom.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   },
   {
     id: Math.random(),
@@ -62,6 +55,5 @@ export default [
     src: `img/snatch.jpg`,
     genre: `Comedy`,
     date: 1812,
-    listFilms: [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`]
   }
 ];

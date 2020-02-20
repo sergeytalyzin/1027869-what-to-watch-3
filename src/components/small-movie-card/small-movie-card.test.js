@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main";
+import SmallMovieCard from "./small-movie-card";
 
 const data = [
   {
@@ -19,9 +19,12 @@ const data = [
   }
 ];
 
-it(`Should Main render correctly`, () => {
-  const tree = renderer.create(<Main onTitleClick={()=>{
-    return `привет`;
-  }} films={data}/>).toJSON();
+it(`Should SmallMovieCard render correctly`, () => {
+  const tree = renderer.create(<SmallMovieCard
+    handleMouseEnter={()=>{}}
+    title={data[0].title}
+    src={data[0].src}/>
+  ).toJSON();
+
   expect(tree).toMatchSnapshot();
 });

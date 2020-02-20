@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import films from "../../mocks/films.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import PropTypes from "prop-types";
 
@@ -13,10 +12,11 @@ class MovieList extends PureComponent {
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
-  handleMouseEnter(evt, title) {
+  handleMouseEnter(title) {
     this.setState({activeFilm: title});
   }
   getFilms() {
+    const films = this.props.films;
     return films.map(({title, src, id})=>{
       return (
         <SmallMovieCard
@@ -35,7 +35,10 @@ class MovieList extends PureComponent {
 }
 
 MovieList.propTypes = {
-  title: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+  })).isRequired,
 };
 export default MovieList;

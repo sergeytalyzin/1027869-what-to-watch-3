@@ -5,9 +5,9 @@ const SmallMovieCard = (props) => {
   const {handleMouseEnter} = props;
 
   return (
-    <article onMouseEnter={(evt)=> handleMouseEnter(evt, props.title)} className="small-movie-card catalog__movies-card">
+    <article onMouseEnter={()=> handleMouseEnter(props.title)} className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
-        <img src={props.src} alt="We need to talk about Kevin" width="280"
+        <img src = {props.src} alt="We need to talk about Kevin" width="280"
           height="175"/>
       </div>
       <h3 className="small-movie-card__title">
