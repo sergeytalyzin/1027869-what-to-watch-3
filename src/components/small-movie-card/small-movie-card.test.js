@@ -22,8 +22,7 @@ const data = [
 it(`Should SmallMovieCard render correctly`, () => {
   const tree = renderer.create(<SmallMovieCard
     handleMouseEnter={()=>{}}
-    title={data[0].title}
-    src={data[0].src}/>
+    film={data[0]}/>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

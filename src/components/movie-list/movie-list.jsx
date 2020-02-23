@@ -17,12 +17,11 @@ class MovieList extends PureComponent {
   }
   getFilms() {
     const films = this.props.films;
-    return films.map(({title, src, id})=>{
+    return films.map((it)=>{
       return (
         <SmallMovieCard
-          title = {title}
-          src = {src}
-          key = {id}
+          film = {it}
+          key = {it.id}
           handleMouseEnter = {this.handleMouseEnter}
         />
       );
@@ -36,6 +35,7 @@ class MovieList extends PureComponent {
 
 MovieList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,

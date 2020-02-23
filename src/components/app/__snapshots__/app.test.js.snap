@@ -81,16 +81,22 @@ Array [
           <h2
             className="movie-card__title"
             onClick={[Function]}
-          />
+          >
+            Mindhunter
+          </h2>
           <p
             className="movie-card__meta"
           >
             <span
               className="movie-card__genre"
-            />
+            >
+              Comedy
+            </span>
             <span
               className="movie-card__year"
-            />
+            >
+              1812
+            </span>
           </p>
           <div
             className="movie-card__buttons"

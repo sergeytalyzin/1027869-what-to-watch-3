@@ -24,8 +24,7 @@ it(`when pointing to a card information is sent to the handler`, ()=>{
   const handleMouseEnter = jest.fn();
   const smallMovieCard = shallow(<SmallMovieCard
     handleMouseEnter={handleMouseEnter}
-    title={data.title}
-    src={data.src}/>);
+    film={data}/>);
 
   const card = smallMovieCard.find(`.small-movie-card`);
 

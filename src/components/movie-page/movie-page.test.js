@@ -1,5 +1,8 @@
+import React from "react";
+import renderer from "react-test-renderer";
+import MoviePage from "./movie-page";
 
-export default [
+const data = [
   {
     id: Math.random(),
     title: `Mindhunter`,
@@ -65,3 +68,9 @@ export default [
     posterBig: `img/snatch.jpg`,
   }
 ];
+
+it (`MoviePage is rendered correctly`,() =>{
+  const tree = renderer.create(<MoviePage films={data}/>).toJSON();
+  expect(tree).toMatchSnapshot();
+
+});

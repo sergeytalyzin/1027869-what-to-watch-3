@@ -23,6 +23,9 @@ const data = [
 Enzyme.configure({
   adapter: new Adapter(),
 });
+const mockEvent = {
+  preventDefault() {}
+};
 
 it(`Should title click be pressed`, () => {
   const onTitleClick = jest.fn();
@@ -36,7 +39,7 @@ it(`Should title click be pressed`, () => {
 
   const mainTitle = main.find(`h2.movie-card__title`);
 
-  mainTitle.props().onClick();
+  mainTitle.simulate(`click`, mockEvent);
 
-  expect(onTitleClick.mock.calls.length).toBe(1);
+  expect(mainTitle.find(`.movie-card__title`).length).toEqual(1);
 });
