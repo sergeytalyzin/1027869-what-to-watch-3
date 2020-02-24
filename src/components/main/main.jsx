@@ -101,6 +101,7 @@ const Main = ({films, onTitleClick}) => {
 
         <div className="catalog__movies-list">
           <MovieList
+            onTitleClick = {onTitleClick}
             films = {films}
           />
         </div>

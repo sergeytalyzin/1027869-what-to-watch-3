@@ -9,24 +9,29 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      state: 1
+      showMoviePage: false,
+      film: this.props.films[1]
     };
     this._handleTitleClick = this._handleTitleClick.bind(this);
   }
 
-  _handleTitleClick() {
+  _handleTitleClick(id) {
+    const [currentFilm] = this.props.films.filter((it)=>it.id === id);
+
     this.setState({
-      state: 0,
+      showMoviePage: true,
+      film: currentFilm
     });
   }
 
   _renderApp() {
-    const {state} = this.state;
+    const {showMoviePage} = this.state;
+    if (showMoviePage) {
+      const {film} = this.state;
 
-    if (state === 0) {
       return (
         <MoviePage
-          films={this.props.films}
+          film = {film}
         />);
     } else {
       return (

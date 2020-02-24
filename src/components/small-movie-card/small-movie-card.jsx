@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SmallMovieCard = (props) => {
-  const {handleMouseEnter} = props;
 
+const SmallMovieCard = (props) => {
+  const {handleMouseEnter, onTitleClick} = props;
   return (
     <article onMouseEnter={()=> handleMouseEnter(props.film.title)} className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
@@ -11,7 +11,7 @@ const SmallMovieCard = (props) => {
           height="175"/>
       </div>
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{props.film.title}</a>
+        <a onClick = {()=>onTitleClick(props.film.id)} className="small-movie-card__link" href="movie-page.html">{props.film.title}</a>
       </h3>
     </article>
   );
@@ -19,9 +19,11 @@ const SmallMovieCard = (props) => {
 
 SmallMovieCard.propTypes = {
   handleMouseEnter: PropTypes.func.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 

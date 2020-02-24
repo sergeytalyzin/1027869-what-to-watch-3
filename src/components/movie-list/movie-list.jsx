@@ -20,6 +20,7 @@ class MovieList extends PureComponent {
     return films.map((it)=>{
       return (
         <SmallMovieCard
+          onTitleClick = {this.props.onTitleClick}
           film = {it}
           key = {it.id}
           handleMouseEnter = {this.handleMouseEnter}
