@@ -4,7 +4,7 @@ import MovieList from "../movie-list/movie-list.jsx";
 
 
 const Main = ({films, onTitleClick}) => {
-  const {title, genre, date} = films[0];
+  const {title, genre, date,id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -37,7 +37,7 @@ const Main = ({films, onTitleClick}) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 onClick = {onTitleClick} className="movie-card__title">{title}</h2>
+            <h2 onClick = {()=>onTitleClick(id)} className="movie-card__title">{title}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{genre}</span>
               <span className="movie-card__year">{date}</span>
@@ -133,6 +133,7 @@ Main.propTypes = {
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
 };
