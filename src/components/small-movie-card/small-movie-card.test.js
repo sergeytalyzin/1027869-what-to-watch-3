@@ -22,6 +22,7 @@ const data = [
 it(`Should SmallMovieCard render correctly`, () => {
   const tree = renderer.create(<SmallMovieCard
     handleMouseEnter={()=>{}}
+    onTitleClick={()=>{}}
     film={data[0]}/>
   ).toJSON();
 

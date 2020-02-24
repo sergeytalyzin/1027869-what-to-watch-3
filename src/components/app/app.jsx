@@ -28,7 +28,6 @@ class App extends PureComponent {
     const {showMoviePage} = this.state;
     if (showMoviePage) {
       const {film} = this.state;
-
       return (
         <MoviePage
           film = {film}
@@ -49,7 +48,7 @@ class App extends PureComponent {
         </Route>
         <Route exact path="/moviePage">
           <MoviePage
-            films={this.props.films}
+            film={this.props.films[1]}
           />
         </Route>
       </Switch>

@@ -8,6 +8,7 @@ Array [
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="We need to talk about Kevin"
@@ -33,6 +34,7 @@ Array [
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="We need to talk about Kevin"
@@ -58,6 +60,7 @@ Array [
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="We need to talk about Kevin"
@@ -83,6 +86,7 @@ Array [
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="We need to talk about Kevin"

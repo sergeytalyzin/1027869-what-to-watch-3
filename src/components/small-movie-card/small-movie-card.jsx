@@ -6,12 +6,12 @@ const SmallMovieCard = (props) => {
   const {handleMouseEnter, onTitleClick} = props;
   return (
     <article onMouseEnter={()=> handleMouseEnter(props.film.title)} className="small-movie-card catalog__movies-card">
-      <div className="small-movie-card__image">
+      <div onClick = {()=>onTitleClick(props.film.id)} className="small-movie-card__image">
         <img src = {props.film.src} alt="We need to talk about Kevin" width="280"
           height="175"/>
       </div>
       <h3 className="small-movie-card__title">
-        <a onClick = {()=>onTitleClick(props.film.id)} className="small-movie-card__link" href="movie-page.html">{props.film.title}</a>
+        <a className="small-movie-card__link" href="movie-page.html">{props.film.title}</a>
       </h3>
     </article>
   );

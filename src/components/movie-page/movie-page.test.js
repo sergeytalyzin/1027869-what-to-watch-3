@@ -70,7 +70,6 @@ const data = [
 ];
 
 it(`MoviePage is rendered correctly`, () =>{
-  const tree = renderer.create(<MoviePage films={data}/>).toJSON();
+  const tree = renderer.create(<MoviePage film={data[0]}/>).toJSON();
   expect(tree).toMatchSnapshot();
-
 });
