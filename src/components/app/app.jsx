@@ -9,8 +9,7 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      showMoviePage: false,
-      film: this.props.films[1]
+      film: null
     };
     this._handleTitleClick = this._handleTitleClick.bind(this);
   }
@@ -19,26 +18,23 @@ class App extends PureComponent {
     const [currentFilm] = this.props.films.filter((it)=>it.id === id);
 
     this.setState({
-      showMoviePage: true,
       film: currentFilm
     });
   }
 
   _renderApp() {
-    const {showMoviePage} = this.state;
-    if (showMoviePage) {
-      const {film} = this.state;
+    const {film} = this.state;
+    if (film) {
       return (
         <MoviePage
           film = {film}
         />);
-    } else {
+    }
       return (
         <Main
           onTitleClick={this._handleTitleClick}
           films={this.props.films}
         />);
-    }
   }
   render() {
     return (<BrowserRouter>
