@@ -34,9 +34,7 @@ const data = [
 ];
 
 it(`Should MovieList render correctly`, ()=>{
-  const tree = renderer.create(<MovieList
-    films={data}
-  />).toJSON();
+  const tree = renderer.create(<MovieList films={data} onTitleClick={()=>{}}/>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

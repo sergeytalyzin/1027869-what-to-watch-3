@@ -30,11 +30,11 @@ class App extends PureComponent {
           film = {film}
         />);
     }
-      return (
-        <Main
-          onTitleClick={this._handleTitleClick}
-          films={this.props.films}
-        />);
+    return (
+      <Main
+        onTitleClick={this._handleTitleClick}
+        films={this.props.films}
+      />);
   }
   render() {
     return (<BrowserRouter>

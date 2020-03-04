@@ -21,11 +21,9 @@ const mockEvent = {
 };
 
 it(`when pointing to a card information is sent to the handler`, ()=>{
-  const handleMouseEnter = jest.fn();
   const onTitleClick = jest.fn();
   const smallMovieCard = shallow(<SmallMovieCard
     onTitleClick={onTitleClick}
-    handleMouseEnter={handleMouseEnter}
     film={data}/>);
 
   const card = smallMovieCard.find(`.small-movie-card`);
@@ -33,7 +31,6 @@ it(`when pointing to a card information is sent to the handler`, ()=>{
   card.simulate(`mouseenter`, mockEvent);
 
   expect(card.find(`.small-movie-card__image`).length).toEqual(1);
-  expect(handleMouseEnter).toBeCalledWith(data.title);
 
 });
 

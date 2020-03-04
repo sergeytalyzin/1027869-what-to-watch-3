@@ -2,18 +2,9 @@ import React, {PureComponent} from "react";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import PropTypes from "prop-types";
 
-
 class MovieList extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      activeFilm: null,
-    };
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-  }
-
-  handleMouseEnter(title) {
-    this.setState({activeFilm: title});
   }
   getFilms() {
     const films = this.props.films;
@@ -23,7 +14,6 @@ class MovieList extends PureComponent {
           onTitleClick = {this.props.onTitleClick}
           film = {it}
           key = {it.id}
-          handleMouseEnter = {this.handleMouseEnter}
         />
       );
     });

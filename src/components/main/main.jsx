@@ -4,7 +4,7 @@ import MovieList from "../movie-list/movie-list.jsx";
 
 
 const Main = ({films, onTitleClick}) => {
-  const {title, genre, date,id} = films[0];
+  const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
