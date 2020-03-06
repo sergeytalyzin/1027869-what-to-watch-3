@@ -4,18 +4,16 @@ exports[`Should MovieList render correctly 1`] = `
 Array [
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    onClick={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <img
-        alt="We need to talk about Kevin"
-        height="175"
-        src="img/mindhunter.jpg"
-        width="280"
+      <video
+        className="player__video"
+        poster="img/mindhunter.jpg"
       />
     </div>
     <h3
@@ -31,18 +29,16 @@ Array [
   </article>,
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    onClick={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <img
-        alt="We need to talk about Kevin"
-        height="175"
-        src="img/midnight-special.jpg"
-        width="280"
+      <video
+        className="player__video"
+        poster="img/midnight-special.jpg"
       />
     </div>
     <h3
@@ -58,18 +54,16 @@ Array [
   </article>,
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    onClick={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <img
-        alt="We need to talk about Kevin"
-        height="175"
-        src="path"
-        width="280"
+      <video
+        className="player__video"
+        poster="path"
       />
     </div>
     <h3
@@ -85,18 +79,16 @@ Array [
   </article>,
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    onClick={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <img
-        alt="We need to talk about Kevin"
-        height="175"
-        src="path"
-        width="280"
+      <video
+        className="player__video"
+        poster="path"
       />
     </div>
     <h3

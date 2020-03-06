@@ -86,7 +86,13 @@ const data = [
 it(`Should SmallMovieCard render correctly`, () => {
   const tree = renderer.create(<SmallMovieCard
     onTitleClick={()=>{}}
-    film={data[0]}/>
+    film={data[0]}
+    renderPlayer={() => {}}
+    />,{
+      createNodeMock: () => {
+        return {play() {}};
+      }
+    }
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

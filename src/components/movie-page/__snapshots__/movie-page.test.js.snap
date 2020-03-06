@@ -198,7 +198,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              3.96
+              2.67
             </div>
             <p
               className="movie-rating__meta"
@@ -211,7 +211,7 @@ Array [
               <span
                 className="movie-rating__count"
               >
-                145
+                736
                  ratings
               </span>
             </p>
@@ -219,13 +219,13 @@ Array [
           <div
             className="movie-card__text"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.
+            Fusce tristique felis at fermentum pharetra.
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Heinz Herald
+                Anne Wigton
               </strong>
             </p>
             <p
@@ -233,11 +233,12 @@ Array [
             >
               <strong>
                 Starring: 
-                Frank Sinatra
                 John Mason
-                Bred Pitt
+                Heinz Herald
+                Richard Weil
                 Anne Wigton
                 Mary Beth Hughes
+                Dan Duryea
               </strong>
             </p>
           </div>

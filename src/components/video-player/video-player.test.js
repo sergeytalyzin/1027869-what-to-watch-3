@@ -4,15 +4,24 @@ import renderer from "react-test-renderer";
 import VideoPlayer from "./video-player.jsx";
 
 const mock = {
-  previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  isPlaying: true,
+  videoSrc: `somePath`,
+  posterSrc: `somePath`
 };
 
 it(`VideoPlayer is renderer correctly`, ()=>{
-  const {previewVideoLink} = mock;
+  const {isPlaying, videoSrc, posterSrc} = mock;
 
   const tree = renderer.create(<VideoPlayer
-    src={previewVideoLink}
-  />).toJSON();
+    poster={posterSrc}
+    isPlaying={isPlaying}
+    handleMouse={()=>{}}
+    src={videoSrc}
+  />, {
+    createNodeMock: () => {
+      return {play() {}};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

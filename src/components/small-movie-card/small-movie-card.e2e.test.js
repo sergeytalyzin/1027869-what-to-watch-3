@@ -24,14 +24,13 @@ it(`when pointing to a card information is sent to the handler`, ()=>{
   const onTitleClick = jest.fn();
   const smallMovieCard = shallow(<SmallMovieCard
     onTitleClick={onTitleClick}
-    film={data}/>);
+    film={data}
+    renderPlayer={() => {}}
+  />);
 
   const card = smallMovieCard.find(`.small-movie-card`);
   card.simulate(`click`, mockEvent);
-  card.simulate(`mouseenter`, mockEvent);
-
-  expect(card.find(`.small-movie-card__image`).length).toEqual(1);
-
+  expect(card.length).toEqual(1);
 });
 
 

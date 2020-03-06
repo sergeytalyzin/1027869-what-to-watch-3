@@ -260,18 +260,17 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="We need to talk about Kevin"
-              height="175"
-              src="img/mindhunter.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/mindhunter.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
           <h3
@@ -287,18 +286,17 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="We need to talk about Kevin"
-              height="175"
-              src="img/midnight-special.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/midnight-special.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
             />
           </div>
           <h3

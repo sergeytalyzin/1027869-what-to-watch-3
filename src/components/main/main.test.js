@@ -22,6 +22,10 @@ const data = [
 it(`Should Main render correctly`, () => {
   const tree = renderer.create(<Main onTitleClick={()=>{
     return `привет`;
-  }} films={data}/>).toJSON();
+  }} films={data}/>, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
   expect(tree).toMatchSnapshot();
 });

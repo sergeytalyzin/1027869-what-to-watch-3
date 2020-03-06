@@ -84,7 +84,11 @@ const data = [
 ];
 
 it(`Render App`, () => {
-  const tree = renderer.create(<App films={data} />).toJSON();
+  const tree = renderer.create(<App films={data} />, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
