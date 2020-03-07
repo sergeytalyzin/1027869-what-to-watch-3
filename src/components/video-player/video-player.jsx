@@ -1,5 +1,5 @@
-import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
+import React, {createRef, PureComponent} from "react";
 
 export default class VideoPlayer extends PureComponent {
   constructor(props) {
@@ -7,9 +7,10 @@ export default class VideoPlayer extends PureComponent {
     this._videoRef = createRef();
 
     this.state = {
-      isPlaying: this.props.isPlaying,
+      isPlaying: this.props.isPlaying
     };
   }
+
   componentDidMount() {
     const {src} = this.props;
     const video = this._videoRef.current;
@@ -19,19 +20,18 @@ export default class VideoPlayer extends PureComponent {
       this.setState({isPlaying: true});
     };
   }
+
   componentDidUpdate() {
     const video = this._videoRef.current;
     const {isPlaying} = this.props;
 
-    if (isPlaying !== this.state.isPlaying) {
-      this.setState({isPlaying}, () => {
-        if (isPlaying) {
-          video.play();
-        } else {
-          video.load();
-        }
-      });
-    }
+    this.setState({isPlaying}, () => {
+      if (isPlaying) {
+        video.play();
+      } else {
+        video.load();
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -41,21 +41,14 @@ export default class VideoPlayer extends PureComponent {
     video.muted = false;
   }
 
-
   render() {
-    const {handleMouse, poster, src} = this.props;
-    let timeOut;
+    const {handleMouseEnter, handleMouseOut, poster, src} = this.props;
     return (
       <div className="small-movie-card__image"
-        onMouseEnter={()=> {
-          timeOut = setTimeout(handleMouse, 1000);
-        }}
-        onMouseLeave={()=> {
-          clearTimeout(timeOut);
-          handleMouse();
-        }}
+           onMouseEnter={handleMouseEnter}
+           onMouseLeave={handleMouseOut}
       >
-        <video className="player__video" ref={this._videoRef} src ={src} poster= {`${poster}`}/>
+        <video className="player__video" ref={this._videoRef} src={src} poster={`${poster}`}/>
       </div>
     );
   }
@@ -65,5 +58,6 @@ VideoPlayer.propTypes = {
   src: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
-  handleMouse: PropTypes.func.isRequired,
+  handleMouseEnter: PropTypes.func.isRequired,
+  handleMouseOut: PropTypes.func.isRequired
 };

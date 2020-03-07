@@ -7,9 +7,29 @@ const withActivePlayer = (Component) => {
       super(props);
 
       this.state = {
-        active: 0,
+        active: -1,
       };
+
+      this._handleMouseEnter = this._handleMouseEnter.bind(this);
+      this._handleMouseOut = this._handleMouseOut.bind(this);
     }
+
+    _handleMouseEnter(id) {
+      clearTimeout(this.timeOut);
+      this.timeOut = setTimeout(()=>{
+        this.setState({
+          active: id
+        });
+      }, 1000);
+    }
+
+    _handleMouseOut() {
+      this.setState(()=>({
+        active: -1
+      }));
+      clearTimeout(this.timeOut);
+    }
+
     render() {
       const {active} = this.state;
       return <Component
@@ -20,15 +40,15 @@ const withActivePlayer = (Component) => {
               src={src}
               poster={poster}
               isPlaying={id === active}
-              handleMouse = {() => {
-                this.setState({
-                  active: active === id ? -1 : id
-                });
-              }}
+              handleMouseEnter={() =>  this._handleMouseEnter(id)}
+              handleMouseOut={() => this._handleMouseOut(id)}
             />
           );
         }}
       />;
+    }
+    componentWillUnmount() {
+      clearTimeout(this.timeOut);
     }
   }
 

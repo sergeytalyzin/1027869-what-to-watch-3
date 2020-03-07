@@ -3,10 +3,11 @@ const RatingDescription = [
   `Normal`,
   `Good`,
   `Very good`,
-  `Awesome`,
+  `Awesome`
 ];
 
-const Description = [`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+const Description = [
+  `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
   `Cras aliquet varius magna, non porta ligula feugiat eget.`,
   `Fusce tristique felis at fermentum pharetra.`,
   `Aliquam id orci ut lectus varius viverra.`,
@@ -16,10 +17,13 @@ const Description = [`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
   `Sed sed nisi sed augue convallis suscipit in sed felis.`,
   `Aliquam erat volutpat.`,
   `Nunc fermentum tortor ac porta dapibus.`,
-  `In rutrum ac purus sit amet tempus.`];
+  `In rutrum ac purus sit amet tempus.`
+];
 
-const DetailsNames = [`Frank Sinatra`, `John Mason`, `Anthony Mann`, `Bred Pitt`, `Heinz Herald`, `Richard Weil`, `Anne Wigton`,
-  `Erich von Stroheim`, `Mary Beth Hughes`, `Dan Duryea`];
+const DetailsNames = [
+  `Frank Sinatra`, `John Mason`, `Anthony Mann`, `Bred Pitt`, `Heinz Herald`, `Richard Weil`, `Anne Wigton`,
+  `Erich von Stroheim`, `Mary Beth Hughes`, `Dan Duryea`
+];
 
 const getRandomRating = (min, max) => {
   return Number((min + (max - min) * Math.random()).toFixed(2));
@@ -43,12 +47,14 @@ const getRandomDescription = () => {
   return Desc;
 };
 const generateListNames = (names) => {
-  return names.filter(()=> Math.random() > 0.5);
+  return names.filter(() => Math.random() > 0.5);
 };
+
+let id = 1;
 
 export default [
   {
-    id: Math.random(),
+    id: id++,
     title: `Mindhunter`,
     src: `img/mindhunter.jpg`,
     genre: `Comedy`,
@@ -60,10 +66,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Midnight Special`,
     src: `img/midnight-special.jpg`,
     genre: `Comedy`,
@@ -75,10 +81,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `War of the Worlds`,
     src: `img/war-of-the-worlds.jpg`,
     genre: `Comedy`,
@@ -90,10 +96,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Dardjeeling Limited`,
     src: `img/dardjeeling-limited.jpg`,
     genre: `Comedy`,
@@ -105,10 +111,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Orlando`,
     src: `img/orlando.jpg`,
     genre: `Comedy`,
@@ -120,10 +126,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Seven Years in Tibet`,
     src: `img/seven-years-in-tibet.jpg`,
     genre: `Comedy`,
@@ -135,10 +141,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Moonrise Kingdom`,
     src: `img/moonrise-kingdom.jpg`,
     genre: `Comedy`,
@@ -150,10 +156,10 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
   },
   {
-    id: Math.random(),
+    id: id++,
     title: `Snatch`,
     src: `img/snatch.jpg`,
     genre: `Comedy`,
@@ -165,6 +171,6 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   }
 ];
