@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      4.38
+      6.39
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Normal
+        Very good
       </span>
       <span
         className="movie-rating__count"
       >
-        865
+        991
          ratings
       </span>
     </p>
@@ -29,13 +29,13 @@ Array [
   <div
     className="movie-card__text"
   >
-    Aliquam erat volutpat.Sed sed nisi sed augue convallis suscipit in sed felis.
+    Nunc fermentum tortor ac porta dapibus.
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        John Mason
+        Bred Pitt
       </strong>
     </p>
     <p
@@ -43,9 +43,12 @@ Array [
     >
       <strong>
         Starring: 
-        John Mason
-        Anthony Mann
+        Frank Sinatra
+        Bred Pitt
+        Heinz Herald
         Richard Weil
+        Anne Wigton
+        Erich von Stroheim
       </strong>
     </p>
   </div>,

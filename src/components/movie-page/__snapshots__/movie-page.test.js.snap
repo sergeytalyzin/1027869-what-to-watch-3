@@ -163,7 +163,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              4.74
+              3.53
             </div>
             <p
               className="movie-rating__meta"
@@ -176,7 +176,7 @@ Array [
               <span
                 className="movie-rating__count"
               >
-                776
+                564
                  ratings
               </span>
             </p>
@@ -184,13 +184,13 @@ Array [
           <div
             className="movie-card__text"
           >
-            Sed sed nisi sed augue convallis suscipit in sed felis.Aliquam id orci ut lectus varius viverra.
+            Fusce tristique felis at fermentum pharetra.
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Mary Beth Hughes
+                Anne Wigton
               </strong>
             </p>
             <p
@@ -198,9 +198,12 @@ Array [
             >
               <strong>
                 Starring: 
-                John Mason
                 Anthony Mann
+                Bred Pitt
+                Richard Weil
                 Erich von Stroheim
+                Mary Beth Hughes
+                Dan Duryea
               </strong>
             </p>
           </div>
