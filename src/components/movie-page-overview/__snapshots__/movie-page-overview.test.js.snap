@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviePageDetails is rendered correctly 1`] = `
+Array [
+  <div
+    className="movie-rating"
+  >
+    <div
+      className="movie-rating__score"
+    >
+      4.38
+    </div>
+    <p
+      className="movie-rating__meta"
+    >
+      <span
+        className="movie-rating__level"
+      >
+        Normal
+      </span>
+      <span
+        className="movie-rating__count"
+      >
+        865
+         ratings
+      </span>
+    </p>
+  </div>,
+  <div
+    className="movie-card__text"
+  >
+    Aliquam erat volutpat.Sed sed nisi sed augue convallis suscipit in sed felis.
+    <p
+      className="movie-card__director"
+    >
+      <strong>
+        Director: 
+        John Mason
+      </strong>
+    </p>
+    <p
+      className="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        John Mason
+        Anthony Mann
+        Richard Weil
+      </strong>
+    </p>
+  </div>,
+]
+`;

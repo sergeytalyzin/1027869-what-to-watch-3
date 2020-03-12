@@ -5,7 +5,7 @@
   "description": "Личный проект «Что посмотреть» от HTML Academy",
   "scripts": {
     "build": "webpack --mode production",
-    "eslint": "eslint --ext .jsx --ext .js src/",
+    "eslint": "eslint --fix --ext .jsx --ext .js src/",
     "start": "webpack-dev-server",
     "test": "npm run eslint && npm run test.jest",
     "test.jest": "jest"

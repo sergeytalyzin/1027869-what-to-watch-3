@@ -3,8 +3,6 @@
 exports[`VideoPlayer is renderer correctly 1`] = `
 <div
   className="small-movie-card__image"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
 >
   <video
     className="player__video"

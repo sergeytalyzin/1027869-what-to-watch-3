@@ -45,8 +45,8 @@ export default class VideoPlayer extends PureComponent {
     const {handleMouseEnter, handleMouseOut, poster, src} = this.props;
     return (
       <div className="small-movie-card__image"
-           onMouseEnter={handleMouseEnter}
-           onMouseLeave={handleMouseOut}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseOut}
       >
         <video className="player__video" ref={this._videoRef} src={src} poster={`${poster}`}/>
       </div>

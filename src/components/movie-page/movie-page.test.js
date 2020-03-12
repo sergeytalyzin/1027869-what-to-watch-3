@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import MoviePage from "./movie-page";
 
+
 const RatingDescription = [
   `Bad`,
   `Normal`,
@@ -48,6 +49,12 @@ const getRandomDescription = () => {
 };
 const generateListNames = (names) => {
   return names.filter(()=> Math.random() > 0.5);
+};
+
+const TABS = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`,
 };
 
 const data = [
@@ -174,6 +181,15 @@ const data = [
 ];
 
 it(`MoviePage is rendered correctly`, () =>{
-  const tree = renderer.create(<MoviePage film={data[0]}/>).toJSON();
+  const tree = renderer.create(<MoviePage
+    onTitleClick={()=>{}}
+    films={data}
+    film={data[0]}
+    activeTab={TABS.OVERVIEW}
+    tabs={()=>{}}/>, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
   expect(tree).toMatchSnapshot();
 });

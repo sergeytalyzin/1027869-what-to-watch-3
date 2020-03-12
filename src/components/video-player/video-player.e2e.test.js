@@ -10,7 +10,7 @@ const mock = {
   posterSrc: `somePath`
 };
 
-it (`Should video player change state with different isPlaying props`, ()=>{
+it(`Should video player change state with different isPlaying props`, ()=>{
 
   const {videoSrc, posterSrc} = mock;
 

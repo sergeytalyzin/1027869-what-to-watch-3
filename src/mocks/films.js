@@ -66,7 +66,8 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `1h 39m`,
   },
   {
     id: id++,
@@ -81,13 +82,14 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
+    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runTime: `1h 19m`,
   },
   {
     id: id++,
     title: `War of the Worlds`,
     src: `img/war-of-the-worlds.jpg`,
-    genre: `Comedy`,
+    genre: `Action`,
     date: 1812,
     posterBig: `img/midnight-special.jpg`,
     rating: getRandomRating(0, 10),
@@ -96,13 +98,14 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `2h 32m`,
   },
   {
     id: id++,
     title: `Dardjeeling Limited`,
     src: `img/dardjeeling-limited.jpg`,
-    genre: `Comedy`,
+    genre: `Drama`,
     date: 1812,
     posterBig: `img/dardjeeling-limited.jpg`,
     rating: getRandomRating(0, 10),
@@ -111,7 +114,8 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `1h 10m`,
   },
   {
     id: id++,
@@ -126,7 +130,8 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `2h 50m`,
   },
   {
     id: id++,
@@ -141,7 +146,8 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `2h 05m`,
   },
   {
     id: id++,
@@ -156,7 +162,8 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
+    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runTime: `1h 50m`,
   },
   {
     id: id++,
@@ -171,6 +178,7 @@ export default [
     description: getRandomDescription(),
     actors: new Set(generateListNames(DetailsNames)),
     director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    runTime: `1h 30m`,
   }
 ];

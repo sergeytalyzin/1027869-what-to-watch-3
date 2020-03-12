@@ -156,49 +156,14 @@ Array [
         >
           <nav
             className="movie-nav movie-card__nav"
-          >
-            <ul
-              className="movie-nav__list"
-            >
-              <li
-                className="movie-nav__item movie-nav__item--active"
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Overview
-                </a>
-              </li>
-              <li
-                className="movie-nav__item"
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Details
-                </a>
-              </li>
-              <li
-                className="movie-nav__item"
-              >
-                <a
-                  className="movie-nav__link"
-                  href="#"
-                >
-                  Reviews
-                </a>
-              </li>
-            </ul>
-          </nav>
+          />
           <div
             className="movie-rating"
           >
             <div
               className="movie-rating__score"
             >
-              2.67
+              4.74
             </div>
             <p
               className="movie-rating__meta"
@@ -211,7 +176,7 @@ Array [
               <span
                 className="movie-rating__count"
               >
-                736
+                776
                  ratings
               </span>
             </p>
@@ -219,13 +184,13 @@ Array [
           <div
             className="movie-card__text"
           >
-            Fusce tristique felis at fermentum pharetra.
+            Sed sed nisi sed augue convallis suscipit in sed felis.Aliquam id orci ut lectus varius viverra.
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Anne Wigton
+                Mary Beth Hughes
               </strong>
             </p>
             <p
@@ -234,11 +199,8 @@ Array [
               <strong>
                 Starring: 
                 John Mason
-                Heinz Herald
-                Richard Weil
-                Anne Wigton
-                Mary Beth Hughes
-                Dan Duryea
+                Anthony Mann
+                Erich von Stroheim
               </strong>
             </p>
           </div>
@@ -262,15 +224,17 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/mindhunter.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
           <h3
@@ -280,21 +244,23 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Fantastic Beasts: The Crimes of Grindelwald
+              Mindhunter
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="Bohemian Rhapsody"
-              height="175"
-              src="img/bohemian-rhapsody.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/midnight-special.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
             />
           </div>
           <h3
@@ -304,21 +270,23 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Bohemian Rhapsody
+              Midnight Special
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="Macbeth"
-              height="175"
-              src="img/macbeth.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/war-of-the-worlds.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
           <h3
@@ -328,21 +296,23 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Macbeth
+              War of the Worlds
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="Aviator"
-              height="175"
-              src="img/aviator.jpg"
-              width="280"
+            <video
+              className="player__video"
+              poster="img/dardjeeling-limited.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
           <h3
@@ -352,7 +322,7 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Aviator
+              Dardjeeling Limited
             </a>
           </h3>
         </article>

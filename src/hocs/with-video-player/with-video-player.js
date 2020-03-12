@@ -40,8 +40,8 @@ const withActivePlayer = (Component) => {
               src={src}
               poster={poster}
               isPlaying={id === active}
-              handleMouseEnter={() =>  this._handleMouseEnter(id)}
-              handleMouseOut={() => this._handleMouseOut(id)}
+              handleMouseEnter={() => this._handleMouseEnter(id)}
+              handleMouseOut={() => this._handleMouseOut()}
             />
           );
         }}

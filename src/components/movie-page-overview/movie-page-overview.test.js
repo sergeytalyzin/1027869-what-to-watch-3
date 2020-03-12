@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import SmallMovieCard from "./small-movie-card";
+import MoviePageOverview from "./movie-page-overview.jsx";
 
 const RatingDescription = [
   `Bad`,
@@ -50,50 +50,24 @@ const generateListNames = (names) => {
   return names.filter(()=> Math.random() > 0.5);
 };
 
-const data = [
-  {
-    id: Math.random(),
-    title: `Mindhunter`,
-    src: `img/mindhunter.jpg`,
-    genre: `Comedy`,
-    date: 1812,
-    posterBig: `img/mindhunter.jpg`,
-    rating: getRandomRating(0, 10),
-    ratingLevel: getRandomArray(RatingDescription),
-    ratingCount: getRandomNumber(0, 1000),
-    description: getRandomDescription(),
-    actors: new Set(generateListNames(DetailsNames)),
-    director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-  },
-  {
-    id: Math.random(),
-    title: `Midnight Special`,
-    src: `img/midnight-special.jpg`,
-    genre: `Comedy`,
-    date: 1812,
-    posterBig: `img/midnight-special.jpg`,
-    rating: getRandomRating(0, 10),
-    ratingLevel: getRandomArray(RatingDescription),
-    ratingCount: getRandomNumber(0, 1000),
-    description: getRandomDescription(),
-    actors: new Set(generateListNames(DetailsNames)),
-    director: getRandomArray(DetailsNames),
-    previewVideoLink: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  },
-];
+const film = {
+  id: Math.random(),
+  title: `Snatch`,
+  src: `img/snatch.jpg`,
+  genre: `Comedy`,
+  date: 1812,
+  posterBig: `img/snatch.jpg`,
+  rating: getRandomRating(0, 10),
+  ratingLevel: getRandomArray(RatingDescription),
+  ratingCount: getRandomNumber(0, 1000),
+  description: getRandomDescription(),
+  actors: new Set(generateListNames(DetailsNames)),
+  director: getRandomArray(DetailsNames),
+  previewVideoLink: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+};
 
-it(`Should SmallMovieCard render correctly`, () => {
-  const tree = renderer.create(<SmallMovieCard
-    onTitleClick={()=>{}}
-    film={data[0]}
-    renderPlayer={() => {}}
-  />, {
-    createNodeMock: () => {
-      return {play() {}};
-    }
-  }
-  ).toJSON();
-
+it(`MoviePageDetails is rendered correctly`, () => {
+  const tree = renderer.create(<MoviePageOverview
+    film={film}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
