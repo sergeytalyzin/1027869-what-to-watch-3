@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      6.39
+      7.28
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Very good
+        Bad
       </span>
       <span
         className="movie-rating__count"
       >
-        991
+        778
          ratings
       </span>
     </p>
@@ -29,13 +29,13 @@ Array [
   <div
     className="movie-card__text"
   >
-    Nunc fermentum tortor ac porta dapibus.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam id orci ut lectus varius viverra.
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        Bred Pitt
+        Anthony Mann
       </strong>
     </p>
     <p
@@ -43,11 +43,8 @@ Array [
     >
       <strong>
         Starring: 
-        Frank Sinatra
-        Bred Pitt
-        Heinz Herald
+        Anthony Mann
         Richard Weil
-        Anne Wigton
         Erich von Stroheim
       </strong>
     </p>

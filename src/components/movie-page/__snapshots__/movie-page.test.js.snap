@@ -163,7 +163,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              3.53
+              0.78
             </div>
             <p
               className="movie-rating__meta"
@@ -171,12 +171,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Very good
+                Normal
               </span>
               <span
                 className="movie-rating__count"
               >
-                564
+                956
                  ratings
               </span>
             </p>
@@ -184,13 +184,13 @@ Array [
           <div
             className="movie-card__text"
           >
-            Fusce tristique felis at fermentum pharetra.
+            Aliquam id orci ut lectus varius viverra.Sed sed nisi sed augue convallis suscipit in sed felis.
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Anne Wigton
+                Mary Beth Hughes
               </strong>
             </p>
             <p
@@ -198,11 +198,9 @@ Array [
             >
               <strong>
                 Starring: 
-                Anthony Mann
-                Bred Pitt
-                Richard Weil
-                Erich von Stroheim
-                Mary Beth Hughes
+                Frank Sinatra
+                Heinz Herald
+                Anne Wigton
                 Dan Duryea
               </strong>
             </p>
