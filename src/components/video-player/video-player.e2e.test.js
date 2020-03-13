@@ -17,10 +17,11 @@ it(`Should video player change state with different isPlaying props`, ()=>{
   const videoPlayerWrapper = (isPlaying) => {
     return mount(
         <VideoPlayer
-          handleMouse={()=>{}}
           isPlaying={isPlaying}
           src={videoSrc}
           poster={posterSrc}
+          handleMouseEnter={()=>{}}
+          handleMouseOut={()=>{}}
         />
     );
   };

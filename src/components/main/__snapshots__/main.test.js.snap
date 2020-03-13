@@ -269,7 +269,8 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/mindhunter.jpg"
+              poster="somePath"
+              src="somePath"
             />
           </div>
           <h3
@@ -294,7 +295,8 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/midnight-special.jpg"
+              poster="somePath"
+              src="somePath"
             />
           </div>
           <h3

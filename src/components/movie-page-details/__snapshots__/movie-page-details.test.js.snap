@@ -18,7 +18,7 @@ exports[`MoviePageDetails is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        John Mason
+        Frank Sinatra
       </span>
     </p>
     <p
@@ -32,9 +32,7 @@ exports[`MoviePageDetails is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Heinz Herald
-        Richard Weil
-        Dan Duryea
+        Frank Sinatra, John Mason, Anthony Mann, Bred Pitt, Heinz Herald
       </span>
     </p>
   </div>
@@ -51,7 +49,9 @@ exports[`MoviePageDetails is rendered correctly 1`] = `
       </strong>
       <span
         className="movie-card__details-value"
-      />
+      >
+        1h 30m
+      </span>
     </p>
     <p
       className="movie-card__details-item"

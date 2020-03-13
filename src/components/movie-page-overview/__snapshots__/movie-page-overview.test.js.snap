@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      7.28
+      3
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Bad
+        Very good
       </span>
       <span
         className="movie-rating__count"
       >
-        778
+        111
          ratings
       </span>
     </p>
@@ -29,13 +29,19 @@ Array [
   <div
     className="movie-card__text"
   >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam id orci ut lectus varius viverra.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Cras aliquet varius magna, non porta ligula feugiat eget.
+  Fusce tristique felis at fermentum pharetra.
+  Aliquam id orci ut lectus varius viverra.
+  Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.
+  Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.
+  Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui.
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        Anthony Mann
+        Frank Sinatra
       </strong>
     </p>
     <p
@@ -43,9 +49,7 @@ Array [
     >
       <strong>
         Starring: 
-        Anthony Mann
-        Richard Weil
-        Erich von Stroheim
+        Frank Sinatra, John Mason, Anthony Mann, Bred Pitt, Heinz Herald
       </strong>
     </p>
   </div>,

@@ -4,18 +4,20 @@ import Main from "./main";
 
 const data = [
   {
-    id: Math.random(),
+    id: 1,
     title: `Mindhunter`,
-    src: `img/mindhunter.jpg`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   },
   {
-    id: Math.random(),
+    id: 2,
     title: `Midnight Special`,
-    src: `img/midnight-special.jpg`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   }
 ];
 

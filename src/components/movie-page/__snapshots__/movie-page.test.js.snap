@@ -163,7 +163,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              0.78
+              3
             </div>
             <p
               className="movie-rating__meta"
@@ -171,12 +171,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Normal
+                Very good
               </span>
               <span
                 className="movie-rating__count"
               >
-                956
+                111
                  ratings
               </span>
             </p>
@@ -184,13 +184,19 @@ Array [
           <div
             className="movie-card__text"
           >
-            Aliquam id orci ut lectus varius viverra.Sed sed nisi sed augue convallis suscipit in sed felis.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Cras aliquet varius magna, non porta ligula feugiat eget.
+  Fusce tristique felis at fermentum pharetra.
+  Aliquam id orci ut lectus varius viverra.
+  Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.
+  Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.
+  Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui.
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Mary Beth Hughes
+                Frank Sinatra
               </strong>
             </p>
             <p
@@ -198,10 +204,7 @@ Array [
             >
               <strong>
                 Starring: 
-                Frank Sinatra
-                Heinz Herald
-                Anne Wigton
-                Dan Duryea
+                Frank Sinatra, John Mason, Anthony Mann, Bred Pitt, Heinz Herald
               </strong>
             </p>
           </div>
@@ -260,8 +263,8 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/midnight-special.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="img/mindhunter.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
           <h3
@@ -271,7 +274,7 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Midnight Special
+              Mindhunter
             </a>
           </h3>
         </article>
@@ -286,7 +289,7 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/war-of-the-worlds.jpg"
+              poster="img/mindhunter.jpg"
               src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
@@ -297,7 +300,7 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              War of the Worlds
+              Mindhunter
             </a>
           </h3>
         </article>
@@ -312,7 +315,7 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/dardjeeling-limited.jpg"
+              poster="img/mindhunter.jpg"
               src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
             />
           </div>
@@ -323,7 +326,7 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Dardjeeling Limited
+              Mindhunter
             </a>
           </h3>
         </article>

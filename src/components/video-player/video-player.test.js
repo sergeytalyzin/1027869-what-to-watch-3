@@ -13,10 +13,11 @@ it(`VideoPlayer is renderer correctly`, ()=>{
   const {isPlaying, videoSrc, posterSrc} = mock;
 
   const tree = renderer.create(<VideoPlayer
-    poster={posterSrc}
     isPlaying={isPlaying}
-    handleMouse={()=>{}}
     src={videoSrc}
+    poster={posterSrc}
+    handleMouseEnter={()=>{}}
+    handleMouseOut={()=>{}}
   />, {
     createNodeMock: () => {
       return {play() {}};

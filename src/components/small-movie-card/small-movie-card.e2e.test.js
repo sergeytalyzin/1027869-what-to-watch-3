@@ -10,9 +10,10 @@ configure({
 const data = {
   id: Math.random(),
   title: `Mindhunter`,
-  src: `img/mindhunter.jpg`,
+  src: `somePath`,
   genre: `Comedy`,
   date: 1812,
+  previewVideoLink: `somePath`,
 };
 
 

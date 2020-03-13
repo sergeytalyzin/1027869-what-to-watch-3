@@ -6,30 +6,34 @@ const data = [
   {
     id: Math.random(),
     title: `Mindhunter`,
-    src: `img/mindhunter.jpg`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   },
   {
     id: Math.random(),
     title: `Midnight Special`,
-    src: `img/midnight-special.jpg`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   },
   {
     id: Math.random(),
     title: `Mindhunter`,
-    src: `path`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   },
   {
     id: Math.random(),
     title: `Midnight Special`,
-    src: `path`,
+    src: `somePath`,
     genre: `Comedy`,
     date: 1812,
+    previewVideoLink: `somePath`,
   },
 ];
 
