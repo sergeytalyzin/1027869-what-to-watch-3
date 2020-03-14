@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import Tabs from "../components/tabs/tabs.jsx";
+
 
 const TABS = {
   OVERVIEW: `Overview`,
@@ -14,20 +14,19 @@ const withActiveTab = (Component) => {
       this.state = {
         active: TABS.OVERVIEW,
       };
+      this._handleClickTab = this._handleClickTab.bind(this);
     }
+
+    _handleClickTab(tab) {
+      this.setState({active: tab});
+    }
+
     render() {
       const {active} = this.state;
       return <Component
         {...this.props}
         activeTab = {active}
-        tabs = {() => {
-          return (<Tabs
-            activeTab = {active}
-            handleClickTab = {(tab)=>{
-              this.setState({active: tab});
-            }}
-          />);
-        }}
+        handleClickTab = {this._handleClickTab}
       />;
     }
   }

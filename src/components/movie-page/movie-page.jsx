@@ -4,6 +4,7 @@ import MoviePageOverview from "../movie-page-overview/movie-page-overview.jsx";
 import MoviePageReviews from "../movie-page-reviews/movie-page-reviews.jsx";
 import MoviePageDetails from "../movie-page-details/movie-page-details.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
+import Tabs from "../tabs/tabs.jsx";
 
 const TABS = {
   OVERVIEW: `Overview`,
@@ -87,7 +88,7 @@ const MoviePage = (props) => {
 
           <div className="movie-card__desc">
             <nav className="movie-nav movie-card__nav">
-              {props.tabs()}
+              {<Tabs activeTab={props.activeTab} handleClickTab={props.handleClickTab}/>}
             </nav>
             {activeTab(props.activeTab, props.film)}
           </div>
@@ -123,6 +124,7 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   onTitleClick: PropTypes.func.isRequired,
+  handleClickTab: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
@@ -149,8 +151,6 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
-  tabs: PropTypes.func.isRequired,
-
 };
 
 export default MoviePage;

@@ -3,7 +3,7 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page.jsx";
-import withActiveTab from "../../hocs/with-tabs.js";
+import withActiveTab from "../../hocs/with-tabs/with-tabs.js";
 
 const MoviePageWrapper = withActiveTab(MoviePage);
 

@@ -185,7 +185,7 @@ it(`MoviePage is rendered correctly`, () =>{
     films={data}
     film={data[0]}
     activeTab={TABS.OVERVIEW}
-    tabs={()=>{}}/>, {
+    handleClickTab={()=>{}}/>, {
     createNodeMock: () => {
       return {};
     }
