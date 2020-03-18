@@ -37,7 +37,7 @@ class App extends PureComponent {
     return (
       <Main
         onTitleClick={this._handleTitleClick}
-        films={this.props.films}
+
       />);
   }
   render() {
