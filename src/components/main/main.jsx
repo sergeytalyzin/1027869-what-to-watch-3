@@ -7,7 +7,7 @@ import {ActionCreator} from "../../reducer.js";
 
 
 const Main = (props) => {
-  const {films, onTitleClick, onGenreClick} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -70,7 +70,7 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <GenreList films={films} onGenreClick ={onGenreClick}/>
+        <GenreList allListFilms={allListFilms} onGenreClick ={onGenreClick}/>
 
         <div className="catalog__movies-list">
           <MovieList
@@ -113,7 +113,8 @@ Main.propTypes = {
 
 
 const mapStateToProps = (state) => ({
-  films: state.listFilms
+  films: state.listFilms,
+  allListFilms: state.allListFilms,
 });
 
 const mapStateToDispatch = (dispatch) =>({

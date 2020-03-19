@@ -5,6 +5,7 @@ import {genreType} from "./const.js";
 const initialState = {
   genre: `All genres`,
   listFilms: films,
+  allListFilms: films,
 };
 
 const filterFilm = (genre) => {

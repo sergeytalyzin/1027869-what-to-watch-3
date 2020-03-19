@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import {genreType} from "../../const";
 
 const GenreList = (props) => {
-  const {films, onGenreClick} = props;
+  const {allListFilms, onGenreClick} = props;
 
   let mySet = new Set();
   mySet.add(genreType.ALL);
-  films.forEach((it) => mySet.add(it.genre));
+  allListFilms.forEach((it) => mySet.add(it.genre));
   const genreList = Array.from(mySet);
 
   return (
@@ -21,7 +21,7 @@ const GenreList = (props) => {
 };
 
 GenreList.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
+  allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
