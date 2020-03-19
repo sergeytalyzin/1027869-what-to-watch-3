@@ -117,8 +117,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapStateToDispatch = (dispatch) =>({
-  onGenreClick(x) {
-    dispatch(ActionCreator(x));
+  onGenreClick(type) {
+    dispatch(ActionCreator.setGenre(type));
   }
 });
 

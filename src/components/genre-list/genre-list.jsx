@@ -13,7 +13,7 @@ const GenreList = (props) => {
   return (
     <ul className="catalog__genres-list">
       {genreList.map((it, i) => (
-        <li onClick={onGenreClick} key={i} className="catalog__genres-item catalog__genres-item--active">
+        <li onClick={()=>onGenreClick(it)} key={i} className="catalog__genres-item catalog__genres-item--active">
           <a href="#" className="catalog__genres-link">{it}</a>
         </li>))}
     </ul>
