@@ -1,5 +1,5 @@
-import {reducer, ActionCreator} from "./reducer.js";
-import films from "./mocks/films";
+import {reducer} from "./reducer.js";
+
 
 const data = [
   {
@@ -179,12 +179,16 @@ const data = [
     runTime: `1h 30m`,
   }
 ];
+const DEFAULT_FILMS_COUNT = 8;
+let prevFilmsShowing = 0;
+let showingFilmsCount = DEFAULT_FILMS_COUNT;
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     genre: `All genres`,
-    listFilms: data,
+    listFilms: data.slice(prevFilmsShowing, showingFilmsCount),
     allListFilms: data,
+    filmsLenght: data.length,
   });
 });
 
