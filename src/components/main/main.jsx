@@ -130,8 +130,8 @@ const mapStateToDispatch = (dispatch) =>({
   onGenreClick(type) {
     dispatch(ActionCreator.setGenre(type));
   },
-  onClickShowMore() {
-    dispatch(ActionCreator.onClickShowMore());
+  onClickShowMore(type) {
+    dispatch(ActionCreator.onClickShowMore(type));
   }
 });
 

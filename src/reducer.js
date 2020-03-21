@@ -2,15 +2,15 @@ import {extend} from "./utils.js";
 import films from "./mocks/films.js";
 import {genreType} from "./const.js";
 
-let prevFilmsShowing = null;
+let prevFilmsShowing = 0;
 let showingFilmsCount = 8;
-let prevGenre = 0;
 
 
 const initialState = {
   genre: `All genres`,
   listFilms: films.slice(prevFilmsShowing, showingFilmsCount),
   allListFilms: films,
+  filmsLenght: films.length,
 };
 
 const filterFilm = (genre) => {
@@ -20,23 +20,48 @@ const filterFilm = (genre) => {
 const ActionCreator = {
   setGenre(type) {
     if (type === genreType.ALL) {
-      return {type, listFilms: films};
+      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount), filmsLenght: films.length};
     } else {
-      prevGenre = type;
-      return {type, listFilms: filterFilm(type)};
+      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount), filmsLenght: filterFilm(type).length};
     }
   },
-  onClickShowMore() {
+  onClickShowMore(type) {
     showingFilmsCount = showingFilmsCount + 4;
-    return {type: prevGenre, listFilms: films.slice(prevFilmsShowing, showingFilmsCount)};
+    if (type === genreType.ALL) {
+      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount)};
+    } else {
+      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount)};
+    }
   }
 };
 
+
 const reducer = (state = initialState, action) => {
-  if (action.listFilms) {
-    return extend(state, {genre: action.type, listFilms: action.listFilms});
+  switch (action.type) {
+    case genreType.ALL:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.COMEDIES:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.DRAMAS:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.DOCUMENTARY:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.HORROR:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.KIDS_FAMILY:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.ROMANCE:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.SCI_FI:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.THRILLERS:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
+    case genreType.CRIME:
+      return extend(state, {genre: action.type, listFilms: action.listFilms});
   }
   return state;
 };
+
+
 
 export {reducer, ActionCreator};
