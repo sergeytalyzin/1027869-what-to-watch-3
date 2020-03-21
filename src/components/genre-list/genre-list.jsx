@@ -21,6 +21,7 @@ const GenreList = (props) => {
 };
 
 GenreList.propTypes = {
+  onGenreClick: PropTypes.func.isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,

@@ -4,10 +4,11 @@ import MovieList from "../movie-list/movie-list.jsx";
 import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
+import ShowMore from "../show-more/show-more.jsx";
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -79,9 +80,10 @@ const Main = (props) => {
           />
         </div>
 
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">Show more</button>
-        </div>
+        {(allListFilms.length > films.length) ?
+          <ShowMore onButtonClick={onClickShowMore}/>
+          :
+          ``}
       </section>
 
       <footer className="page-footer">
@@ -102,7 +104,14 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+  onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  })).isRequired,
+  allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
@@ -120,6 +129,9 @@ const mapStateToProps = (state) => ({
 const mapStateToDispatch = (dispatch) =>({
   onGenreClick(type) {
     dispatch(ActionCreator.setGenre(type));
+  },
+  onClickShowMore() {
+    dispatch(ActionCreator.onClickShowMore());
   }
 });
 

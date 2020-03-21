@@ -1,6 +1,5 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import {Main} from "./main";
+import {reducer, ActionCreator} from "./reducer.js";
+import films from "./mocks/films";
 
 const data = [
   {
@@ -181,15 +180,12 @@ const data = [
   }
 ];
 
-it(`Should Main render correctly`, () => {
-  const tree = renderer.create(<Main
-    onGenreClick={()=>{}}
-    films={data}
-    allListFilms={data}
-    onTitleClick={()=>{}}/>, {
-    createNodeMock: () => {
-      return {};
-    }
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+it(`Reducer without additional parameters should return initial state`, () => {
+  expect(reducer(void 0, {})).toEqual({
+    genre: `All genres`,
+    listFilms: data,
+    allListFilms: data,
+  });
 });
+
+

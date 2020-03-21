@@ -1,6 +1,6 @@
-import React from "react";
 import renderer from "react-test-renderer";
-import {Main} from "./main";
+import React from "react";
+import GenreList from "./genre-list.jsx";
 
 const data = [
   {
@@ -181,15 +181,8 @@ const data = [
   }
 ];
 
-it(`Should Main render correctly`, () => {
-  const tree = renderer.create(<Main
-    onGenreClick={()=>{}}
-    films={data}
-    allListFilms={data}
-    onTitleClick={()=>{}}/>, {
-    createNodeMock: () => {
-      return {};
-    }
-  }).toJSON();
+it(`Should GenreList render correctly`, () => {
+  const tree = renderer.create(<GenreList allListFilms={data}/>).toJSON();
+
   expect(tree).toMatchSnapshot();
 });
