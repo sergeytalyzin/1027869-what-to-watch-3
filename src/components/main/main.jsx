@@ -8,7 +8,7 @@ import ShowMore from "../show-more/show-more.jsx";
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore, filmsLenght} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore, filmsLength} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -79,7 +79,7 @@ const Main = (props) => {
             films = {films}
           />
         </div>
-        {(filmsLenght > films.length) ?
+        {(filmsLength > films.length) ?
           <ShowMore onButtonClick={onClickShowMore}/>
           :
           ``}
@@ -118,14 +118,14 @@ Main.propTypes = {
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
   onClickShowMore: PropTypes.func.isRequired,
-  filmsLenght: PropTypes.number.isRequired,
+  filmsLength: PropTypes.number.isRequired,
 };
 
 
 const mapStateToProps = (state) => ({
   films: state.listFilms,
   allListFilms: state.allListFilms,
-  filmsLenght: state.filmsLenght
+  filmsLength: state.filmsLength
 });
 
 const mapStateToDispatch = (dispatch) =>({

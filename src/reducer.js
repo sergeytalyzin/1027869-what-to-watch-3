@@ -12,7 +12,7 @@ const initialState = {
   genre: `All genres`,
   listFilms: films.slice(prevFilmsShowing, showingFilmsCount),
   allListFilms: films,
-  filmsLenght: films.length,
+  filmsLength: films.length,
 };
 
 const filterFilm = (genre) => {
@@ -23,17 +23,17 @@ const ActionCreator = {
   setGenre(type) {
     showingFilmsCount = DEFAULT_FILMS_COUNT;
     if (type === genreType.ALL) {
-      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount), filmsLenght: films.length};
+      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount), filmsLength: films.length};
     } else {
-      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount), filmsLenght: filterFilm(type).length};
+      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount), filmsLength: filterFilm(type).length};
     }
   },
   onClickShowMore(type) {
     showingFilmsCount = showingFilmsCount + COUNT_SHOW_MORE;
     if (type === genreType.ALL) {
-      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount), filmsLenght: films.length};
+      return {type, listFilms: films.slice(prevFilmsShowing, showingFilmsCount), filmsLength: films.length};
     } else {
-      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount), filmsLenght: filterFilm(type).length};
+      return {type, listFilms: filterFilm(type).slice(prevFilmsShowing, showingFilmsCount), filmsLength: filterFilm(type).length};
     }
   }
 };
