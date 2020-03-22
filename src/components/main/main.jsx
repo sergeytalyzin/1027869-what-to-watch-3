@@ -8,7 +8,7 @@ import ShowMore from "../show-more/show-more.jsx";
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore, filmsLength} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore,onChangeGenre, filmsLength} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -71,7 +71,7 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <GenreList allListFilms={allListFilms} onGenreClick ={onGenreClick}/>
+        <GenreList allListFilms={allListFilms} onChangeGenre={onChangeGenre} onGenreClick ={onGenreClick}/>
 
         <div className="catalog__movies-list">
           <MovieList
@@ -129,11 +129,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapStateToDispatch = (dispatch) =>({
-  onGenreClick(type) {
-    dispatch(ActionCreator.setGenre(type));
+  onGenreClick(genre) {
+    dispatch(ActionCreator.changeGenre(genre));
   },
-  onClickShowMore(type) {
-    dispatch(ActionCreator.onClickShowMore(type));
+  onClickShowMore() {
+    dispatch(ActionCreator.incrementShowed());
+  },
+  onChangeGenre() {
+    dispatch(ActionCreator.resetShowed());
   }
 });
 

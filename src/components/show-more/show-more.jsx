@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const ShowMore = (props) => {
   return (
     <div className="catalog__more">
-      <button onClick={()=>props.onButtonClick(props.genre)} className="catalog__button" type="button">Show more</button>
+      <button onClick={()=>props.onButtonClick()} className="catalog__button" type="button">Show more</button>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {genreType} from "../../const";
 
 const GenreList = (props) => {
-  const {allListFilms, onGenreClick} = props;
+  const {allListFilms, onChangeGenre, onGenreClick} = props;
 
   let mySet = new Set();
   mySet.add(genreType.ALL);
@@ -13,7 +13,7 @@ const GenreList = (props) => {
   return (
     <ul className="catalog__genres-list">
       {genreList.map((it, i) => (
-        <li onClick={()=>onGenreClick(it)} key={i} className="catalog__genres-item catalog__genres-item--active">
+        <li onClick={()=>onGenreClick(it)} onMouseLeave={onChangeGenre} key={i} className="catalog__genres-item catalog__genres-item--active">
           <a href="#" className="catalog__genres-link">{it}</a>
         </li>))}
     </ul>

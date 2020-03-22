@@ -188,7 +188,7 @@ it(`Reducer without additional parameters should return initial state`, () => {
     genre: `All genres`,
     listFilms: data.slice(prevFilmsShowing, showingFilmsCount),
     allListFilms: data,
-    filmsLenght: data.length,
+    filmsLength: data.length,
   });
 });
 
