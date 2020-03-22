@@ -8,7 +8,7 @@ import ShowMore from "../show-more/show-more.jsx";
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore,onChangeGenre, filmsLength} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore, onChangeGenre, filmsLength} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -103,6 +103,7 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+  onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
