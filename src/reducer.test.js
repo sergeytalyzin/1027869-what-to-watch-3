@@ -1,4 +1,4 @@
-import {reducer, ActionType} from "./reducer.js";
+import {reducer, ActionType, ActionCreator} from "./reducer.js";
 import {genreType} from "./const.js";
 
 
@@ -116,6 +116,26 @@ it(`Reducer without additional parameters should return initial state`, () => {
     allListFilms: data,
     filmsLength: filterFilm(genreType.COMEDIES).length,
     showedFilmsAmount: 8,
+  });
+});
+
+describe(`Actions creators work correctly`, () => {
+  it(`Action creators for increment showed return correct action`, () => {
+    expect(ActionCreator.incrementShowed()).toEqual({
+      type: ActionType.INCREMENT_SHOWED,
+      payload: 8
+    });
+  });
+  it(`Action creators for reset showed return correct action`, () => {
+    expect(ActionCreator.resetShowed()).toEqual({
+      type: ActionType.RESET_SHOWED,
+    });
+  });
+  it(`Action creators for change genre return correct action`, () => {
+    expect(ActionCreator.changeGenre(genreType.COMEDIES)).toEqual({
+      type: ActionType.CHANGE_GENRE,
+      payload: genreType.COMEDIES
+    });
   });
 });
 
