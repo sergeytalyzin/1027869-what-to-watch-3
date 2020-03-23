@@ -9,11 +9,16 @@ const GenreList = (props) => {
   mySet.add(genreType.ALL);
   allListFilms.forEach((it) => mySet.add(it.genre));
   const genreList = Array.from(mySet);
-
+  let activeItem;
   return (
     <ul className="catalog__genres-list">
       {genreList.map((it, i) => (
-        <li onClick={()=>onGenreClick(it)} onMouseLeave={onChangeGenre} key={i} className="catalog__genres-item catalog__genres-item--active">
+        <li
+          onClick={()=>{
+            onGenreClick(it);
+          }}
+          onMouseLeave={onChangeGenre}
+          key={i} className={`catalog__genres-item ${ activeItem ? `catalog__genres-item--active` : ``}`}>
           <a href="#" className="catalog__genres-link">{it}</a>
         </li>))}
     </ul>

@@ -124,7 +124,6 @@ Main.propTypes = {
 
 
 const mapStateToProps = (state) => ({
-  films: state.listFilms,
   allListFilms: state.allListFilms,
   filmsLength: state.filmsLength
 });

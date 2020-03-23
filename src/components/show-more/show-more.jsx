@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 
@@ -13,14 +12,9 @@ const ShowMore = (props) => {
 
 ShowMore.propTypes = {
   onButtonClick: PropTypes.func.isRequired,
-  genre: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  genre: state.genre,
-});
+export default ShowMore;
 
-export {ShowMore};
-export default connect(mapStateToProps)(ShowMore);
 
 
