@@ -5,14 +5,21 @@ import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 import ShowMore from "../show-more/show-more.jsx";
+import {genreType} from "../../const.js";
 import withActiveGenreList from "../../hocs/with-genre-list/with-genre-list.js";
 
-const GenreListWrapper = withActiveGenreList(GenreList);
+// const GenreListWrapper = withActiveGenreList(GenreList);
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength, genreList} = props;
   const {title, genre, date, id} = films[0];
+
+  let mySet = new Set();
+  mySet.add(genreType.ALL);
+  allListFilms.forEach((it) => mySet.add(it.genre));
+  const genreListAll = Array.from(mySet);
+
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -73,9 +80,9 @@ const Main = (props) => {
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-        <GenreListWrapper allListFilms={allListFilms} onChangeGenre={onChangeGenre} onGenreClick ={onGenreClick}/>
-
+        <ul className="catalog__genres-list">
+          {genreListAll.map((it, i) => genreList(it, i))}
+        </ul>
         <div className="catalog__movies-list">
           <MovieList
             onTitleClick = {onTitleClick}

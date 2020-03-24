@@ -1,30 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {genreType} from "../../const";
-let mySet = new Set();
+
 
 const GenreList = (props) => {
-  const {allListFilms, onChangeGenre, onGenreClick, activeGenreList, handleClickGenreList} = props;
+  const {genre, onChangeGenre, key, activeGenreList, handleClickGenreList, onGenreClick} = props;
 
 
-  mySet.add(genreType.ALL);
-  allListFilms.forEach((it) => mySet.add(it.genre));
-  const genreList = Array.from(mySet);
-
+console.log(`dasdadssadsdadasdasdasdas`,key);
   return (
-    <ul className="catalog__genres-list">
-      {genreList.map((it, i) => (
-        <li
-          onClick={()=>{
-            onGenreClick(it);
-            handleClickGenreList();
 
-          }}
-          onMouseLeave={onChangeGenre}
-          key={i} className="catalog__genres-item">
-          <a href="#" className="catalog__genres-link">{it}</a>
-        </li>))}
-    </ul>
+    <li
+      onClick={()=>{
+        onGenreClick(genre);
+        handleClickGenreList(key);
+      }}
+      onMouseLeave={onChangeGenre}
+      className={`catalog__genres-item ${ activeGenreList && `catalog__genres-item--active`}`}>
+      <a href="#" className="catalog__genres-link">{genre}</a>
+    </li>
+
   );
 };
 
@@ -38,6 +32,5 @@ GenreList.propTypes = {
   })).isRequired,
 };
 
-export {mySet};
 export default GenreList;
 
