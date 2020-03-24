@@ -5,10 +5,13 @@ import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 import ShowMore from "../show-more/show-more.jsx";
+import withActiveGenreList from "../../hocs/with-genre-list/with-genre-list.js";
+
+const GenreListWrapper = withActiveGenreList(GenreList);
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onClickShowMore, onChangeGenre, filmsLength} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength} = props;
   const {title, genre, date, id} = films[0];
   return (<React.Fragment>
     <section className="movie-card">
@@ -71,7 +74,7 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <GenreList allListFilms={allListFilms} onChangeGenre={onChangeGenre} onGenreClick ={onGenreClick}/>
+        <GenreListWrapper allListFilms={allListFilms} onChangeGenre={onChangeGenre} onGenreClick ={onGenreClick}/>
 
         <div className="catalog__movies-list">
           <MovieList
@@ -79,10 +82,8 @@ const Main = (props) => {
             films = {films}
           />
         </div>
-        {(filmsLength > films.length) ?
-          <ShowMore onButtonClick={onClickShowMore}/>
-          :
-          ``}
+        {(filmsLength > films.length) &&
+          <ShowMore onButtonClick={onClickShowMore}/>}
       </section>
 
       <footer className="page-footer">
