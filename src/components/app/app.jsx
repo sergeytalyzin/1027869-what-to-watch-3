@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page.jsx";
 import withActiveTab from "../../hocs/with-tabs/with-tabs.js";
 import {connect} from "react-redux";
-import withActiveGenreList from "../../hocs/with-genre-list/with-genre-list.js";
-import {ActionCreator} from "../../reducer";
+import withActiveItemList from "../../hocs/with-active-item-list/with-active-item-list.js";
+
 
 const MoviePageWrapper = withActiveTab(MoviePage);
-const MainWrapper = withActiveGenreList(Main);
+const MainWrapper = withActiveItemList(Main);
 
 class App extends PureComponent {
   constructor(props) {
@@ -42,9 +42,6 @@ class App extends PureComponent {
       <MainWrapper
         onTitleClick={this._handleTitleClick}
         films={this.props.films}
-        onChangeGenre={this.props.onChangeGenre}
-        onGenreClick={this.props.onGenreClick}
-        allListFilms={this.props.allListFilms}
       />);
   }
   render() {
@@ -79,18 +76,7 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   films: state.listFilms,
 });
-const mapStateToDispatch = (dispatch) =>({
-  onGenreClick(genre) {
-    dispatch(ActionCreator.changeGenre(genre));
-  },
-  onClickShowMore() {
-    dispatch(ActionCreator.incrementShowed());
-  },
-  onChangeGenre() {
-    dispatch(ActionCreator.resetShowed());
-  }
-});
 
 export {App};
 
-export default connect(mapStateToProps, mapStateToDispatch)(App);
+export default connect(mapStateToProps)(App);

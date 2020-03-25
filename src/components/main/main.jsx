@@ -5,20 +5,12 @@ import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 import ShowMore from "../show-more/show-more.jsx";
-import {genreType} from "../../const.js";
-import withActiveGenreList from "../../hocs/with-genre-list/with-genre-list.js";
-
-// const GenreListWrapper = withActiveGenreList(GenreList);
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength, genreList} = props;
+  const {films, onTitleClick, active, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength, handleClickItemList} = props;
   const {title, genre, date, id} = films[0];
 
-  let mySet = new Set();
-  mySet.add(genreType.ALL);
-  allListFilms.forEach((it) => mySet.add(it.genre));
-  const genreListAll = Array.from(mySet);
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -80,9 +72,14 @@ const Main = (props) => {
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        <ul className="catalog__genres-list">
-          {genreListAll.map((it, i) => genreList(it, i))}
-        </ul>
+
+        <GenreList
+          active ={active}
+          handleClickItemList = {handleClickItemList}
+          onChangeGenre={onChangeGenre}
+          onGenreClick={onGenreClick}
+          allListFilms={allListFilms}/>
+
         <div className="catalog__movies-list">
           <MovieList
             onTitleClick = {onTitleClick}
@@ -111,6 +108,8 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+  active: PropTypes.number.isRequired,
+  handleClickItemList: PropTypes.func.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -133,7 +132,7 @@ Main.propTypes = {
 
 const mapStateToProps = (state) => ({
   allListFilms: state.allListFilms,
-  filmsLength: state.filmsLength
+  filmsLength: state.filmsLength,
 });
 
 const mapStateToDispatch = (dispatch) =>({

@@ -196,7 +196,12 @@ it(`Should title click be pressed`, () => {
     onGenreClick={()=>{}}
     films={data}
     allListFilms={data}
-    onTitleClick={onTitleClick}/>, {
+    onTitleClick={onTitleClick}
+    active={0}
+    handleClickItemList={()=>{}}
+    onChangeGenre={()=>{}}
+    onClickShowMore={()=>{}}
+    filmsLength={data.length}/>, {
     createNodeMock: () => {
       return {};
     }

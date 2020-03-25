@@ -186,7 +186,12 @@ it(`Should Main render correctly`, () => {
     onGenreClick={()=>{}}
     films={data}
     allListFilms={data}
-    onTitleClick={()=>{}}/>, {
+    onTitleClick={()=>{}}
+    active={0}
+    handleClickItemList={()=>{}}
+    onChangeGenre={()=>{}}
+    onClickShowMore={()=>{}}
+    filmsLength={data.length}/>, {
     createNodeMock: () => {
       return {};
     }

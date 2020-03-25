@@ -1,28 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {genreType} from "../../const";
 
 
 const GenreList = (props) => {
-  const {genre, onChangeGenre, key, activeGenreList, handleClickGenreList, onGenreClick} = props;
+  const {allListFilms, onChangeGenre, active, handleClickItemList, onGenreClick} = props;
 
+  let mySet = new Set();
+  mySet.add(genreType.ALL);
+  allListFilms.forEach((it) => mySet.add(it.genre));
+  const genreListAll = Array.from(mySet);
 
-console.log(`dasdadssadsdadasdasdasdas`,key);
   return (
-
-    <li
-      onClick={()=>{
-        onGenreClick(genre);
-        handleClickGenreList(key);
-      }}
-      onMouseLeave={onChangeGenre}
-      className={`catalog__genres-item ${ activeGenreList && `catalog__genres-item--active`}`}>
-      <a href="#" className="catalog__genres-link">{genre}</a>
-    </li>
-
+    <ul className="catalog__genres-list">
+      {genreListAll.map((it, i) => {
+        return (<li key={i}
+          onClick={()=>{
+            onGenreClick(it);
+            handleClickItemList(i);
+          }}
+          onMouseLeave={onChangeGenre}
+          className={`catalog__genres-item ${ active === i && `catalog__genres-item--active`}`}>
+          <a href="#" className="catalog__genres-link">{it}</a>
+        </li>);
+      })
+      }
+    </ul>
   );
 };
 
 GenreList.propTypes = {
+  active: PropTypes.number.isRequired,
+  handleClickItemList: PropTypes.func.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
