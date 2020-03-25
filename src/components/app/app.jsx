@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page.jsx";
 import withActiveTab from "../../hocs/with-tabs/with-tabs.js";
 import {connect} from "react-redux";
-import withActiveItemList from "../../hocs/with-active-item-list/with-active-item-list.js";
+
 
 
 const MoviePageWrapper = withActiveTab(MoviePage);
-const MainWrapper = withActiveItemList(Main);
+
 
 class App extends PureComponent {
   constructor(props) {
@@ -39,7 +39,7 @@ class App extends PureComponent {
         />);
     }
     return (
-      <MainWrapper
+      <Main
         onTitleClick={this._handleTitleClick}
         films={this.props.films}
       />);

@@ -5,10 +5,11 @@ import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer.js";
 import ShowMore from "../show-more/show-more.jsx";
-
+import withActiveItemList from "../../hocs/with-active-item-list/with-active-item-list.js";
+const GenreListWrapper = withActiveItemList(GenreList);
 
 const Main = (props) => {
-  const {films, onTitleClick, active, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength, handleClickItemList} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength} = props;
   const {title, genre, date, id} = films[0];
 
 
@@ -73,9 +74,7 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <GenreList
-          active ={active}
-          handleClickItemList = {handleClickItemList}
+        <GenreListWrapper
           onChangeGenre={onChangeGenre}
           onGenreClick={onGenreClick}
           allListFilms={allListFilms}/>
@@ -108,8 +107,6 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
-  active: PropTypes.number.isRequired,
-  handleClickItemList: PropTypes.func.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
