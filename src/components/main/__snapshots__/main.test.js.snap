@@ -157,6 +157,7 @@ Array [
         <li
           className="catalog__genres-item catalog__genres-item--active"
           onClick={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
@@ -166,8 +167,9 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item catalog__genres-item--active"
+          className="catalog__genres-item false"
           onClick={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
@@ -389,7 +391,6 @@ Array [
           </h3>
         </article>
       </div>
-      
     </section>
     <footer
       className="page-footer"

@@ -156,6 +156,8 @@ Array [
       >
         <li
           className="catalog__genres-item catalog__genres-item--active"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
@@ -165,93 +167,15 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item false"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
             href="#"
           >
-            Comedies
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Crime
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Documentary
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Dramas
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Horror
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Kids & Family
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Romance
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Sci-Fi
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Thrillers
+            Comedy
           </a>
         </li>
       </ul>
@@ -269,8 +193,8 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/mindhunter.jpg"
-              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              poster="somePath"
+              src="somePath"
             />
           </div>
           <h3
@@ -295,8 +219,8 @@ Array [
           >
             <video
               className="player__video"
-              poster="img/midnight-special.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="somePath"
+              src="somePath"
             />
           </div>
           <h3
@@ -306,20 +230,10 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Midnight Special
+              Mindhunter
             </a>
           </h3>
         </article>
-      </div>
-      <div
-        className="catalog__more"
-      >
-        <button
-          className="catalog__button"
-          type="button"
-        >
-          Show more
-        </button>
       </div>
     </section>
     <footer

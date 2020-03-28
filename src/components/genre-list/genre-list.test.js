@@ -182,7 +182,12 @@ const data = [
 ];
 
 it(`Should GenreList render correctly`, () => {
-  const tree = renderer.create(<GenreList allListFilms={data}/>).toJSON();
+  const tree = renderer.create(<GenreList
+    active={1}
+    handleClickItemList={()=>{}}
+    onChangeGenre={()=>{}}
+    onGenreClick={()=>{}}
+    allListFilms={data}/>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

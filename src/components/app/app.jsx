@@ -4,8 +4,11 @@ import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page.jsx";
 import withActiveTab from "../../hocs/with-tabs/with-tabs.js";
+import {connect} from "react-redux";
+
 
 const MoviePageWrapper = withActiveTab(MoviePage);
+
 
 class App extends PureComponent {
   constructor(props) {
@@ -37,10 +40,11 @@ class App extends PureComponent {
     return (
       <Main
         onTitleClick={this._handleTitleClick}
-
+        films={this.props.films}
       />);
   }
   render() {
+    const film = this.state;
     return (<BrowserRouter>
       <Switch>
         <Route exact path="/">
@@ -48,7 +52,9 @@ class App extends PureComponent {
         </Route>
         <Route exact path="/moviePage">
           <MoviePageWrapper
-            film={this.props.films[1]}
+            film={film}
+            films={this.props.films}
+            onTitleClick={()=>{}}
           />
         </Route>
       </Switch>
@@ -65,4 +71,11 @@ App.propTypes = {
   })).isRequired,
 };
 
-export default App;
+
+const mapStateToProps = (state) => ({
+  films: state.listFilms,
+});
+
+export {App};
+
+export default connect(mapStateToProps)(App);

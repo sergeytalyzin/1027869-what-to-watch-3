@@ -6,9 +6,6 @@ const FILMS_SHOWED_ON_START_AMOUNT = 8;
 const FILMS_SHOWED_INCREMENT_AMOUNT = 8;
 
 
-
-
-
 const filterFilm = (genre) => {
   return films.filter((film)=>film.genre === genre);
 };
@@ -78,4 +75,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, ActionCreator};
+export {reducer, ActionCreator, ActionType};
