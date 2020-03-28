@@ -5,10 +5,6 @@ export default class VideoPlayer extends PureComponent {
   constructor(props) {
     super(props);
     this._videoRef = createRef();
-
-    this.state = {
-      isPlaying: this.props.isPlaying
-    };
   }
 
   componentDidMount() {

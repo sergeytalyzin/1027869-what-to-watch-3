@@ -1,18 +1,18 @@
 import React, {PureComponent} from "react";
 
 
-const withActiveItem = (Component) => {
-  class WithActiveItem extends PureComponent {
+const withActive = (Component) => {
+  class WithActiveextends PureComponent {
     constructor(props) {
       super(props);
       this.state = {
         active: 0,
       };
 
-      this._handleClickItem = this._handleClickItem.bind(this);
+      this._handleClick = this._handleClickItemList.bind(this);
     }
 
-    _handleClickItem(id) {
+    _handleClickItemList(id) {
       this.setState({active: id});
     }
 
@@ -20,7 +20,7 @@ const withActiveItem = (Component) => {
       const {active} = this.state;
       return <Component
         {...this.props}
-        handleClickItemList = {this._handleClickItem}
+        handleClickItemList = {this._handleClickItemList}
         active = {active}
       />;
     }

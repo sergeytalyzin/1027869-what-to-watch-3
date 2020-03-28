@@ -201,7 +201,7 @@ it(`Should title click be pressed`, () => {
     handleClickItemList={()=>{}}
     onChangeGenre={()=>{}}
     onClickShowMore={()=>{}}
-    filmsLength={data.length}/>, {
+    filmsLength={8}/>, {
     createNodeMock: () => {
       return {};
     }

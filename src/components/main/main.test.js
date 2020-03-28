@@ -191,7 +191,7 @@ it(`Should Main render correctly`, () => {
     handleClickItemList={()=>{}}
     onChangeGenre={()=>{}}
     onClickShowMore={()=>{}}
-    filmsLength={data.length}/>, {
+    filmsLength={8}/>, {
     createNodeMock: () => {
       return {};
     }

@@ -107,6 +107,7 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+  filmsLength: PropTypes.number.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -123,7 +124,6 @@ Main.propTypes = {
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
   onClickShowMore: PropTypes.func.isRequired,
-  filmsLength: PropTypes.number.isRequired,
 };
 
 
