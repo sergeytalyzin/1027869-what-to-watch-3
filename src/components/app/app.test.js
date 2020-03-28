@@ -61,7 +61,10 @@ it(`Render App`, () => {
 
   const tree = renderer.create(
       <Provider store={store}>
-        <App films={data}/>
+        <App
+          films={data}
+          handleClickItemList={()=>{}}
+          active={0}/>
       </Provider>, {
         createNodeMock: () => {
           return {};

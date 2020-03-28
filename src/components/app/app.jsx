@@ -13,38 +13,27 @@ const MoviePageWrapper = withActiveTab(MoviePage);
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      film: null
-    };
-    this._handleTitleClick = this._handleTitleClick.bind(this);
-  }
-
-  _handleTitleClick(id) {
-    const [currentFilm] = this.props.films.filter((it)=>it.id === id);
-
-    this.setState({
-      film: currentFilm
-    });
   }
 
   _renderApp() {
-    const {film} = this.state;
-    if (film) {
+    const [currentFilm] = this.props.films.filter((it)=>it.id === this.props.active);
+
+    if (this.props.active !== 0) {
       return (
         <MoviePageWrapper
-          film = {film}
+          film = {currentFilm}
           films = {this.props.films}
-          onTitleClick={this._handleTitleClick}
+          onTitleClick={this.props.handleClickItemList}
         />);
     }
     return (
       <Main
-        onTitleClick={this._handleTitleClick}
+        onTitleClick={this.props.handleClickItemList}
         films={this.props.films}
       />);
   }
   render() {
-    const film = this.state;
+    const [currentFilm] = this.props.films.filter((it)=>it.id === this.props.active);
     return (<BrowserRouter>
       <Switch>
         <Route exact path="/">
@@ -52,7 +41,7 @@ class App extends PureComponent {
         </Route>
         <Route exact path="/moviePage">
           <MoviePageWrapper
-            film={film}
+            film={currentFilm}
             films={this.props.films}
             onTitleClick={()=>{}}
           />
@@ -69,6 +58,8 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
   })).isRequired,
+  handleClickItemList: PropTypes.func.isRequired,
+  active: PropTypes.number.isRequired
 };
 
 
