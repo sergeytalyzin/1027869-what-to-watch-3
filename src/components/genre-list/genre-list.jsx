@@ -4,7 +4,7 @@ import {genreType} from "../../const";
 
 
 const GenreList = (props) => {
-  const {allListFilms, onChangeGenre, active, handleClickItemList, onGenreClick} = props;
+  const {allListFilms, onChangeGenre, active, handleClickItem, onGenreClick} = props;
 
   let mySet = new Set();
   mySet.add(genreType.ALL);
@@ -15,11 +15,13 @@ const GenreList = (props) => {
     <ul className="catalog__genres-list">
       {genreListAll.map((it, i) => {
         return (<li key={i}
-          onClick={()=>{
+          onClick={(evt)=>{
+            evt.preventDefault();
             onGenreClick(it);
-            handleClickItemList(i);
+            handleClickItem(i);
+            onChangeGenre();
           }}
-          onMouseLeave={onChangeGenre}
+
           className={`catalog__genres-item ${ active === i && `catalog__genres-item--active`}`}>
           <a href="#" className="catalog__genres-link">{it}</a>
         </li>);
@@ -31,7 +33,7 @@ const GenreList = (props) => {
 
 GenreList.propTypes = {
   active: PropTypes.number.isRequired,
-  handleClickItemList: PropTypes.func.isRequired,
+  handleClickItem: PropTypes.func.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({

@@ -63,7 +63,7 @@ it(`Render App`, () => {
       <Provider store={store}>
         <App
           films={data}
-          handleClickItemList={()=>{}}
+          handleClickItem={()=>{}}
           active={0}/>
       </Provider>, {
         createNodeMock: () => {

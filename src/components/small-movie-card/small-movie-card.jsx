@@ -1,18 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
+import withVideo from "../../hocs/with-video/with-video.js";
 
+const VideoPlayer = withVideo(MovieVideoPlayer);
+let timer;
 
 const SmallMovieCard = (props) => {
-  const {onTitleClick, renderPlayer} = props;
+  const {onTitleClick, film, active, handleClickItem} = props;
+  const {src, previewVideoLink, id, title} = film;
   return (
     <article
-      onClick = {()=>onTitleClick(props.film.id)}
+      onClick = {()=>{
+        clearTimeout(timer);
+        onTitleClick(id);
+      }}
+      onMouseEnter={()=>{
+        timer = setTimeout(()=>{
+          handleClickItem(film);
+        }, 1000);
+      }}
+      onMouseLeave={()=>{
+        clearTimeout(timer);
+        handleClickItem({});
+      }}
       className="small-movie-card catalog__movies-card">
-
-      {renderPlayer(props.film.previewVideoLink, props.film.src, props.film.id)}
-
+      <div className="small-movie-card__image">
+        <VideoPlayer
+          isPlaying={active === film}
+          videoSrc={previewVideoLink}
+          posterSrc={src}
+          widthAtr={280}
+          heightAtr={175}
+          isMuted
+          type={`trailer`}
+        />
+      </div>
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{props.film.title}</a>
+        <a className="small-movie-card__link" href="movie-page.html">{title}</a>
       </h3>
     </article>
   );
@@ -21,7 +46,6 @@ const SmallMovieCard = (props) => {
 export default SmallMovieCard;
 
 SmallMovieCard.propTypes = {
-  renderPlayer: PropTypes.func.isRequired,
   onTitleClick: PropTypes.func.isRequired,
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -29,6 +53,8 @@ SmallMovieCard.propTypes = {
     src: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
+  active: PropTypes.object.isRequired,
+  handleClickItem: PropTypes.func.isRequired,
 };
 
 

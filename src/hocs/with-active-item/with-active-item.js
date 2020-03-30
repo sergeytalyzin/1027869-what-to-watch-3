@@ -1,33 +1,35 @@
 import React, {PureComponent} from "react";
-
+import PropTypes from "prop-types";
 
 const withActiveItem = (Component) => {
   class WithActiveItem extends PureComponent {
     constructor(props) {
       super(props);
       this.state = {
-        active: 0,
+        active: this.props.active,
       };
 
       this._handleClickItem = this._handleClickItem.bind(this);
     }
 
-    _handleClickItem(id) {
-      this.setState({active: id});
+    _handleClickItem(activeItem) {
+      this.setState({active: activeItem});
     }
 
     render() {
       const {active} = this.state;
       return <Component
         {...this.props}
-        handleClickItemList = {this._handleClickItem}
+        handleClickItem= {this._handleClickItem}
         active = {active}
       />;
     }
   }
 
 
-  WithActiveItem.propTypes = {};
+  WithActiveItem.propTypes = {
+    active: PropTypes.any,
+  };
 
   return WithActiveItem;
 };

@@ -7,7 +7,6 @@ exports[`Should GenreList render correctly 1`] = `
   <li
     className="catalog__genres-item false"
     onClick={[Function]}
-    onMouseLeave={[Function]}
   >
     <a
       className="catalog__genres-link"
@@ -19,7 +18,6 @@ exports[`Should GenreList render correctly 1`] = `
   <li
     className="catalog__genres-item catalog__genres-item--active"
     onClick={[Function]}
-    onMouseLeave={[Function]}
   >
     <a
       className="catalog__genres-link"

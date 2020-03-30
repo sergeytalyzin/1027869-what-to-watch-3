@@ -26,7 +26,8 @@ it(`when pointing to a card information is sent to the handler`, ()=>{
   const smallMovieCard = shallow(<SmallMovieCard
     onTitleClick={onTitleClick}
     film={data}
-    renderPlayer={() => {}}
+    handleClickItem={()=>{}}
+    active={{}}
   />);
 
   const card = smallMovieCard.find(`.small-movie-card`);

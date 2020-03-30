@@ -5,16 +5,19 @@ Array [
   <article
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
       <video
-        className="player__video"
+        alt=""
+        className=""
+        height={175}
         poster="somePath"
         src="somePath"
+        width={280}
       />
     </div>
     <h3
@@ -31,16 +34,19 @@ Array [
   <article
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
       <video
-        className="player__video"
+        alt=""
+        className=""
+        height={175}
         poster="somePath"
         src="somePath"
+        width={280}
       />
     </div>
     <h3
@@ -57,16 +63,19 @@ Array [
   <article
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
       <video
-        className="player__video"
+        alt=""
+        className=""
+        height={175}
         poster="somePath"
         src="somePath"
+        width={280}
       />
     </div>
     <h3
@@ -83,16 +92,19 @@ Array [
   <article
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
       <video
-        className="player__video"
+        alt=""
+        className=""
+        height={175}
         poster="somePath"
         src="somePath"
+        width={280}
       />
     </div>
     <h3

@@ -184,7 +184,7 @@ const data = [
 it(`Should GenreList render correctly`, () => {
   const tree = renderer.create(<GenreList
     active={1}
-    handleClickItemList={()=>{}}
+    handleClickItem={()=>{}}
     onChangeGenre={()=>{}}
     onGenreClick={()=>{}}
     allListFilms={data}/>).toJSON();

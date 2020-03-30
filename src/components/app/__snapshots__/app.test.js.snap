@@ -103,6 +103,7 @@ Array [
           >
             <button
               className="btn btn--play movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -157,7 +158,6 @@ Array [
         <li
           className="catalog__genres-item catalog__genres-item--active"
           onClick={[Function]}
-          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
@@ -169,7 +169,6 @@ Array [
         <li
           className="catalog__genres-item false"
           onClick={[Function]}
-          onMouseLeave={[Function]}
         >
           <a
             className="catalog__genres-link"
@@ -185,16 +184,19 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
           >
             <video
-              className="player__video"
+              alt=""
+              className=""
+              height={175}
               poster="somePath"
               src="somePath"
+              width={280}
             />
           </div>
           <h3
@@ -211,16 +213,19 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
           >
             <video
-              className="player__video"
+              alt=""
+              className=""
+              height={175}
               poster="somePath"
               src="somePath"
+              width={280}
             />
           </div>
           <h3

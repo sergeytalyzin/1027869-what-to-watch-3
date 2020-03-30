@@ -11,17 +11,27 @@ const Tabs = (props) => {
   const {activeTab, handleClickTab} = props;
   return (
     <ul className="movie-nav__list">
-      <li onClick= {() => handleClickTab(TABS.OVERVIEW)}
+      <li onClick= {(evt) => {
+        evt.preventDefault();
+        handleClickTab(TABS.OVERVIEW);
+      }}
 
-        className={`movie-nav__item ${activeTab === TABS.OVERVIEW && `movie-nav__item--active`}`}>
+      className={`movie-nav__item ${activeTab === TABS.OVERVIEW && `movie-nav__item--active`}`}>
         <a href="#" className="movie-nav__link">Overview</a>
       </li>
-      <li onClick= {() => handleClickTab(TABS.DETAILS)}
-        className={`movie-nav__item ${activeTab === TABS.DETAILS && `movie-nav__item--active`}`}>
+      <li onClick= {(evt) => {
+        evt.preventDefault();
+        handleClickTab(TABS.DETAILS);
+      }}
+      className={`movie-nav__item ${activeTab === TABS.DETAILS && `movie-nav__item--active`}`}>
         <a href="#" className="movie-nav__link">Details</a>
       </li>
-      <li onClick= {() => handleClickTab(TABS.REVIEWS)}
-        className={`movie-nav__item ${activeTab === TABS.REVIEWS && `movie-nav__item--active`}`}>
+      <li onClick= {(evt) => {
+        evt.preventDefault();
+        handleClickTab(TABS.REVIEWS);
+      }}
+
+      className={`movie-nav__item ${activeTab === TABS.REVIEWS && `movie-nav__item--active`}`}>
         <a href="#" className="movie-nav__link">Reviews</a>
       </li>
     </ul>

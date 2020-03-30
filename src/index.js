@@ -13,7 +13,9 @@ const store = createStore(reducer,
 
 ReactDOM.render(
     <Provider store={store}>
-      <AppWrapper/>
+      <AppWrapper
+        active={0}
+      />
     </Provider>
     ,
     document.querySelector(`#root`)
