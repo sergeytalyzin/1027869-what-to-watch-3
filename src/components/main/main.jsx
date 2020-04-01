@@ -10,7 +10,8 @@ const GenreListWrapper = withActiveItem(GenreList);
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, filmsLength} = props;
+  const {films, onTitleClick, allListFilms, onGenreClick, onExitFilmButtonClick,
+    onChangeGenre, onClickShowMore, onClickActiveFilm, filmsLength} = props;
   const {title, genre, date, id} = films[0];
 
 
@@ -53,17 +54,17 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button onClick={(evt)=>{
-                evt.preventDefault();
+              <button onClick={()=>{
+                onClickActiveFilm(films[0]);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHref="#play-s"></use>
+                  <use xlinkHref="#play-s"/>
                 </svg>
                 <span>Play</span>
               </button>
               <button className="btn btn--list movie-card__button" type="button">
                 <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
+                  <use xlinkHref="#add"/>
                 </svg>
                 <span>My list</span>
               </button>
@@ -88,6 +89,7 @@ const Main = (props) => {
           <MovieList
             onTitleClick = {onTitleClick}
             films = {films}
+            onExitFilmButtonClick={onExitFilmButtonClick}
           />
         </div>
         {(filmsLength > films.length) &&
@@ -112,7 +114,7 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
-  filmsLength: PropTypes.number.isRequired,
+  filmsLength: PropTypes.number,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -129,6 +131,8 @@ Main.propTypes = {
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
   onClickShowMore: PropTypes.func.isRequired,
+  onClickActiveFilm: PropTypes.func.isRequired,
+  onExitFilmButtonClick: PropTypes.func,
 };
 
 
@@ -146,6 +150,12 @@ const mapStateToDispatch = (dispatch) =>({
   },
   onChangeGenre() {
     dispatch(ActionCreator.resetShowed());
+  },
+  onClickActiveFilm(film) {
+    dispatch(ActionCreator.activeFilm(film));
+  },
+  onExitFilmButtonClick(film) {
+    dispatch(ActionCreator.activeFilm(film));
   }
 });
 

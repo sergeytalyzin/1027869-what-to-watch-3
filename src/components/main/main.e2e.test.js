@@ -193,15 +193,15 @@ it(`Should title click be pressed`, () => {
   const onTitleClick = jest.fn();
 
   const main = shallow(<Main
-    onGenreClick={()=>{}}
     films={data}
-    allListFilms={data}
-    onTitleClick={onTitleClick}
     active={0}
-    handleClickItemList={()=>{}}
+    filmsLength={8}
     onChangeGenre={()=>{}}
+    onGenreClick={onTitleClick}
+    allListFilms={data}
+    onTitleClick={()=>{}}
     onClickShowMore={()=>{}}
-    filmsLength={8}/>, {
+    onClickActiveFilm={()=>{}}/>, {
     createNodeMock: () => {
       return {};
     }

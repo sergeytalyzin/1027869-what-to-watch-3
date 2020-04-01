@@ -17,7 +17,7 @@ it(`<MovieVideoPlayer /> should render trailer player`, () => {
           {...mock}
           onFullScreenButtonClick={() => {}}
           onPlayButtonClick={() => {}}
-          onPlayFilmButtonClick={() => {}}
+          onExitFilmButtonClick={() => {}}
           type={`trailer`}
         >
           <video/>
@@ -40,7 +40,7 @@ it(`<MovieVideoPlayer /> should render full movie player`, () => {
           {...mock}
           onFullScreenButtonClick={() => {}}
           onPlayButtonClick={() => {}}
-          onPlayFilmButtonClick={() => {}}
+          onExitFilmButtonClick={() => {}}
           type={`movie`}
         >
           <video/>

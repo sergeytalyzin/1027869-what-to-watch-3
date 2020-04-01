@@ -43,6 +43,7 @@ it(`Should MovieList render correctly`, ()=>{
     onTitleClick={()=>{}}
     active={{}}
     handleClickItem={()=>{}}
+    onExitFilmButtonClick={()=>{}}
   />, {
     createNodeMock: () => {
       return {};

@@ -28,6 +28,7 @@ it(`when pointing to a card information is sent to the handler`, ()=>{
     film={data}
     handleClickItem={()=>{}}
     active={{}}
+    onExitFilmButtonClick={()=>{}}
   />);
 
   const card = smallMovieCard.find(`.small-movie-card`);

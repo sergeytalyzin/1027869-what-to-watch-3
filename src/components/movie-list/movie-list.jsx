@@ -18,6 +18,7 @@ class MovieList extends PureComponent {
           film = {it}
           key = {it.id}
           active={{}}
+          onExitFilmButtonClick = {this.props.onExitFilmButtonClick}
         />
       );
     });
@@ -36,5 +37,6 @@ MovieList.propTypes = {
     date: PropTypes.number.isRequired,
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
+  onExitFilmButtonClick: PropTypes.func,
 };
 export default MovieList;

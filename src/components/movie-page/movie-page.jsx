@@ -5,6 +5,9 @@ import MoviePageReviews from "../movie-page-reviews/movie-page-reviews.jsx";
 import MoviePageDetails from "../movie-page-details/movie-page-details.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import Tabs from "../tabs/tabs.jsx";
+import {ActionCreator} from "../../reducer";
+import {connect} from "react-redux";
+import {Main} from "../main/main.jsx";
 
 const TABS = {
   OVERVIEW: `Overview`,
@@ -61,7 +64,9 @@ const MoviePage = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
+              <button onClick={()=>{
+                props.onClickActiveFilm(props.film);
+              }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -151,6 +156,19 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
+  onClickActiveFilm: PropTypes.func.isRequired,
 };
 
-export default MoviePage;
+export {MoviePage};
+
+
+const mapStateToDispatch = (dispatch) =>({
+  onClickActiveFilm(film) {
+    dispatch(ActionCreator.activeFilm(film));
+  }
+});
+
+
+export {Main};
+
+export default connect(null, mapStateToDispatch)(MoviePage);

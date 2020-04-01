@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import MoviePage from "./movie-page";
+import {MoviePage} from "./movie-page";
 
 const TABS = {
   OVERVIEW: `Overview`,
@@ -185,7 +185,8 @@ it(`MoviePage is rendered correctly`, () =>{
     films={data}
     film={data[0]}
     activeTab={TABS.OVERVIEW}
-    handleClickTab={()=>{}}/>, {
+    handleClickTab={()=>{}}
+    onClickActiveFilm={()=>{}}/>, {
     createNodeMock: () => {
       return {};
     }

@@ -10,18 +10,26 @@ const filterFilm = (genre) => {
   return films.filter((film)=>film.genre === genre);
 };
 
+const filterActiveFilm = (activeFilm) => {
+  const [currentFilm] = films.filter((film)=>film === activeFilm);
+  return currentFilm;
+};
+
+
 const initialState = {
   genre: `All genres`,
   listFilms: films.slice(0, FILMS_SHOWED_ON_START_AMOUNT),
   allListFilms: films,
   filmsLength: films.length,
-  showedFilmsAmount: FILMS_SHOWED_INCREMENT_AMOUNT
+  showedFilmsAmount: FILMS_SHOWED_INCREMENT_AMOUNT,
+  activeFilm: null
 };
 
 const ActionType = {
   CHANGE_GENRE: `Change genre`,
   INCREMENT_SHOWED: `Increment showed`,
-  RESET_SHOWED: `Reset showed`
+  RESET_SHOWED: `Reset showed`,
+  ADD_ACTIVE_FILM: `Add active film`
 };
 
 const ActionCreator = {
@@ -35,6 +43,10 @@ const ActionCreator = {
   }),
   resetShowed: () => ({
     type: ActionType.RESET_SHOWED,
+  }),
+  activeFilm: (film) => ({
+    type: ActionType.ADD_ACTIVE_FILM,
+    payload: film
   })
 };
 
@@ -70,6 +82,11 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         showedFilmsAmount: FILMS_SHOWED_ON_START_AMOUNT
       });
+    case ActionType.ADD_ACTIVE_FILM:
+      return extend(state, {
+        activeFilm: filterActiveFilm(action.payload),
+      });
+
   }
 
   return state;

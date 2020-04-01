@@ -89,6 +89,7 @@ it(`Should SmallMovieCard render correctly`, () => {
     film={data[0]}
     handleClickItem={()=>{}}
     active={{}}
+    onExitFilmButtonClick={()=>{}}
   />, {
     createNodeMock: () => {
       return {play() {}};

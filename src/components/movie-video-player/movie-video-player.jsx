@@ -38,7 +38,7 @@ class MovieVideoPlayer extends PureComponent {
   }
 
   _renderPlayer() {
-    const {children, onPlayFilmButtonClick, progressInPercent, progressInSeconds,
+    const {children, onExitFilmButtonClick, progressInPercent, progressInSeconds,
       onPlayButtonClick, isPlaying, title, isFullScreen, type} = this.props;
 
     switch (type) {
@@ -49,7 +49,7 @@ class MovieVideoPlayer extends PureComponent {
           <div ref={this._rootElRef} className="player">
             {children}
 
-            <button type="button" onClick={() => onPlayFilmButtonClick(null)} className="player__exit">Exit</button>
+            <button type="button" onClick={() => onExitFilmButtonClick(null)} className="player__exit">Exit</button>
 
             <div className="player__controls">
               <div className="player__controls-row">
@@ -101,14 +101,11 @@ class MovieVideoPlayer extends PureComponent {
     return <p>Something went wrong :(</p>;
   }
   componentDidMount() {
-    document.addEventListener(
-        `fullscreenchange`,
-        this._handlerFullScreenChange
-    );
+    document.addEventListener(`fullscreenchange`, this._handlerFullScreenChange);
   }
 
   componentWillUnmount() {
-    document.removeEventListener(`keydown`, this._handlerFullScreenChange);
+    document.removeEventListener(`fullscreenchange`, this._handlerFullScreenChange);
   }
 
   render() {
@@ -128,8 +125,10 @@ MovieVideoPlayer.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   title: PropTypes.string,
   isFullScreen: PropTypes.bool.isRequired,
-  onPlayFilmButtonClick: PropTypes.func,
+  onExitFilmButtonClick: PropTypes.func,
   type: PropTypes.oneOf([`trailer`, `movie`]),
 };
 
 export default MovieVideoPlayer;
+
+

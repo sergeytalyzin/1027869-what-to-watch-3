@@ -7,6 +7,7 @@ import withActiveTab from "../../hocs/with-tabs/with-tabs.js";
 import {connect} from "react-redux";
 import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
 import withVideo from "../../hocs/with-video/with-video.js";
+import {ActionCreator} from "../../reducer";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -21,6 +22,19 @@ class App extends PureComponent {
 
   _renderApp() {
     const [currentFilm] = this.props.films.filter((it)=>it.id === this.props.active);
+    if (this.props.activeFilm) {
+      return (
+        <VideoPlayer
+          type={`movie`}
+          className={`player__video`}
+          isPlaying={false}
+          videoSrc={this.props.activeFilm.previewVideoLink}
+          posterSrc={this.props.activeFilm.src}
+          onExitFilmButtonClick = {this.props.onExitFilmButtonClick}
+          isMuted
+        />
+      );
+    }
     if (this.props.active !== 0) {
       return (
         <MoviePageWrapper
@@ -62,14 +76,23 @@ App.propTypes = {
     date: PropTypes.number.isRequired,
   })).isRequired,
   handleClickItem: PropTypes.func.isRequired,
-  active: PropTypes.number.isRequired
+  active: PropTypes.number.isRequired,
+  activeFilm: PropTypes.any,
+  onExitFilmButtonClick: PropTypes.func,
 };
 
 
 const mapStateToProps = (state) => ({
   films: state.listFilms,
+  activeFilm: state.activeFilm,
+});
+
+const mapStateToDispatch = (dispatch) =>({
+  onExitFilmButtonClick(film) {
+    dispatch(ActionCreator.activeFilm(film));
+  }
 });
 
 export {App};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapStateToDispatch)(App);

@@ -7,7 +7,7 @@ const VideoPlayer = withVideo(MovieVideoPlayer);
 let timer;
 
 const SmallMovieCard = (props) => {
-  const {onTitleClick, film, active, handleClickItem} = props;
+  const {onTitleClick, film, active, handleClickItem, onExitFilmButtonClick} = props;
   const {src, previewVideoLink, id, title} = film;
   return (
     <article
@@ -29,6 +29,7 @@ const SmallMovieCard = (props) => {
         <VideoPlayer
           isPlaying={active === film}
           videoSrc={previewVideoLink}
+          onExitFilmButtonClick = {onExitFilmButtonClick}
           posterSrc={src}
           widthAtr={280}
           heightAtr={175}
@@ -55,6 +56,7 @@ SmallMovieCard.propTypes = {
   }).isRequired,
   active: PropTypes.object.isRequired,
   handleClickItem: PropTypes.func.isRequired,
+  onExitFilmButtonClick: PropTypes.func,
 };
 
 
