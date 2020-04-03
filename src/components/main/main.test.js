@@ -183,15 +183,13 @@ const data = [
 
 it(`Should Main render correctly`, () => {
   const tree = renderer.create(<Main
-    films={data}
-    active={0}
-    filmsLength={8}
     onChangeGenre={()=>{}}
     onGenreClick={()=>{}}
+    films={data}
     allListFilms={data}
-    onTitleClick={()=>{}}
     onClickShowMore={()=>{}}
-    onClickActiveFilm={()=>{}}/>, {
+    onClickActiveFilm={()=>{}}
+    onFilmWatch={()=>{}}/>, {
     createNodeMock: () => {
       return {};
     }

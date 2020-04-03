@@ -190,27 +190,25 @@ const mockEvent = {
 };
 
 it(`Should title click be pressed`, () => {
-  const onTitleClick = jest.fn();
+  const onClickButton = jest.fn();
 
   const main = shallow(<Main
-    films={data}
-    active={0}
-    filmsLength={8}
     onChangeGenre={()=>{}}
-    onGenreClick={onTitleClick}
+    onGenreClick={()=>{}}
+    films={data}
     allListFilms={data}
-    onTitleClick={()=>{}}
     onClickShowMore={()=>{}}
-    onClickActiveFilm={()=>{}}/>, {
+    onClickActiveFilm={()=>{}}
+    onFilmWatch={onClickButton}/>, {
     createNodeMock: () => {
       return {};
     }
   }
   );
 
-  const mainTitle = main.find(`h2.movie-card__title`);
+  const mainTitle = main.find(`.movie-card__button`);
 
   mainTitle.simulate(`click`, mockEvent);
 
-  expect(mainTitle.find(`.movie-card__title`).length).toEqual(1);
+  expect(mainTitle.find(`.movie-card__button`).length).toEqual(1);
 });

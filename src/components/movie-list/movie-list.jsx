@@ -14,11 +14,10 @@ class MovieList extends PureComponent {
     return films.map((it)=>{
       return (
         <SmallMovieCardWrapper
-          onTitleClick = {this.props.onTitleClick}
+          onActiveFilm = {this.props.onActiveFilm}
           film = {it}
           key = {it.id}
           active={{}}
-          onExitFilmButtonClick = {this.props.onExitFilmButtonClick}
         />
       );
     });
@@ -36,7 +35,6 @@ MovieList.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
-  onExitFilmButtonClick: PropTypes.func,
+  onActiveFilm: PropTypes.func.isRequired,
 };
 export default MovieList;

@@ -85,11 +85,10 @@ const data = [
 
 it(`Should SmallMovieCard render correctly`, () => {
   const tree = renderer.create(<SmallMovieCard
-    onTitleClick={()=>{}}
+    onActiveFilm={()=>{}}
     film={data[0]}
     handleClickItem={()=>{}}
     active={{}}
-    onExitFilmButtonClick={()=>{}}
   />, {
     createNodeMock: () => {
       return {play() {}};

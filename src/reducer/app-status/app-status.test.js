@@ -1,5 +1,5 @@
-import {reducer, ActionType, ActionCreator} from "./reducer.js";
-import {genreType} from "./const.js";
+import {reducer, ActionType, ActionCreator} from "./app-status.js";
+import {genreType} from "../../const.js";
 
 
 const data = [

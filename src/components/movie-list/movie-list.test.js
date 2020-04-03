@@ -40,10 +40,9 @@ const data = [
 it(`Should MovieList render correctly`, ()=>{
   const tree = renderer.create(<MovieList
     films={data}
-    onTitleClick={()=>{}}
+    onActiveFilm={()=>{}}
     active={{}}
     handleClickItem={()=>{}}
-    onExitFilmButtonClick={()=>{}}
   />, {
     createNodeMock: () => {
       return {};
