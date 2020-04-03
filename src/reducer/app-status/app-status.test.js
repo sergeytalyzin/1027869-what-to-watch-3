@@ -55,66 +55,62 @@ const filterFilm = (genre) => {
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer({
-    genre: `All genres`,
-    listFilms: data.slice(0, 8),
-    allListFilms: data,
-    filmsLength: data.length,
+    genre: `Comedy`,
+    showedFilmsAmount: 8,
+    activeFilm: null,
+    filmToWatch: null,
   }, {})).toEqual({
-    genre: `All genres`,
-    listFilms: data.slice(0, 8),
-    allListFilms: data,
-    filmsLength: data.length,
+    genre: `Comedy`,
+    showedFilmsAmount: 8,
+    activeFilm: null,
+    filmToWatch: null,
   });
 });
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer({
     genre: `All genres`,
-    listFilms: data.slice(0, 8),
-    allListFilms: data,
-    filmsLength: data.length,
+    showedFilmsAmount: 8,
+    activeFilm: null,
+    filmToWatch: null,
   }, {
     type: ActionType.CHANGE_GENRE,
     payload: `Comedy`,
   })).toEqual({
     genre: `Comedy`,
-    listFilms: filterFilm(genreType.COMEDIES).slice(0, 8),
-    allListFilms: data,
-    filmsLength: filterFilm(genreType.COMEDIES).length,
+    showedFilmsAmount: 8,
+    activeFilm: null,
+    filmToWatch: null,
   });
 });
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer({
     genre: `Comedy`,
-    listFilms: filterFilm(genreType.COMEDIES).slice(0, 8),
-    allListFilms: data,
-    filmsLength: filterFilm(genreType.COMEDIES).length,
+    activeFilm: null,
+    filmToWatch: null,
     showedFilmsAmount: 8,
   }, {
     type: ActionType.INCREMENT_SHOWED,
     payload: 8,
   })).toEqual({
     genre: `Comedy`,
-    listFilms: filterFilm(genreType.COMEDIES).slice(0, 16),
-    allListFilms: data,
-    filmsLength: filterFilm(genreType.COMEDIES).length,
+    activeFilm: null,
+    filmToWatch: null,
     showedFilmsAmount: 16,
   });
 });
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer({
     genre: `Comedy`,
-    listFilms: filterFilm(genreType.COMEDIES).slice(0, 16),
-    allListFilms: data,
-    filmsLength: filterFilm(genreType.COMEDIES).length,
+    activeFilm: null,
+    filmToWatch: null,
     showedFilmsAmount: 16,
   }, {
     type: ActionType.RESET_SHOWED,
   })).toEqual({
     genre: `Comedy`,
-    listFilms: filterFilm(genreType.COMEDIES).slice(0, 8),
-    allListFilms: data,
-    filmsLength: filterFilm(genreType.COMEDIES).length,
+    activeFilm: null,
+    filmToWatch: null,
     showedFilmsAmount: 8,
   });
 });
@@ -135,6 +131,12 @@ describe(`Actions creators work correctly`, () => {
     expect(ActionCreator.changeGenre(genreType.COMEDIES)).toEqual({
       type: ActionType.CHANGE_GENRE,
       payload: genreType.COMEDIES
+    });
+  });
+  it(`Action creators for change genre return correct action`, () => {
+    expect(ActionCreator.setFilmToWatch(data[0])).toEqual({
+      type: ActionType.SET_FILM_TO_WATCH,
+      payload: data[0]
     });
   });
 });
