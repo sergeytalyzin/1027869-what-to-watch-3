@@ -77,8 +77,6 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
   })).isRequired,
-  handleClickItem: PropTypes.func.isRequired,
-  active: PropTypes.number.isRequired,
   activeFilm: PropTypes.any,
   filmToWatch: PropTypes.any,
   onActiveFilmClick: PropTypes.func,
