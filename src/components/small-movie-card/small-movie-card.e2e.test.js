@@ -24,11 +24,10 @@ const mockEvent = {
 it(`when pointing to a card information is sent to the handler`, ()=>{
   const onTitleClick = jest.fn();
   const smallMovieCard = shallow(<SmallMovieCard
-    onTitleClick={onTitleClick}
+    onActiveFilm={onTitleClick}
     film={data}
     handleClickItem={()=>{}}
     active={{}}
-    onExitFilmButtonClick={()=>{}}
   />);
 
   const card = smallMovieCard.find(`.small-movie-card`);

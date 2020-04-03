@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import MovieList from "../movie-list/movie-list.jsx";
 import GenreList from "../genre-list/genre-list.jsx";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer.js";
+import {ActionCreator} from "../../reducer/app-status/app-status.js";
 import ShowMore from "../show-more/show-more.jsx";
 import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
+import {getAllFilms} from "../../reducer/data/selectors";
 const GenreListWrapper = withActiveItem(GenreList);
 
 
 const Main = (props) => {
-  const {films, onTitleClick, allListFilms, onGenreClick, onExitFilmButtonClick,
-    onChangeGenre, onClickShowMore, onClickActiveFilm, filmsLength} = props;
-  const {title, genre, date, id} = films[0];
+  const {films, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, onClickActiveFilm, onFilmWatch, filmsLength} = props;
+  const {title, genre, date} = films[0];
 
 
   return (<React.Fragment>
@@ -47,7 +47,7 @@ const Main = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <h2 onClick = {()=>onTitleClick(id)} className="movie-card__title">{title}</h2>
+            <h2 className="movie-card__title">{title}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{genre}</span>
               <span className="movie-card__year">{date}</span>
@@ -55,7 +55,7 @@ const Main = (props) => {
 
             <div className="movie-card__buttons">
               <button onClick={()=>{
-                onClickActiveFilm(films[0]);
+                onFilmWatch(films[0]);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"/>
@@ -87,9 +87,8 @@ const Main = (props) => {
 
         <div className="catalog__movies-list">
           <MovieList
-            onTitleClick = {onTitleClick}
+            onActiveFilm = {onClickActiveFilm}
             films = {films}
-            onExitFilmButtonClick={onExitFilmButtonClick}
           />
         </div>
         {(filmsLength > films.length) &&
@@ -129,16 +128,15 @@ Main.propTypes = {
     date: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
   onClickShowMore: PropTypes.func.isRequired,
   onClickActiveFilm: PropTypes.func.isRequired,
-  onExitFilmButtonClick: PropTypes.func,
+  onFilmWatch: PropTypes.func,
 };
 
 
 const mapStateToProps = (state) => ({
-  allListFilms: state.allListFilms,
-  filmsLength: state.filmsLength,
+  allListFilms: getAllFilms(state),
+  filmsLength: getAllFilms(state).length,
 });
 
 const mapStateToDispatch = (dispatch) =>({
@@ -154,9 +152,6 @@ const mapStateToDispatch = (dispatch) =>({
   onClickActiveFilm(film) {
     dispatch(ActionCreator.activeFilm(film));
   },
-  onExitFilmButtonClick(film) {
-    dispatch(ActionCreator.activeFilm(film));
-  }
 });
 
 

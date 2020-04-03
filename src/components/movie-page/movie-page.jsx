@@ -5,9 +5,7 @@ import MoviePageReviews from "../movie-page-reviews/movie-page-reviews.jsx";
 import MoviePageDetails from "../movie-page-details/movie-page-details.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import Tabs from "../tabs/tabs.jsx";
-import {ActionCreator} from "../../reducer";
-import {connect} from "react-redux";
-import {Main} from "../main/main.jsx";
+
 
 const TABS = {
   OVERVIEW: `Overview`,
@@ -65,7 +63,7 @@ const MoviePage = (props) => {
 
             <div className="movie-card__buttons">
               <button onClick={()=>{
-                props.onClickActiveFilm(props.film);
+                props.onFilmWatch(props.film);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
@@ -105,7 +103,7 @@ const MoviePage = (props) => {
       <section className="catalog catalog--like-this">
         <h2 className="catalog__title">More like this</h2>
         <div className="catalog__movies-list">
-          {<MovieList films={moreLikeThisFilms} onTitleClick={props.onTitleClick}/>}
+          {<MovieList films={moreLikeThisFilms} onActiveFilm={props.onActiveFilm}/>}
         </div>
       </section>
 
@@ -128,7 +126,8 @@ const MoviePage = (props) => {
 
 
 MoviePage.propTypes = {
-  onTitleClick: PropTypes.func.isRequired,
+  onActiveFilm: PropTypes.func.isRequired,
+  onFilmWatch: PropTypes.func.isRequired,
   handleClickTab: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(
       PropTypes.shape({
@@ -156,19 +155,7 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
-  onClickActiveFilm: PropTypes.func.isRequired,
 };
 
-export {MoviePage};
 
-
-const mapStateToDispatch = (dispatch) =>({
-  onClickActiveFilm(film) {
-    dispatch(ActionCreator.activeFilm(film));
-  }
-});
-
-
-export {Main};
-
-export default connect(null, mapStateToDispatch)(MoviePage);
+export default MoviePage;

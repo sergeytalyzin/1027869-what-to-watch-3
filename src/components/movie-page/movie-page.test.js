@@ -181,12 +181,12 @@ const data = [
 
 it(`MoviePage is rendered correctly`, () =>{
   const tree = renderer.create(<MoviePage
-    onTitleClick={()=>{}}
+    onFilmWatch={()=>{}}
     films={data}
     film={data[0]}
     activeTab={TABS.OVERVIEW}
     handleClickTab={()=>{}}
-    onClickActiveFilm={()=>{}}/>, {
+    onActiveFilm={()=>{}}/>, {
     createNodeMock: () => {
       return {};
     }
