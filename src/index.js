@@ -16,6 +16,7 @@ const store = createStore(reducer, composeWithDevTools(
 ));
 
 store.dispatch(DataOperation.loadFilms());
+store.dispatch(DataOperation.promoFilm());
 
 ReactDOM.render(
     <Provider store={store}>

@@ -11,8 +11,8 @@ const GenreListWrapper = withActiveItem(GenreList);
 
 
 const Main = (props) => {
-  const {films, allListFilms, onGenreClick, onChangeGenre, onClickShowMore, onClickActiveFilm, onFilmWatch, filmsLength} = props;
-  const {title, genre, date} = films[0];
+  const {films, allListFilms, promoFilm, onGenreClick, onChangeGenre, onClickShowMore, onClickActiveFilm, onFilmWatch, filmsLength} = props;
+  const {title, genre, date} = promoFilm;
 
 
   return (<React.Fragment>

@@ -9,7 +9,8 @@ import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
 import withVideo from "../../hocs/with-video/with-video.js";
 import {ActionCreator} from "../../reducer/app-status/app-status.js";
 import {getFilmActive, getFilmToWatch} from "../../reducer/app-status/selectors.js";
-import {getFilmsToRender, getAllFilms} from "../../reducer/data/selectors.js";
+import {getFilmsToRender, getAllFilms, getPromoFilm} from "../../reducer/data/selectors.js";
+
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -44,6 +45,7 @@ class App extends PureComponent {
     return (
       <Main
         films={this.props.filmsToRender}
+        promoFilm={this.props.film}
         onFilmWatch={this.props.onFilmToWatchClick}
       />);
   }
@@ -86,6 +88,7 @@ App.propTypes = {
 
 const mapStateToProps = (state) => ({
   films: getAllFilms(state),
+  film: getPromoFilm(state),
   filmsToRender: getFilmsToRender(state),
   activeFilm: getFilmActive(state),
   filmToWatch: getFilmToWatch(state),

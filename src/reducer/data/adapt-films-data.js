@@ -26,3 +26,22 @@ export default (data) => {
   });
   return newData;
 };
+
+export const adaptFilm = (film) => {
+  return {
+    id: film.id,
+    title: film.name,
+    src: film.poster_image,
+    genre: film.genre,
+    date: film.released,
+    posterBig: film.preview_image,
+    rating: film.rating,
+    ratingLevel: film.rating,
+    ratingCount: film.scores_count,
+    description: film.description,
+    actors: film.starring,
+    director: film.director,
+    previewVideoLink: film.preview_video_link,
+    runTime: film.run_time,
+  };
+};

@@ -3,8 +3,11 @@ import {createSelector} from "reselect";
 import {getGenre, getFilmsToShowCount} from "../app-status/selectors.js";
 import {genreType} from "../../const.js";
 
-export const getAllFilms = (state)=> {
+export const getAllFilms = (state) => {
   return state[NameSpace.DATA].films;
+};
+export const getPromoFilm = (state) => {
+  return state[NameSpace.DATA].promoFilm;
 };
 
 
