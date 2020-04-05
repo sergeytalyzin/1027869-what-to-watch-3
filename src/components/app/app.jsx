@@ -8,9 +8,11 @@ import {connect} from "react-redux";
 import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
 import withVideo from "../../hocs/with-video/with-video.js";
 import {ActionCreator} from "../../reducer/app-status/app-status.js";
-import {getFilmActive, getFilmToWatch} from "../../reducer/app-status/selectors.js";
+import {getFilmActive, getFilmToWatch, getLoggingStatus} from "../../reducer/app-status/selectors.js";
 import {getFilmsToRender, getAllFilms, getPromoFilm} from "../../reducer/data/selectors.js";
-
+import {Operation as UserOperation} from "../../reducer/user/user.js";
+import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
+import SignIn from "../sign-in/sign-in.jsx";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -19,37 +21,61 @@ const MoviePageWrapper = withActiveTab(MoviePage);
 
 
 class App extends PureComponent {
+
   _renderApp() {
-    if (this.props.filmToWatch) {
+    const {
+      filmToWatch,
+      onFilmToWatchClick,
+      activeFilm, films,
+      onActiveFilmClick,
+      filmsToRender,
+      film,
+      isLogging,
+      authorizationStatus,
+      login,
+      changeLoggingStatus
+    } = this.props;
+    if (filmToWatch) {
       return (
         <VideoPlayer
           type={`movie`}
           className={`player__video`}
           isPlaying={false}
-          videoSrc={this.props.filmToWatch.previewVideoLink}
-          posterSrc={this.props.filmToWatch.src}
-          onExitFilmButtonClick = {this.props.onFilmToWatchClick}
+          videoSrc={filmToWatch.videoLink}
+          posterSrc={filmToWatch.src}
+          onExitFilmButtonClick = {onFilmToWatchClick}
           isMuted
         />
       );
     }
-    if (this.props.activeFilm) {
+    if (activeFilm) {
       return (
         <MoviePageWrapper
-          onFilmWatch={this.props.onFilmToWatchClick}
-          film = {this.props.activeFilm}
-          films = {this.props.films}
-          onActiveFilm={this.props.onActiveFilmClick}
+          onFilmWatch={onFilmToWatchClick}
+          film = {activeFilm}
+          films = {films}
+          onActiveFilm={onActiveFilmClick}
+          authorizationStatus={authorizationStatus}
         />);
     }
+    if (isLogging) {
+      return (
+        <SignIn
+          onSubmit={login}
+        />);
+    }
+
     return (
       <Main
-        films={this.props.filmsToRender}
-        promoFilm={this.props.film}
-        onFilmWatch={this.props.onFilmToWatchClick}
+        onSignInClick={changeLoggingStatus}
+        films={filmsToRender}
+        promoFilm={film}
+        onFilmWatch={onFilmToWatchClick}
+        authorizationStatus={authorizationStatus}
       />);
   }
   render() {
+    const {activeFilm, films} = this.props;
     return (<BrowserRouter>
       <Switch>
         <Route exact path="/">
@@ -57,8 +83,8 @@ class App extends PureComponent {
         </Route>
         <Route exact path="/moviePage">
           <MoviePageWrapper
-            film={this.props.activeFilm}
-            films={this.props.films}
+            film={activeFilm}
+            films={films}
             onTitleClick={()=>{}}
           />
         </Route>
@@ -74,6 +100,12 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
   })).isRequired,
+  film: PropTypes.shape({
+    title: PropTypes.string,
+    genre: PropTypes.string,
+    date: PropTypes.number,
+    videoLink: PropTypes.string,
+  }).isRequired,
   filmsToRender: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -83,6 +115,10 @@ App.propTypes = {
   filmToWatch: PropTypes.any,
   onActiveFilmClick: PropTypes.func,
   onFilmToWatchClick: PropTypes.func,
+  login: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  isLogging: PropTypes.bool.isRequired,
+  changeLoggingStatus: PropTypes.func.isRequired,
 };
 
 
@@ -92,6 +128,8 @@ const mapStateToProps = (state) => ({
   filmsToRender: getFilmsToRender(state),
   activeFilm: getFilmActive(state),
   filmToWatch: getFilmToWatch(state),
+  isLogging: getLoggingStatus(state),
+  authorizationStatus: getAuthorizationStatus(state),
 });
 
 const mapStateToDispatch = (dispatch) =>({
@@ -101,6 +139,12 @@ const mapStateToDispatch = (dispatch) =>({
   onFilmToWatchClick: (film) => {
     dispatch(ActionCreator.setFilmToWatch(film));
   },
+  login: (authData) => {
+    dispatch(UserOperation.login(authData));
+  },
+  changeLoggingStatus: () => {
+    dispatch(ActionCreator.changeLoggingStatus());
+  }
 });
 
 export {App};

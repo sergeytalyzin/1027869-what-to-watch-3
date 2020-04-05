@@ -6,14 +6,19 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/app-status/app-status.js";
 import ShowMore from "../show-more/show-more.jsx";
 import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
-import {getAllFilms} from "../../reducer/data/selectors";
+import {getAllFilms, getFilmsToRender} from "../../reducer/data/selectors.js";
+import {getFilmsToShowCount} from "../../reducer/app-status/selectors.js";
+import {AuthorizationStatus} from "../../reducer/user/user";
+
+
 const GenreListWrapper = withActiveItem(GenreList);
 
 
 const Main = (props) => {
-  const {films, allListFilms, promoFilm, onGenreClick, onChangeGenre, onClickShowMore, onClickActiveFilm, onFilmWatch, filmsLength} = props;
+  const {films, allListFilms, promoFilm, onGenreClick, onChangeGenre,
+    showedFilmsAmount, onClickShowMore, onClickActiveFilm,
+    authorizationStatus, onFilmWatch, filmsLength, onSignInClick} = props;
   const {title, genre, date} = promoFilm;
-
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -33,9 +38,18 @@ const Main = (props) => {
         </div>
 
         <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-          </div>
+          {authorizationStatus === AuthorizationStatus.AUTH ? (
+            <div className="user-block__avatar">
+              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+            </div>
+          ) :
+            (
+              <a onClick={(evt)=>{
+                evt.preventDefault();
+                onSignInClick();
+              }}
+              href="#" className="user-block__link">Sign in</a>
+            )}
         </div>
       </header>
 
@@ -91,7 +105,8 @@ const Main = (props) => {
             films = {films}
           />
         </div>
-        {(filmsLength > films.length) &&
+
+        {(filmsLength >= showedFilmsAmount) &&
           <ShowMore onButtonClick={onClickShowMore}/>}
       </section>
 
@@ -113,6 +128,9 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+  onSignInClick: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  showedFilmsAmount: PropTypes.number,
   filmsLength: PropTypes.number,
   onChangeGenre: PropTypes.func.isRequired,
   onGenreClick: PropTypes.func.isRequired,
@@ -122,6 +140,12 @@ Main.propTypes = {
     date: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
   })).isRequired,
+  promoFilm: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -136,7 +160,8 @@ Main.propTypes = {
 
 const mapStateToProps = (state) => ({
   allListFilms: getAllFilms(state),
-  filmsLength: getAllFilms(state).length,
+  filmsLength: getFilmsToRender(state).length,
+  showedFilmsAmount: getFilmsToShowCount(state),
 });
 
 const mapStateToDispatch = (dispatch) =>({

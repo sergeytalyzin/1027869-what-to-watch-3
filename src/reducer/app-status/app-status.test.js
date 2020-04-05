@@ -49,9 +49,6 @@ const data = [
   },
 ];
 
-const filterFilm = (genre) => {
-  return data.filter((film)=>film.genre === genre);
-};
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer({

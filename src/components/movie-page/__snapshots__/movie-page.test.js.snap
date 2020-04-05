@@ -4,6 +4,11 @@ exports[`MoviePage is rendered correctly 1`] = `
 Array [
   <section
     className="movie-card movie-card--full"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
   >
     <div
       className="movie-card__hero"
@@ -12,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="Mindhunter"
+          src="somePath"
         />
       </div>
       <h1
@@ -146,7 +151,7 @@ Array [
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Mindhunter poster"
             height="327"
             src="img/mindhunter.jpg"
             width="218"
@@ -202,7 +207,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              3
+              4
             </div>
             <p
               className="movie-rating__meta"
@@ -210,12 +215,12 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Very good
+                Awesome
               </span>
               <span
                 className="movie-rating__count"
               >
-                111
+                433
                  ratings
               </span>
             </p>
@@ -235,7 +240,7 @@ Array [
             >
               <strong>
                 Director: 
-                Frank Sinatra
+                John Mason
               </strong>
             </p>
             <p

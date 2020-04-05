@@ -2,6 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {Main} from "./main.jsx";
+import {AuthorizationStatus} from "../../reducer/user/user";
 
 const data = [
   {
@@ -199,6 +200,9 @@ it(`Should title click be pressed`, () => {
     allListFilms={data}
     onClickShowMore={()=>{}}
     onClickActiveFilm={()=>{}}
+    onSignInClick={()=>{}}
+    authorizationStatus={AuthorizationStatus.AUTH}
+    promoFilm={data[0]}
     onFilmWatch={onClickButton}/>, {
     createNodeMock: () => {
       return {};
@@ -206,9 +210,9 @@ it(`Should title click be pressed`, () => {
   }
   );
 
-  const mainTitle = main.find(`.movie-card__button`);
+  const mainTitle = main.find(`.btn--play`);
 
   mainTitle.simulate(`click`, mockEvent);
 
-  expect(mainTitle.find(`.movie-card__button`).length).toEqual(1);
+  expect(mainTitle.find(`.btn--play`).length).toEqual(1);
 });

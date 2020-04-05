@@ -29,20 +29,17 @@ const ActionCreators = {
 
 const Operation = {
   loadFilms: () => (dispatch, getState, api) => {
-    console.log(`api`, api);
     return api.get(`/films`)
       .then((response) => {
+
         const newData = adaptFilmsData(response.data);
-        console.log(newData);
         dispatch(ActionCreators.loadFilms(newData));
       });
   },
-  promoFilm: (dispatch, getState, api) => {
-    console.log(api);
+  promoFilm: () => (dispatch, getState, api) => {
     return api.get(`/films/promo`)
       .then((response) => {
         const newData = adaptFilm(response.data);
-        console.log(newData);
         dispatch(ActionCreators.promoFilm(newData));
       });
   }

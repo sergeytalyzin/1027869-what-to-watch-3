@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Main} from "./main";
+import {AuthorizationStatus} from "../../reducer/user/user";
 
 const data = [
   {
@@ -189,7 +190,11 @@ it(`Should Main render correctly`, () => {
     allListFilms={data}
     onClickShowMore={()=>{}}
     onClickActiveFilm={()=>{}}
-    onFilmWatch={()=>{}}/>, {
+    onFilmWatch={()=>{}}
+    onSignInClick={()=>{}}
+    authorizationStatus={AuthorizationStatus.AUTH}
+    promoFilm={data[0]}
+  />, {
     createNodeMock: () => {
       return {};
     }

@@ -80,7 +80,6 @@ Array [
         >
           <h2
             className="movie-card__title"
-            onClick={[Function]}
           >
             Mindhunter
           </h2>

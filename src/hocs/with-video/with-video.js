@@ -115,7 +115,7 @@ const withVideo = (Component) => {
 
   WithVideo.propTypes = {
     isPlaying: PropTypes.bool.isRequired,
-    videoSrc: PropTypes.string.isRequired,
+    videoSrc: PropTypes.string,
     posterSrc: PropTypes.string.isRequired,
     isMuted: PropTypes.bool,
     heightAtr: PropTypes.number,

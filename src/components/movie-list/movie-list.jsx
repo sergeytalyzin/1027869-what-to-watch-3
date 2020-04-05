@@ -35,6 +35,6 @@ MovieList.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
   })).isRequired,
-  onActiveFilm: PropTypes.func.isRequired,
+  onActiveFilm: PropTypes.func,
 };
 export default MovieList;

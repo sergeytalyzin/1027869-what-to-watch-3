@@ -46,7 +46,7 @@ const SmallMovieCard = (props) => {
 export default SmallMovieCard;
 
 SmallMovieCard.propTypes = {
-  onActiveFilm: PropTypes.func.isRequired,
+  onActiveFilm: PropTypes.func,
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string.isRequired,

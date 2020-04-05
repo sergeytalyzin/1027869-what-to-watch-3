@@ -12,6 +12,9 @@ export default (data) => {
       actors: film.starring,
       previewVideoLink: film.preview_video_link,
       runTime: film.run_time,
+      bg: film.background_color,
+      bgSrc: film.background_image,
+      videoLink: film.video_link,
     }
     );
     delete newFilm.name;
@@ -43,5 +46,8 @@ export const adaptFilm = (film) => {
     director: film.director,
     previewVideoLink: film.preview_video_link,
     runTime: film.run_time,
+    bg: film.background_color,
+    bgSrc: film.background_image,
+    videoLink: film.video_link,
   };
 };

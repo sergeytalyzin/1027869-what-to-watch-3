@@ -1,5 +1,6 @@
 import {extend} from "../../utils.js";
 
+
 const FILMS_SHOWED_ON_START_AMOUNT = 8;
 const FILMS_SHOWED_INCREMENT_AMOUNT = 8;
 
@@ -7,7 +8,9 @@ const initialState = {
   genre: `All genres`,
   showedFilmsAmount: FILMS_SHOWED_INCREMENT_AMOUNT,
   activeFilm: null,
-  filmToWatch: null
+  filmToWatch: null,
+  isLogging: false,
+  isFormSending: false
 };
 
 const ActionType = {
@@ -16,6 +19,8 @@ const ActionType = {
   RESET_SHOWED: `Reset showed`,
   ADD_ACTIVE_FILM: `Add active film`,
   SET_FILM_TO_WATCH: `SET_FILM_TO_WATCH`,
+  CHANGE_FORM_SENDING_STATUS: `CHANGE_FORM_SENDING_STATUS`,
+  CHANGE_LOGGING_STATUS: `CHANGE_LOGGING_STATUS`,
 };
 
 const ActionCreator = {
@@ -37,6 +42,12 @@ const ActionCreator = {
   setFilmToWatch: (film) => ({
     type: ActionType.SET_FILM_TO_WATCH,
     payload: film
+  }),
+  changeFormSendingStatus: () =>({
+    type: ActionType.CHANGE_FORM_SENDING_STATUS,
+  }),
+  changeLoggingStatus: () =>({
+    type: ActionType.CHANGE_LOGGING_STATUS,
   }),
 };
 
@@ -61,6 +72,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_FILM_TO_WATCH:
       return extend(state, {
         filmToWatch: action.payload
+      });
+    case ActionType.CHANGE_FORM_SENDING_STATUS:
+      return extend(state, {
+        isFormSending: !state.isFormSending
+      });
+    case ActionType.CHANGE_LOGGING_STATUS:
+      return extend(state, {
+        isLogging: !state.isLogging
       });
   }
 
