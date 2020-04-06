@@ -25,7 +25,7 @@ class AddReview extends PureComponent{
   }
 
   render() {
-
+    const {addReviews} = this.props;
     const {src, bgSrc, title, id} = this.props.activeFilm;
 
 
@@ -102,7 +102,7 @@ class AddReview extends PureComponent{
               className="add-review__textarea" name="review-text" id="review-text"
               placeholder="Review text"/>
             <div className="add-review__submit">
-              <button className="add-review__btn" type="submit">Post</button>
+              <button onClick={addReviews} className="add-review__btn" type="submit">Post</button>
             </div>
 
           </div>
@@ -116,6 +116,7 @@ class AddReview extends PureComponent{
 }
 
 AddReview.propTypes = {
+  addReviews: PropTypes.func,
   onSubmit: PropTypes.func,
   activeFilm: PropTypes.shape({
     title: PropTypes.string,
@@ -123,7 +124,6 @@ AddReview.propTypes = {
     bgSrc: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired
   }),
-
 };
 
 export default AddReview;
