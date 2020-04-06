@@ -1,6 +1,6 @@
 import {extend} from "../../utils.js";
 import adaptFilmsData, {adaptFilm, adaptReview} from "./adapt-films-data.js";
-
+import {ActionCreator as AppActionCreator} from "../app-status/app-status.js";
 
 const initializeState = {
   films: [],
@@ -60,6 +60,9 @@ const Operation = {
       rating: review.rating,
       comment: review.comment
     })
+      .then(()=>{
+        dispatch(AppActionCreator.addReviews());
+      })
       .catch((err) => {
         throw err;
       });

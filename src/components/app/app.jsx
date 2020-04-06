@@ -58,9 +58,8 @@ class App extends PureComponent {
         <AddReview
           activeFilm = {activeFilm}
           onSubmit = {comment}
-          addReviews={addReviews}
         />
-      )
+      );
     }
     if (activeFilm) {
       return (

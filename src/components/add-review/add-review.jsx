@@ -102,7 +102,7 @@ class AddReview extends PureComponent{
               className="add-review__textarea" name="review-text" id="review-text"
               placeholder="Review text"/>
             <div className="add-review__submit">
-              <button onClick={addReviews} className="add-review__btn" type="submit">Post</button>
+              <button className="add-review__btn" type="submit">Post</button>
             </div>
 
           </div>
