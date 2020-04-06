@@ -14,10 +14,10 @@ const TABS = {
   REVIEWS: `Reviews`,
 };
 
-const activeToTab = (tab, film) => {
+const activeToTab = (tab, film, id) => {
   switch (tab) {
     case TABS.REVIEWS :
-      return <MoviePageReviews film={film}/>;
+      return <MoviePageReviews filmId = {id} film={film}/>;
     case TABS.DETAILS :
       return <MoviePageDetails film={film}/>;
     default :
@@ -25,7 +25,7 @@ const activeToTab = (tab, film) => {
   }
 };
 const MoviePage = (props) => {
-  const {authorizationStatus, films, film, activeTab, handleClickTab, onFilmWatch, onActiveFilm} = props;
+  const {authorizationStatus, films, film, activeTab, handleClickTab, onFilmWatch, onActiveFilm, addReviews} = props;
   const {title, genre, date, src, bg, bgSrc, id} = film;
   let moreLikeThisFilms = [];
   moreLikeThisFilms = films.filter((it)=> it.genre === genre && it.id !== id).slice(0, 4);
@@ -78,7 +78,12 @@ const MoviePage = (props) => {
                 <span>My list</span>
               </button>
               {authorizationStatus === AuthorizationStatus.AUTH &&
-              (<a href="add-review.html" className="btn movie-card__button">Add review</a>)}
+              (<a onClick={(e) => {
+                e.preventDefault();
+                addReviews();
+              }}
+
+              href="#" className="btn movie-card__button">Add review</a>)}
             </div>
           </div>
         </div>
@@ -95,7 +100,7 @@ const MoviePage = (props) => {
             <nav className="movie-nav movie-card__nav">
               {<Tabs activeTab={activeTab} handleClickTab={handleClickTab}/>}
             </nav>
-            {activeToTab(activeTab, film)}
+            {activeToTab(activeTab, film, id)}
           </div>
         </div>
       </div>
@@ -139,7 +144,7 @@ MoviePage.propTypes = {
         src: PropTypes.string.isRequired,
         rating: PropTypes.number.isRequired,
         ratingCount: PropTypes.number.isRequired,
-        ratingLevel: PropTypes.string.isRequired,
+        ratingLevel: PropTypes.number.isRequired,
         description: PropTypes.string.isRequired,
         actors: PropTypes.arrayOf.isRequired,
         director: PropTypes.string.isRequired,
@@ -152,7 +157,7 @@ MoviePage.propTypes = {
     src: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     ratingCount: PropTypes.number.isRequired,
-    ratingLevel: PropTypes.string.isRequired,
+    ratingLevel: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     actors: PropTypes.arrayOf.isRequired,
     director: PropTypes.string.isRequired,
@@ -161,6 +166,7 @@ MoviePage.propTypes = {
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
+  addReviews: PropTypes.func.isRequired,
 };
 
 

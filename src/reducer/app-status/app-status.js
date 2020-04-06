@@ -10,10 +10,12 @@ const initialState = {
   activeFilm: null,
   filmToWatch: null,
   isLogging: false,
-  isFormSending: false
+  isFormSending: false,
+  isAddReviews: false,
 };
 
 const ActionType = {
+  ADD_REVIEWS: `Add Reviews`,
   CHANGE_GENRE: `Change genre`,
   INCREMENT_SHOWED: `Increment showed`,
   RESET_SHOWED: `Reset showed`,
@@ -49,6 +51,9 @@ const ActionCreator = {
   changeLoggingStatus: () =>({
     type: ActionType.CHANGE_LOGGING_STATUS,
   }),
+  addReviews: () =>({
+    type: ActionType.ADD_REVIEWS,
+  }),
 };
 
 const reducer = (state = initialState, action) => {
@@ -80,6 +85,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_LOGGING_STATUS:
       return extend(state, {
         isLogging: !state.isLogging
+      });
+    case ActionType.ADD_REVIEWS:
+      return extend(state, {
+        isAddReviews: !state.isAddReviews
       });
   }
 

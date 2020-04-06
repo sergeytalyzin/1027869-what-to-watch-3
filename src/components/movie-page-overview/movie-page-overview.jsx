@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {getTextRating} from "../../utils.js";
 
 const MoviePageOverview = (props) => {
 
@@ -8,8 +9,8 @@ const MoviePageOverview = (props) => {
     <div className="movie-rating">
       <div className="movie-rating__score">{rating}</div>
       <p className="movie-rating__meta">
-        <span className="movie-rating__level">{ratingLevel}</span>
-        <span className="movie-rating__count">{ratingCount} ratings</span>
+        <span className="movie-rating__level">{getTextRating(ratingLevel)}</span>
+        <span className="movie-rating__count">{ratingCount}</span>
       </p>
     </div>
 
@@ -32,7 +33,7 @@ MoviePageOverview.propTypes = {
     posterBig: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     ratingCount: PropTypes.number.isRequired,
-    ratingLevel: PropTypes.string.isRequired,
+    ratingLevel: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     actors: PropTypes.arrayOf.isRequired,
     director: PropTypes.string.isRequired,

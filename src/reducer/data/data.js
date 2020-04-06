@@ -1,48 +1,69 @@
 import {extend} from "../../utils.js";
-import adaptFilmsData, {adaptFilm} from "./adapt-films-data.js";
+import adaptFilmsData, {adaptFilm, adaptReview} from "./adapt-films-data.js";
 
 
 const initializeState = {
   films: [],
-  promoFilm: {}
+  promoFilm: {},
+  reviews: [],
 };
 
 const ActionTypes = {
   LOAD_FILMS: `LOAD_FILMS`,
-  PROMO_FILM: `PROMO_FILM`
+  PROMO_FILM: `PROMO_FILM`,
+  LOAD_REVIEWS: `LOAD_REVIEWS`,
 };
 
 const ActionCreators = {
   loadFilms: (films) => {
     return {
       type: ActionTypes.LOAD_FILMS,
-      payload: films
+      payload: adaptFilmsData(films)
     };
   },
   promoFilm: (film) => {
     return {
       type: ActionTypes.PROMO_FILM,
-      payload: film
+      payload: adaptFilm(film)
     };
-  }
+  },
+  loadReviews: (reviews) => {
+    return {
+      type: ActionTypes.LOAD_REVIEWS,
+      payload: reviews
+    };
+  },
 };
 
 const Operation = {
   loadFilms: () => (dispatch, getState, api) => {
     return api.get(`/films`)
       .then((response) => {
-
-        const newData = adaptFilmsData(response.data);
-        dispatch(ActionCreators.loadFilms(newData));
+        dispatch(ActionCreators.loadFilms(response.data));
       });
   },
   promoFilm: () => (dispatch, getState, api) => {
     return api.get(`/films/promo`)
       .then((response) => {
-        const newData = adaptFilm(response.data);
-        dispatch(ActionCreators.promoFilm(newData));
+        dispatch(ActionCreators.promoFilm(response.data));
       });
-  }
+  },
+  loadReviews: (id) => (dispatch, getState, api) => {
+    return api.get(`/comments/${id}`)
+      .then((response)=>{
+        const newData = adaptReview(response.data);
+        dispatch(ActionCreators.loadReviews(newData));
+      });
+  },
+  postReview: (id, review) => (dispatch, getState, api) => {
+    return api.post(`/comments/${id}`, {
+      rating: review.rating,
+      comment: review.comment
+    })
+      .catch((err) => {
+        throw err;
+      });
+  },
 };
 
 
@@ -55,6 +76,10 @@ const reducer = (state = initializeState, action) => {
     case ActionTypes.PROMO_FILM:
       return extend(state, {
         promoFilm: action.payload
+      });
+    case ActionTypes.LOAD_REVIEWS:
+      return extend(state, {
+        reviews: action.payload,
       });
   }
   return state;

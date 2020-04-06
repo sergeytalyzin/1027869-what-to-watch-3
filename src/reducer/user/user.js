@@ -1,6 +1,7 @@
 import {extend} from "../../utils.js";
 import {ActionCreator as AppActionCreators} from "../app-status/app-status.js";
 
+
 const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
@@ -11,7 +12,7 @@ const initialState = {
 };
 
 const ActionTypes = {
-  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`
+  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
 };
 
 const ActionCreators = {

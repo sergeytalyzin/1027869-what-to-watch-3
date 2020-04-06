@@ -8,11 +8,13 @@ import {connect} from "react-redux";
 import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
 import withVideo from "../../hocs/with-video/with-video.js";
 import {ActionCreator} from "../../reducer/app-status/app-status.js";
-import {getFilmActive, getFilmToWatch, getLoggingStatus} from "../../reducer/app-status/selectors.js";
+import {getFilmActive, getFilmToWatch, getLoggingStatus, getAddReviews} from "../../reducer/app-status/selectors.js";
 import {getFilmsToRender, getAllFilms, getPromoFilm} from "../../reducer/data/selectors.js";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
+import {Operation as DataOperation} from "../../reducer/data/data.js";
 import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 import SignIn from "../sign-in/sign-in.jsx";
+import AddReview from "../add-review/add-review.jsx";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -33,7 +35,10 @@ class App extends PureComponent {
       isLogging,
       authorizationStatus,
       login,
-      changeLoggingStatus
+      changeLoggingStatus,
+      addReviews,
+      isAddReviews,
+      comment
     } = this.props;
     if (filmToWatch) {
       return (
@@ -48,6 +53,14 @@ class App extends PureComponent {
         />
       );
     }
+    if (isAddReviews) {
+      return (
+        <AddReview
+          activeFilm = {activeFilm}
+          onSubmit = {comment}
+        />
+      )
+    }
     if (activeFilm) {
       return (
         <MoviePageWrapper
@@ -56,6 +69,7 @@ class App extends PureComponent {
           films = {films}
           onActiveFilm={onActiveFilmClick}
           authorizationStatus={authorizationStatus}
+          addReviews = {addReviews}
         />);
     }
     if (isLogging) {
@@ -64,6 +78,7 @@ class App extends PureComponent {
           onSubmit={login}
         />);
     }
+
 
     return (
       <Main
@@ -88,11 +103,18 @@ class App extends PureComponent {
             onTitleClick={()=>{}}
           />
         </Route>
+        <Route exact path="/dev-review">
+          <AddReview
+            activeFilm = {films[0]}
+          />
+        </Route>
       </Switch>
     </BrowserRouter>);
   }
 
 }
+
+
 
 App.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -119,6 +141,9 @@ App.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   isLogging: PropTypes.bool.isRequired,
   changeLoggingStatus: PropTypes.func.isRequired,
+  addReviews: PropTypes.func.isRequired,
+  isAddReviews: PropTypes.bool.isRequired,
+  comment: PropTypes.func.isRequired,
 };
 
 
@@ -130,6 +155,7 @@ const mapStateToProps = (state) => ({
   filmToWatch: getFilmToWatch(state),
   isLogging: getLoggingStatus(state),
   authorizationStatus: getAuthorizationStatus(state),
+  isAddReviews: getAddReviews(state),
 });
 
 const mapStateToDispatch = (dispatch) =>({
@@ -144,6 +170,12 @@ const mapStateToDispatch = (dispatch) =>({
   },
   changeLoggingStatus: () => {
     dispatch(ActionCreator.changeLoggingStatus());
+  },
+  addReviews: () => {
+    dispatch(ActionCreator.addReviews());
+  },
+  comment: (id, review) => {
+    dispatch(DataOperation.postReview(id, review));
   }
 });
 

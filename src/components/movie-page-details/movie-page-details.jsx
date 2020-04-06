@@ -48,7 +48,7 @@ MoviePageDetails.propTypes = {
     description: PropTypes.string.isRequired,
     actors: PropTypes.arrayOf.isRequired,
     director: PropTypes.string.isRequired,
-    runTime: PropTypes.string.isRequired,
+    runTime: PropTypes.number.isRequired,
   }).isRequired,
 };
 
