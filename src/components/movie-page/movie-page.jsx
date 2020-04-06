@@ -26,9 +26,9 @@ const activeToTab = (tab, film) => {
 };
 const MoviePage = (props) => {
   const {authorizationStatus, films, film, activeTab, handleClickTab, onFilmWatch, onActiveFilm} = props;
-  const {title, genre, date, src, bg, bgSrc} = film;
+  const {title, genre, date, src, bg, bgSrc, id} = film;
   let moreLikeThisFilms = [];
-  moreLikeThisFilms = films.filter((it)=> it.genre === genre).slice(0, 4);
+  moreLikeThisFilms = films.filter((it)=> it.genre === genre && it.id !== id).slice(0, 4);
   return (<React.Fragment>
     <section className="movie-card movie-card--full" style={{backgroundColor: `${bg}`}}>
       <div className="movie-card__hero">
@@ -145,6 +145,7 @@ MoviePage.propTypes = {
         director: PropTypes.string.isRequired,
       })).isRequired,
   film: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,

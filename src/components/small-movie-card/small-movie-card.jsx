@@ -8,10 +8,12 @@ let timer;
 
 const SmallMovieCard = (props) => {
   const {onActiveFilm, film, active, handleClickItem} = props;
-  const {src, previewVideoLink, title} = film;
+  const {posterBig, previewVideoLink, title} = film;
+
   return (
     <article
-      onClick = {()=>{
+      onClick = {(e)=>{
+        e.preventDefault();
         clearTimeout(timer);
         onActiveFilm(film);
       }}
@@ -29,7 +31,7 @@ const SmallMovieCard = (props) => {
         <VideoPlayer
           isPlaying={active === film}
           videoSrc={previewVideoLink}
-          posterSrc={src}
+          posterSrc={posterBig}
           widthAtr={280}
           heightAtr={175}
           isMuted
@@ -37,7 +39,7 @@ const SmallMovieCard = (props) => {
         />
       </div>
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{title}</a>
+        <a className="small-movie-card__link" href="#">{title}</a>
       </h3>
     </article>
   );
@@ -50,7 +52,7 @@ SmallMovieCard.propTypes = {
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    posterBig: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
   active: PropTypes.object.isRequired,

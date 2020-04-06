@@ -25,6 +25,7 @@ export default (data) => {
     delete newFilm.starring;
     delete newFilm.preview_video_link;
     delete newFilm.run_time;
+    delete newFilm.background_image;
     return newFilm;
   });
   return newData;

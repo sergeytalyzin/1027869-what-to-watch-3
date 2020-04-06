@@ -18,12 +18,12 @@ const Main = (props) => {
   const {films, allListFilms, promoFilm, onGenreClick, onChangeGenre,
     showedFilmsAmount, onClickShowMore, onClickActiveFilm,
     authorizationStatus, onFilmWatch, filmsLength, onSignInClick} = props;
-  const {title, genre, date} = promoFilm;
+  const {title, genre, date, bgSrc, src} = promoFilm;
 
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+        <img src={bgSrc} alt={title}/>
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -56,7 +56,7 @@ const Main = (props) => {
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+            <img src={src} alt={title} width="218"
               height="327"/>
           </div>
 
@@ -128,6 +128,7 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
+
   onSignInClick: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   showedFilmsAmount: PropTypes.number,
@@ -141,10 +142,12 @@ Main.propTypes = {
     id: PropTypes.number.isRequired,
   })).isRequired,
   promoFilm: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    title: PropTypes.string,
+    genre: PropTypes.string,
+    date: PropTypes.number,
+    id: PropTypes.number,
+    bgSrc: PropTypes.string,
+    src: PropTypes.string,
   }).isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
