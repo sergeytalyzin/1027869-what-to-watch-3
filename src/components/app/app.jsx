@@ -17,6 +17,7 @@ import SignIn from "../sign-in/sign-in.jsx";
 import AddReview from "../add-review/add-review.jsx";
 import history from "../../history.js";
 import {AppRoute} from "../../const.js";
+import MyList from "../my-list/my-list.jsx";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -26,56 +27,56 @@ const MoviePageWrapper = withActiveTab(MoviePage);
 
 class App extends PureComponent {
 
-  _renderApp() {
-    const {
-      filmToWatch,
-      onFilmToWatchClick,
-      activeFilm, films,
-      onActiveFilmClick,
-      filmsToRender,
-      film,
-      isLogging,
-      authorizationStatus,
-      login,
-      changeLoggingStatus,
-      addReviews,
-      isAddReviews,
-      comment
-    } = this.props;
-    if (filmToWatch) {
-      return history.push(AppRoute.PLAYER);
-    }
-    if (isAddReviews) {
-      return history.push(AppRoute.REVIEW);
-    }
-    // if (activeFilm) {
-    //   return (
-    //     <MoviePageWrapper
-    //       onFilmWatch={onFilmToWatchClick}
-    //       film = {activeFilm}
-    //       films = {films}
-    //       onActiveFilm={onActiveFilmClick}
-    //       authorizationStatus={authorizationStatus}
-    //       addReviews = {addReviews}
-    //     />);
-    // }
-    // if (isLogging) {
-    //   return (
-    //     <SignIn
-    //       onSubmit={login}
-    //     />);
-    // }
+  // _renderApp() {
+  //   const {
+  //     filmToWatch,
+  //     onFilmToWatchClick,
+  //     activeFilm, films,
+  //     onActiveFilmClick,
+  //     filmsToRender,
+  //     film,
+  //     isLogging,
+  //     authorizationStatus,
+  //     login,
+  //     changeLoggingStatus,
+  //     addReviews,
+  //     isAddReviews,
+  //     comment
+  //   } = this.props;
+  // if (filmToWatch) {
+  //   return history.push(AppRoute.PLAYER);
+  // }
+  // if (isAddReviews) {
+  //   return history.push(AppRoute.REVIEW);
+  // }
+  // if (activeFilm) {
+  //   return (
+  //     <MoviePageWrapper
+  //       onFilmWatch={onFilmToWatchClick}
+  //       film = {activeFilm}
+  //       films = {films}
+  //       onActiveFilm={onActiveFilmClick}
+  //       authorizationStatus={authorizationStatus}
+  //       addReviews = {addReviews}
+  //     />);
+  // }
+  // if (isLogging) {
+  //   return (
+  //     <SignIn
+  //       onSubmit={login}
+  //     />);
+  // }
 
 
-    return (
-      <Main
-        onSignInClick={changeLoggingStatus}
-        films={filmsToRender}
-        promoFilm={film}
-        onFilmWatch={onFilmToWatchClick}
-        authorizationStatus={authorizationStatus}
-      />);
-  }
+  //   return (
+  //     <Main
+  //       onSignInClick={changeLoggingStatus}
+  //       films={filmsToRender}
+  //       promoFilm={film}
+  //       onFilmWatch={onFilmToWatchClick}
+  //       authorizationStatus={authorizationStatus}
+  //     />);
+  // }
   render() {
     const {
       filmToWatch,
@@ -84,12 +85,21 @@ class App extends PureComponent {
       onActiveFilmClick,
       authorizationStatus,
       addReviews,
-      comment
+      comment,
+      filmsToRender,
+      changeLoggingStatus,
+      film,
     } = this.props;
     return (<Router history={history}>
       <Switch>
         <Route exact path={AppRoute.ROOT}>
-          {this._renderApp()}
+          <Main
+            onSignInClick={changeLoggingStatus}
+            films={filmsToRender}
+            promoFilm={film}
+            onFilmWatch={onFilmToWatchClick}
+            authorizationStatus={authorizationStatus}
+          />);
         </Route>
         <Route exact path={AppRoute.SIGN_IN}>
           <SignIn onSubmit={this.props.login}/>
@@ -110,21 +120,24 @@ class App extends PureComponent {
             onSubmit = {comment}
           />
         </Route>
-        <Route exact path={AppRoute.PLAYER}>
-          <VideoPlayer
-            type={`movie`}
-            className={`player__video`}
-            isPlaying={false}
-            videoSrc={filmToWatch.videoLink}
-            posterSrc={filmToWatch.src}
-            onExitFilmButtonClick = {onFilmToWatchClick}
-            isMuted
-          />
-        </Route>
+        <Route exact path={AppRoute.PLAYER}
+          render={()=>
+            <VideoPlayer
+              type={`movie`}
+              className={`player__video`}
+              isPlaying={false}
+              videoSrc={filmToWatch.videoLink}
+              posterSrc={filmToWatch.src}
+              onExitFilmButtonClick = {onFilmToWatchClick}
+              isMuted
+            />
+          }/>
+        <Route exact path={AppRoute.MY_LIST}
+          render={()=><MyList/>}
+        />
       </Switch>
     </Router>);
   }
-
 }
 
 
@@ -188,7 +201,10 @@ const mapStateToDispatch = (dispatch) =>({
   },
   comment: (id, review) => {
     dispatch(DataOperation.postReview(id, review));
-  }
+  },
+  loadFavoriteFilms() {
+    dispatch(DataOperation.loadFavoriteFilms());
+  },
 });
 
 export {App};

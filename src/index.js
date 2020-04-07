@@ -24,6 +24,7 @@ const store = createStore(reducer, composeWithDevTools(
 store.dispatch(DataOperation.loadFilms());
 store.dispatch(DataOperation.promoFilm());
 store.dispatch(UserOperation.checkAuth());
+store.dispatch(DataOperation.loadFavoriteFilms());
 
 
 ReactDOM.render(

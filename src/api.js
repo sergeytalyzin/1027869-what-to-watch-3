@@ -1,4 +1,6 @@
 import axios from "axios";
+import history from "./history.js";
+import {AppRoute} from "./const.js";
 
 const Error = {
   UNRESOLVED: 401,
@@ -20,6 +22,7 @@ export const createAPI = (onUnresolved) => {
 
     if (response.status === Error.UNRESOLVED) {
       onUnresolved();
+      history.push(AppRoute.SIGN_IN);
     }
     throw err;
   };

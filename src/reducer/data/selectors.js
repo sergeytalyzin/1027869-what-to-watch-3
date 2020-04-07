@@ -14,6 +14,10 @@ export const getReviews = (state) => {
   return state[NameSpace.DATA].reviews;
 };
 
+export const getFavoriteList = (state) => {
+  return state[NameSpace.DATA].favoriteFilmsList;
+};
+
 
 export const getFilmsToRender = createSelector(
     getAllFilms,

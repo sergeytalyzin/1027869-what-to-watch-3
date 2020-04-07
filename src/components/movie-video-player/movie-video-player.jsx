@@ -1,5 +1,7 @@
 import React, {PureComponent, createRef, Fragment} from "react";
 import PropTypes from "prop-types";
+import history from "../../history.js";
+import {AppRoute} from "../../const.js";
 
 const convertVideoTime = (time) => {
   let seconds;
@@ -49,7 +51,11 @@ class MovieVideoPlayer extends PureComponent {
           <div ref={this._rootElRef} className="player">
             {children}
 
-            <button type="button" onClick={() => onExitFilmButtonClick(null)} className="player__exit">Exit</button>
+            <button type="button" onClick={() => {
+              onExitFilmButtonClick(null);
+              history.push(AppRoute.ROOT);
+            }
+            } className="player__exit">Exit</button>
 
             <div className="player__controls">
               <div className="player__controls-row">
