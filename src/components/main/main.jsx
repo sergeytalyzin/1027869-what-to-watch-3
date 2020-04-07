@@ -9,6 +9,10 @@ import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
 import {getAllFilms, getFilmsToRender} from "../../reducer/data/selectors.js";
 import {getFilmsToShowCount} from "../../reducer/app-status/selectors.js";
 import {AuthorizationStatus} from "../../reducer/user/user";
+import {Link} from "react-router-dom";
+import history from "../../history.js";
+import {AppRoute} from "../../const.js";
+
 
 
 const GenreListWrapper = withActiveItem(GenreList);
@@ -44,11 +48,13 @@ const Main = (props) => {
             </div>
           ) :
             (
-              <a onClick={(evt)=>{
-                evt.preventDefault();
-                onSignInClick();
-              }}
-              href="#" className="user-block__link">Sign in</a>
+              <Link
+                to={AppRoute.SIGN_IN}
+              //   onClick={(evt)=>{
+              //   evt.preventDefault();
+              //   onSignInClick();
+              // }}
+              href="#" className="user-block__link">Sign in</Link>
             )}
         </div>
       </header>
@@ -70,6 +76,7 @@ const Main = (props) => {
             <div className="movie-card__buttons">
               <button onClick={()=>{
                 onFilmWatch(films[0]);
+                history.push(AppRoute.PLAYER);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"/>

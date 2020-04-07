@@ -6,6 +6,9 @@ import MoviePageDetails from "../movie-page-details/movie-page-details.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import Tabs from "../tabs/tabs.jsx";
 import {AuthorizationStatus} from "../../reducer/user/user";
+import {Link} from "react-router-dom";
+import history from "../../history.js";
+import {AppRoute} from "../../const";
 
 
 const TABS = {
@@ -65,6 +68,7 @@ const MoviePage = (props) => {
             <div className="movie-card__buttons">
               <button onClick={()=>{
                 onFilmWatch(film);
+                history.push(AppRoute.PLAYER);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
@@ -78,12 +82,12 @@ const MoviePage = (props) => {
                 <span>My list</span>
               </button>
               {authorizationStatus === AuthorizationStatus.AUTH &&
-              (<a onClick={(e) => {
+              (<Link to={AppRoute.REVIEW} onClick={(e) => {
                 e.preventDefault();
                 addReviews();
               }}
 
-              href="#" className="btn movie-card__button">Add review</a>)}
+              href="#" className="btn movie-card__button">Add review</Link>)}
             </div>
           </div>
         </div>

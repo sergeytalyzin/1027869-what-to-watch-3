@@ -1,5 +1,8 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
+import history from "../../history";
+import {AppRoute} from "../../const.js";
+
 
 const LENGHT = {
   MIN: 50,
@@ -22,10 +25,10 @@ class AddReview extends PureComponent{
       rating: this.ratingRef.current.elements.rating.value,
       comment: this.commentRef.current.value
     });
+    history.push(AppRoute.MOVIE_PAGE);
   }
 
   render() {
-    const {addReviews} = this.props;
     const {src, bgSrc, title, id} = this.props.activeFilm;
 
 
@@ -116,7 +119,6 @@ class AddReview extends PureComponent{
 }
 
 AddReview.propTypes = {
-  addReviews: PropTypes.func,
   onSubmit: PropTypes.func,
   activeFilm: PropTypes.shape({
     title: PropTypes.string,

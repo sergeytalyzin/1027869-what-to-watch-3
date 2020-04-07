@@ -97,7 +97,7 @@ const withVideo = (Component) => {
     }
 
     render() {
-      const {posterSrc, videoSrc, widthAtr = null, heightAtr = null, className = ``} = this.props;
+      const {posterSrc, videoSrc, widthAtr = null, heightAtr = null, className = `test`} = this.props;
       const {isPlaying, isFullScreen, progressInSeconds, progressInPercent} = this.state;
       return <Component
         {...this.props}

@@ -1,5 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from 'prop-types';
+import history from "../../history.js";
+import {AppRoute} from "../../const.js";
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -20,6 +22,7 @@ class SignIn extends PureComponent {
       password: this.loginRef.current.value,
     });
 
+    history.push(AppRoute.ROOT);
   }
 
 

@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import MovieVideoPlayer from "../movie-video-player/movie-video-player.jsx";
 import withVideo from "../../hocs/with-video/with-video.js";
+import history from "../../history.js";
+import {AppRoute} from "../../const.js";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 let timer;
@@ -16,6 +18,7 @@ const SmallMovieCard = (props) => {
         e.preventDefault();
         clearTimeout(timer);
         onActiveFilm(film);
+        history.push(AppRoute.MOVIE_PAGE);
       }}
       onMouseEnter={()=>{
         timer = setTimeout(()=>{

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router} from "react-router-dom";
 import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page.jsx";
@@ -15,6 +15,8 @@ import {Operation as DataOperation} from "../../reducer/data/data.js";
 import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import AddReview from "../add-review/add-review.jsx";
+import history from "../../history.js";
+import {AppRoute} from "../../const.js";
 
 const VideoPlayer = withVideo(MovieVideoPlayer);
 
@@ -41,43 +43,28 @@ class App extends PureComponent {
       comment
     } = this.props;
     if (filmToWatch) {
-      return (
-        <VideoPlayer
-          type={`movie`}
-          className={`player__video`}
-          isPlaying={false}
-          videoSrc={filmToWatch.videoLink}
-          posterSrc={filmToWatch.src}
-          onExitFilmButtonClick = {onFilmToWatchClick}
-          isMuted
-        />
-      );
+      return history.push(AppRoute.PLAYER);
     }
     if (isAddReviews) {
-      return (
-        <AddReview
-          activeFilm = {activeFilm}
-          onSubmit = {comment}
-        />
-      );
+      return history.push(AppRoute.REVIEW);
     }
-    if (activeFilm) {
-      return (
-        <MoviePageWrapper
-          onFilmWatch={onFilmToWatchClick}
-          film = {activeFilm}
-          films = {films}
-          onActiveFilm={onActiveFilmClick}
-          authorizationStatus={authorizationStatus}
-          addReviews = {addReviews}
-        />);
-    }
-    if (isLogging) {
-      return (
-        <SignIn
-          onSubmit={login}
-        />);
-    }
+    // if (activeFilm) {
+    //   return (
+    //     <MoviePageWrapper
+    //       onFilmWatch={onFilmToWatchClick}
+    //       film = {activeFilm}
+    //       films = {films}
+    //       onActiveFilm={onActiveFilmClick}
+    //       authorizationStatus={authorizationStatus}
+    //       addReviews = {addReviews}
+    //     />);
+    // }
+    // if (isLogging) {
+    //   return (
+    //     <SignIn
+    //       onSubmit={login}
+    //     />);
+    // }
 
 
     return (
@@ -90,30 +77,55 @@ class App extends PureComponent {
       />);
   }
   render() {
-    const {activeFilm, films} = this.props;
-    return (<BrowserRouter>
+    const {
+      filmToWatch,
+      onFilmToWatchClick,
+      activeFilm, films,
+      onActiveFilmClick,
+      authorizationStatus,
+      addReviews,
+      comment
+    } = this.props;
+    return (<Router history={history}>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={AppRoute.ROOT}>
           {this._renderApp()}
         </Route>
-        <Route exact path="/moviePage">
+        <Route exact path={AppRoute.SIGN_IN}>
+          <SignIn onSubmit={this.props.login}/>
+        </Route>
+        <Route exact path={AppRoute.MOVIE_PAGE}>
           <MoviePageWrapper
-            film={activeFilm}
-            films={films}
-            onTitleClick={()=>{}}
+            onFilmWatch={onFilmToWatchClick}
+            film = {activeFilm}
+            films = {films}
+            onActiveFilm={onActiveFilmClick}
+            authorizationStatus={authorizationStatus}
+            addReviews = {addReviews}
           />
         </Route>
-        <Route exact path="/dev-review">
+        <Route exact path={AppRoute.REVIEW}>
           <AddReview
-            activeFilm = {films[0]}
+            activeFilm = {activeFilm}
+            onSubmit = {comment}
+          />
+        </Route>
+        <Route exact path={AppRoute.PLAYER}>
+          <VideoPlayer
+            type={`movie`}
+            className={`player__video`}
+            isPlaying={false}
+            videoSrc={filmToWatch.videoLink}
+            posterSrc={filmToWatch.src}
+            onExitFilmButtonClick = {onFilmToWatchClick}
+            isMuted
           />
         </Route>
       </Switch>
-    </BrowserRouter>);
+    </Router>);
   }
 
 }
-
 
 
 App.propTypes = {
