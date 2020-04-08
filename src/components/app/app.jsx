@@ -42,44 +42,56 @@ class App extends PureComponent {
     } = this.props;
     return (<Router history={history}>
       <Switch>
-        <Route exact path={AppRoute.ROOT}>
-          <Main
-            loadFavoriteFilms={loadFavoriteFilms}
-            postFavoriteFilms={postFavoriteFilms}
-            films={filmsToRender}
-            promoFilm={film}
-            onFilmWatch={onFilmToWatchClick}
-            authorizationStatus={authorizationStatus}
-          />);
-        </Route>
-        <Route exact path={AppRoute.SIGN_IN}>
-          <SignIn onSubmit={this.props.login}/>
-        </Route>
-        <Route exact path={AppRoute.MOVIE_PAGE}>
-          <MoviePageWrapper
-            loadFavoriteFilms={loadFavoriteFilms}
-            postFavoriteFilms={postFavoriteFilms}
-            onFilmWatch={onFilmToWatchClick}
-            film = {activeFilm}
-            films = {films}
-            onActiveFilm={onActiveFilmClick}
-            authorizationStatus={authorizationStatus}
-          />
-        </Route>
-        <Route exact path={AppRoute.REVIEW}>
-          <AddReview
-            activeFilm = {activeFilm}
-            onSubmit = {comment}
-          />
-        </Route>
-        <Route exact path={AppRoute.PLAYER}
+        <Route exact path={AppRoute.ROOT}
+          render={() =>
+            <Main
+              loadFavoriteFilms={loadFavoriteFilms}
+              postFavoriteFilms={postFavoriteFilms}
+              films={filmsToRender}
+              promoFilm={film}
+              onFilmWatch={onFilmToWatchClick}
+              authorizationStatus={authorizationStatus}
+            />
+          }
+        />
+        <Route exact path={AppRoute.SIGN_IN}
           render={()=>
+            <SignIn onSubmit={this.props.login}/>
+          }
+        />
+        <PrivateRoute
+          auth={authorizationStatus}
+          render={()=>
+            <MoviePageWrapper
+              loadFavoriteFilms={loadFavoriteFilms}
+              postFavoriteFilms={postFavoriteFilms}
+              onFilmWatch={onFilmToWatchClick}
+              film = {activeFilm}
+              films = {films}
+              onActiveFilm={onActiveFilmClick}
+              authorizationStatus={authorizationStatus}
+              exact
+              path={`${AppRoute.MOVIE_PAGE}/:id`}
+            />
+          }
+        />
+        <Route exact path={`${AppRoute.FILMS}/:id${AppRoute.REVIEW}`}
+          render={()=>
+            <AddReview
+              activeFilm = {activeFilm}
+              onSubmit = {comment}
+            />
+          }
+        />
+        <PrivateRoute exact path={`${AppRoute.FILMS}/:id${AppRoute.PLAYER}`}
+          auth={authorizationStatus}
+          render={(a)=>
             <VideoPlayer
               type={`movie`}
               className={`player__video`}
               isPlaying={false}
-              videoSrc={filmToWatch.videoLink}
-              posterSrc={filmToWatch.src}
+              videoSrc={a.videoLink}
+              posterSrc={a.src}
               onExitFilmButtonClick = {onFilmToWatchClick}
               isMuted
             />

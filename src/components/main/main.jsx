@@ -29,6 +29,8 @@ const Main = (props) => {
       loadFavoriteFilms();
     }
   };
+
+
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -77,17 +79,23 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button onClick={()=>{
-                onFilmWatch(films[0]);
-                history.push(AppRoute.PLAYER);
-              }} className="btn btn--play movie-card__button" type="button">
+              <button
+                onClick={()=>{
+                  onFilmWatch(films[0]);
+                  history.push(`${AppRoute.FILMS}/:${id}${AppRoute.PLAYER}`);
+                }}
+                className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"/>
                 </svg>
                 <span>Play</span>
               </button>
-              <button onClick={changeFavorite}
-                className="btn btn--list movie-card__button movie-card__button--favorite" type="button">
+              <button onClick={() => {
+                changeFavorite();
+                history.push(AppRoute.ROOT)
+              }
+              }
+              className="btn btn--list movie-card__button movie-card__button--favorite" type="button">
                 <svg viewBox="0 0 19 20" fill="red" width="19" height="20">
                   <use xlinkHref="#add"/>
                 </svg>
@@ -139,8 +147,6 @@ const Main = (props) => {
   );
 };
 Main.propTypes = {
-
-  onSignInClick: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   showedFilmsAmount: PropTypes.number,
   filmsLength: PropTypes.number,
@@ -159,7 +165,6 @@ Main.propTypes = {
     id: PropTypes.number,
     bgSrc: PropTypes.string,
     src: PropTypes.string,
-    isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,

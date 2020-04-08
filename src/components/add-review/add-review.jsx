@@ -19,13 +19,14 @@ class AddReview extends PureComponent {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(id) {
+  handleSubmit(filmId) {
+    const {id} = this.props.activeFilm;
     const {onSubmit} = this.props;
-    onSubmit(id, {
+    onSubmit(filmId, {
       rating: this.ratingRef.current.elements.rating.value,
       comment: this.commentRef.current.value
     });
-    history.push(AppRoute.MOVIE_PAGE);
+    history.push(`${AppRoute.MOVIE_PAGE}/:${id}`);
   }
 
   render() {

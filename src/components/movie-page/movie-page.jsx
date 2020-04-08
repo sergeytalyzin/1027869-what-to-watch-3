@@ -43,7 +43,6 @@ const MoviePage = (props) => {
     loadFavoriteFilms();
   };
 
-
   return (<React.Fragment>
     <section className="movie-card movie-card--full" style={{backgroundColor: `${bg}`}}>
       <div className="movie-card__hero">
@@ -82,7 +81,7 @@ const MoviePage = (props) => {
             <div className="movie-card__buttons">
               <button onClick={()=>{
                 onFilmWatch(film);
-                history.push(AppRoute.PLAYER);
+                history.push(`${AppRoute.FILMS}/:${id}${AppRoute.PLAYER}`);
               }} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"/>
@@ -99,7 +98,7 @@ const MoviePage = (props) => {
               </button>
               {authorizationStatus === AuthorizationStatus.AUTH &&
               (<button onClick={(e) => {
-                history.push(AppRoute.REVIEW);
+                history.push(`${AppRoute.FILMS}/:${id}${AppRoute.REVIEW}`);
                 e.preventDefault();
               }}
 
