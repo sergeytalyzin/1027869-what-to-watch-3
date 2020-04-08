@@ -59,8 +59,7 @@ class App extends PureComponent {
             <SignIn onSubmit={this.props.login}/>
           }
         />
-        <PrivateRoute
-          auth={authorizationStatus}
+        <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
           render={()=>
             <MoviePageWrapper
               loadFavoriteFilms={loadFavoriteFilms}
@@ -70,8 +69,6 @@ class App extends PureComponent {
               films = {films}
               onActiveFilm={onActiveFilmClick}
               authorizationStatus={authorizationStatus}
-              exact
-              path={`${AppRoute.MOVIE_PAGE}/:id`}
             />
           }
         />
@@ -83,15 +80,14 @@ class App extends PureComponent {
             />
           }
         />
-        <PrivateRoute exact path={`${AppRoute.FILMS}/:id${AppRoute.PLAYER}`}
-          auth={authorizationStatus}
-          render={(a)=>
+        <Route exact path={`${AppRoute.FILMS}/:id${AppRoute.PLAYER}`}
+          render={()=>
             <VideoPlayer
               type={`movie`}
               className={`player__video`}
               isPlaying={false}
-              videoSrc={a.videoLink}
-              posterSrc={a.src}
+              videoSrc={filmToWatch.videoLink}
+              posterSrc={filmToWatch.src}
               onExitFilmButtonClick = {onFilmToWatchClick}
               isMuted
             />

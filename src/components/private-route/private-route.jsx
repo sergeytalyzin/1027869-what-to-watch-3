@@ -2,20 +2,16 @@ import React from "react";
 import {Route, Redirect} from "react-router-dom";
 import {AppRoute} from "../../const";
 import {AuthorizationStatus} from "../../reducer/user/user.js";
-import {connect} from "react-redux"
-import {getFilmActive, getFilmToWatch} from "../../reducer/app-status/selectors.js";
-import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 
 
 
-
-
-const PrivateRoute = ({component: Component, render, auth, activeFilm, ...rest}) => {
-  console.log(render());
+const PrivateRoute = ({component: Component, render, auth , ...rest}) => {
   return (
     <Route
+      videoSrc={activeFilm.videoLink}
+      posterSrc={activeFilm.src}
       render={props => auth === AuthorizationStatus.AUTH ? (
-        render(activeFilm)
+        render()
       ):(
         <Redirect to={AppRoute.SIGN_IN} />
       )}
@@ -23,17 +19,4 @@ const PrivateRoute = ({component: Component, render, auth, activeFilm, ...rest})
   );
 };
 
-
-
-
-const mapStateToProps = (state) => ({
-  activeFilm: getFilmActive(state),
-  filmToWatch: getFilmToWatch(state),
-  authorizationStatus: getAuthorizationStatus(state),
-});
-
-
-
-export {PrivateRoute};
-
-export default connect(mapStateToProps)(PrivateRoute);
+export default PrivateRoute;
