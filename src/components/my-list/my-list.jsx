@@ -6,10 +6,8 @@ import {ActionCreator} from "../../reducer/app-status/app-status.js";
 import MovieList from "../movie-list/movie-list.jsx";
 
 
+const MyList = ({favoriteFilmsList, onActiveFilm}) => {
 
-const MyList = ({favoriteFilmsList, onActiveFilm }) => {
-
-  console.log(favoriteFilmsList);
   return (<div className="user-page">
     <header className="page-header user-page__head">
       <div className="logo">

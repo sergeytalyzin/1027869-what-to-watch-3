@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import {getReviews} from "../../reducer/data/selectors.js";
 import {formatDateForReview} from "../../utils.js";
 
-
 class MoviePageReviews extends PureComponent {
   constructor(props) {
     super(props);
@@ -43,6 +42,7 @@ class MoviePageReviews extends PureComponent {
 
 
 MoviePageReviews.propTypes = {
+  loadReviews: PropTypes.func.isRequired,
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -56,6 +56,8 @@ MoviePageReviews.propTypes = {
     director: PropTypes.string.isRequired,
     runTime: PropTypes.number.isRequired,
   }).isRequired,
+  reviews: PropTypes.arrayOf.isRequired,
+  filmId: PropTypes.number.isRequired,
 };
 
 export {MoviePageReviews};

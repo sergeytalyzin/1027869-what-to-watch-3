@@ -10,7 +10,7 @@ const LENGHT = {
 };
 
 
-class AddReview extends PureComponent{
+class AddReview extends PureComponent {
   constructor(props) {
     super(props);
 

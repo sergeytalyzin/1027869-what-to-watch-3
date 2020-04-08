@@ -6,7 +6,6 @@ import MoviePageDetails from "../movie-page-details/movie-page-details.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 import Tabs from "../tabs/tabs.jsx";
 import {AuthorizationStatus} from "../../reducer/user/user";
-import {Link} from "react-router-dom";
 import history from "../../history.js";
 import {AppRoute} from "../../const.js";
 
