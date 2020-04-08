@@ -101,5 +101,5 @@ it(`MoviePageDetails is rendered correctly`, () => {
           return {};
         }
       }).toJSON();
-expect(tree).toMatchSnapshot();
+  expect(tree).toMatchSnapshot();
 });

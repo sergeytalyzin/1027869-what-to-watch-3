@@ -186,6 +186,7 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
     bg: PropTypes.string.isRequired,
     bgSrc: PropTypes.string,
+    isFavorite: PropTypes.bool,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
