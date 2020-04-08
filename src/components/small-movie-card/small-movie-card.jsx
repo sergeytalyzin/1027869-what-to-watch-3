@@ -55,7 +55,7 @@ SmallMovieCard.propTypes = {
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     previewVideoLink: PropTypes.string.isRequired,
-    posterBig: PropTypes.string.isRequired,
+    posterBig: PropTypes.string,
     id: PropTypes.number.isRequired,
   }).isRequired,
   active: PropTypes.object.isRequired,

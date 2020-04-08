@@ -33,7 +33,7 @@ MoviePageOverview.propTypes = {
     posterBig: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     ratingCount: PropTypes.number.isRequired,
-    ratingLevel: PropTypes.number.isRequired,
+    ratingLevel: PropTypes.string,
     description: PropTypes.string.isRequired,
     actors: PropTypes.arrayOf.isRequired,
     director: PropTypes.string.isRequired,

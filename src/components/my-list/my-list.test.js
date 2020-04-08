@@ -53,6 +53,11 @@ const films = [
 it(`Should Mylist render correctly`, ()=>{
   const tree = renderer.create(<MyList
     favoriteFilmsList={films}
-    onActiveFilm={()=>{}}/>).toJSON();
+    onActiveFilm={()=>{}}/>,
+  {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
   expect(tree).toMatchSnapshot();
 });

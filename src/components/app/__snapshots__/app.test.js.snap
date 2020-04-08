@@ -26,6 +26,7 @@ Array [
       >
         <a
           className="logo__link"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -278,7 +279,6 @@ Array [
       </div>
     </footer>
   </div>,
-  ");",
 ]
 `;
 
@@ -308,6 +308,7 @@ Array [
       >
         <a
           className="logo__link"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -560,7 +561,6 @@ Array [
       </div>
     </footer>
   </div>,
-  ");",
 ]
 `;
 
@@ -590,6 +590,7 @@ Array [
       >
         <a
           className="logo__link"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -842,102 +843,287 @@ Array [
       </div>
     </footer>
   </div>,
-  ");",
 ]
 `;
 
 exports[`App should render movie video player 1`] = `
-<div
-  className="player"
->
-  <video
-    alt=""
-    className="player__video"
-    height={null}
-    poster="img/mindhunter.jpg"
-    width={null}
-  />
-  <button
-    className="player__exit"
-    onClick={[Function]}
-    type="button"
-  >
-    Exit
-  </button>
-  <div
-    className="player__controls"
+Array [
+  <section
+    className="movie-card"
   >
     <div
-      className="player__controls-row"
+      className="movie-card__bg"
+    >
+      <img
+        alt="Mindhunter"
+        src="somePath"
+      />
+    </div>
+    <h1
+      className="visually-hidden"
+    >
+      WTW
+    </h1>
+    <header
+      className="page-header movie-card__head"
     >
       <div
-        className="player__time"
+        className="logo"
       >
-        <progress
-          className="player__progress"
-          max="100"
-          value="0"
-        />
-        <div
-          className="player__toggler"
-          style={
-            Object {
-              "left": "0%",
-            }
-          }
+        <a
+          className="logo__link"
+          onClick={[Function]}
         >
-          Toggler
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="user-block"
+      >
+        <div
+          className="user-block__avatar"
+          onClick={[Function]}
+        >
+          <img
+            alt="User avatar"
+            height="63"
+            src="img/avatar.jpg"
+            width="63"
+          />
         </div>
       </div>
+    </header>
+    <div
+      className="movie-card__wrap"
+    >
       <div
-        className="player__time-value"
+        className="movie-card__info"
       >
-        0:00:00
+        <div
+          className="movie-card__poster"
+        >
+          <img
+            alt="Mindhunter"
+            height="327"
+            src="img/mindhunter.jpg"
+            width="218"
+          />
+        </div>
+        <div
+          className="movie-card__desc"
+        >
+          <h2
+            className="movie-card__title"
+          >
+            Mindhunter
+          </h2>
+          <p
+            className="movie-card__meta"
+          >
+            <span
+              className="movie-card__genre"
+            >
+              Comedy
+            </span>
+            <span
+              className="movie-card__year"
+            >
+              1812
+            </span>
+          </p>
+          <div
+            className="movie-card__buttons"
+          >
+            <button
+              className="btn btn--play movie-card__button"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="19"
+                viewBox="0 0 19 19"
+                width="19"
+              >
+                <use
+                  xlinkHref="#play-s"
+                />
+              </svg>
+              <span>
+                Play
+              </span>
+            </button>
+            <button
+              className="btn btn--list movie-card__button movie-card__button--favorite"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                fill="red"
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
+              >
+                <use
+                  xlinkHref="#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div
-      className="player__controls-row"
+  </section>,
+  <div
+    className="page-content"
+  >
+    <section
+      className="catalog"
     >
-      <button
-        className="player__play"
-        onClick={[Function]}
-        type="button"
+      <h2
+        className="catalog__title visually-hidden"
       >
-        <svg
-          height="19"
-          viewBox="0 0 19 19"
-          width="19"
+        Catalog
+      </h2>
+      <ul
+        className="catalog__genres-list"
+      >
+        <li
+          className="catalog__genres-item catalog__genres-item--active"
+          onClick={[Function]}
         >
-          <use
-            xlinkHref="#play-s"
-          />
-        </svg>
-        <span>
-          Play
-        </span>
-      </button>
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            All genres
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item false"
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Comedy
+          </a>
+        </li>
+      </ul>
       <div
-        className="player__name"
-      />
-      <button
-        className="player__full-screen"
-        onClick={[Function]}
-        type="button"
+        className="catalog__movies-list"
       >
-        <svg
-          height="27"
-          viewBox="0 0 27 27"
-          width="27"
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
-          <use
-            xlinkHref="#full-screen"
-          />
-        </svg>
-        <span>
-          Full screen
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              alt=""
+              className=""
+              height={175}
+              poster="img/mindhunter.jpg"
+              src="somePath"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="#"
+            >
+              Mindhunter
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              alt=""
+              className=""
+              height={175}
+              poster="img/mindhunter.jpg"
+              src="somePath"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="#"
+            >
+              Mindhunter
+            </a>
+          </h3>
+        </article>
+      </div>
+    </section>
+    <footer
+      className="page-footer"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link logo__link--light"
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 2019 What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
 `;

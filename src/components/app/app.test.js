@@ -174,10 +174,14 @@ describe(`App should`, () => {
 
   it(`render movie video player`, () => {
     const store = mockStore({
-      currentGenre: `All genres`,
-      film,
-      films,
-      filmsToShowCount: 8
+      DATA: {
+        films,
+        film
+      },
+      APP_STATUS: {
+        genre: `All genres`,
+        filmsToShowCount: 8,
+      }
     });
     const tree = renderer.create(
         <Provider store={store}>

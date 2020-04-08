@@ -29,9 +29,8 @@ const MoviePageWrapper = withActiveTab(MoviePage);
 class App extends PureComponent {
   render() {
     const {
-      filmToWatch,
       onFilmToWatchClick,
-      activeFilm, films,
+      films,
       onActiveFilmClick,
       authorizationStatus,
       comment,
@@ -40,7 +39,6 @@ class App extends PureComponent {
       postFavoriteFilms,
       loadFavoriteFilms
     } = this.props;
-    console.log(`main`,films);
     return (<Router history={history}>
       <Switch>
         <Route exact path={AppRoute.ROOT}
@@ -64,10 +62,7 @@ class App extends PureComponent {
           render={(routeProps)=>{
             const id = parseInt(routeProps.match.params.id, 10);
             const chosenFilm = films.find((offer) => offer.id === id);
-            console.log(films);
-            console.log(id);
-            console.log(chosenFilm);
-            return  <MoviePageWrapper
+            return <MoviePageWrapper
               loadFavoriteFilms={loadFavoriteFilms}
               postFavoriteFilms={postFavoriteFilms}
               onFilmWatch={onFilmToWatchClick}
@@ -94,7 +89,6 @@ class App extends PureComponent {
           render={(routeProps)=> {
             const id = parseInt(routeProps.match.params.id, 10);
             const filmsToWatch = films.find((offer) => offer.id === id);
-            console.log(routeProps.match);
             return <VideoPlayer
               type={`movie`}
               className={`player__video`}
@@ -141,9 +135,9 @@ App.propTypes = {
   onFilmToWatchClick: PropTypes.func,
   login: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  comment: PropTypes.func.isRequired,
-  postFavoriteFilms: PropTypes.func.isRequired,
-  loadFavoriteFilms: PropTypes.func.isRequired,
+  comment: PropTypes.func,
+  postFavoriteFilms: PropTypes.func,
+  loadFavoriteFilms: PropTypes.func,
 };
 
 

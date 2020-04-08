@@ -18,7 +18,7 @@ exports[`MoviePageDetails is rendered correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Frank Sinatra
+        John Mason
       </span>
     </p>
     <p
@@ -49,9 +49,7 @@ exports[`MoviePageDetails is rendered correctly 1`] = `
       </strong>
       <span
         className="movie-card__details-value"
-      >
-        1h 30m
-      </span>
+      />
     </p>
     <p
       className="movie-card__details-item"

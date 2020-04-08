@@ -5,9 +5,8 @@ import {AppRoute} from "../../const";
 import {AuthorizationStatus} from "../../reducer/user/user.js";
 
 
-
 const PrivateRoute = (props) => {
- const {auth, render, component:Component} = props;
+  const {auth, render} = props;
   return (
     <Route
       {...props}

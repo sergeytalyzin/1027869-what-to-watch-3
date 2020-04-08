@@ -29,13 +29,6 @@ const Main = (props) => {
       loadFavoriteFilms();
     }
   };
-  // const historyPushWithAuth = (appRoute) => {
-  //   if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
-  //     return history.push(AppRoute.SIGN_IN);
-  //   } else {
-  //     return history.push(appRoute);
-  //   }
-  // };
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -47,7 +40,11 @@ const Main = (props) => {
 
       <header className="page-header movie-card__head">
         <div className="logo">
-          <a className="logo__link">
+          <a onClick={(e) => {
+            e.preventDefault();
+            history.push(AppRoute.MY_LIST);
+          }}
+          className="logo__link">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>
@@ -171,6 +168,7 @@ Main.propTypes = {
     id: PropTypes.number,
     bgSrc: PropTypes.string,
     src: PropTypes.string,
+    isFavorite: PropTypes.bool,
   }).isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -181,8 +179,8 @@ Main.propTypes = {
   onClickShowMore: PropTypes.func.isRequired,
   onClickActiveFilm: PropTypes.func.isRequired,
   onFilmWatch: PropTypes.func,
-  postFavoriteFilms: PropTypes.func.isRequired,
-  loadFavoriteFilms: PropTypes.func.isRequired,
+  postFavoriteFilms: PropTypes.func,
+  loadFavoriteFilms: PropTypes.func,
 };
 
 

@@ -54,7 +54,11 @@ const MoviePage = (props) => {
 
         <header className="page-header movie-card__head">
           <div className="logo">
-            <a href="main.html" className="logo__link">
+            <a onClick={(e) => {
+              e.preventDefault();
+              history.push(AppRoute.MY_LIST);
+            }}
+            href="#" className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -163,7 +167,7 @@ MoviePage.propTypes = {
         src: PropTypes.string.isRequired,
         rating: PropTypes.number.isRequired,
         ratingCount: PropTypes.number.isRequired,
-        ratingLevel: PropTypes.number.isRequired,
+        ratingLevel: PropTypes.string,
         description: PropTypes.string.isRequired,
         actors: PropTypes.arrayOf.isRequired,
         director: PropTypes.string.isRequired,
@@ -176,18 +180,17 @@ MoviePage.propTypes = {
     src: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     ratingCount: PropTypes.number.isRequired,
-    ratingLevel: PropTypes.number.isRequired,
+    ratingLevel: PropTypes.string,
     description: PropTypes.string.isRequired,
     actors: PropTypes.arrayOf.isRequired,
     director: PropTypes.string.isRequired,
     bg: PropTypes.string.isRequired,
     bgSrc: PropTypes.string,
-    isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  postFavoriteFilms: PropTypes.func.isRequired,
-  loadFavoriteFilms: PropTypes.func.isRequired,
+  postFavoriteFilms: PropTypes.func,
+  loadFavoriteFilms: PropTypes.func,
 };
 
 
