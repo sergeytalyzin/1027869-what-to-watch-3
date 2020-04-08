@@ -26,7 +26,7 @@ class AddReview extends PureComponent {
       rating: this.ratingRef.current.elements.rating.value,
       comment: this.commentRef.current.value
     });
-    history.push(`${AppRoute.MOVIE_PAGE}/:${id}`);
+    history.push(`${AppRoute.MOVIE_PAGE}/${id}`);
   }
 
   render() {

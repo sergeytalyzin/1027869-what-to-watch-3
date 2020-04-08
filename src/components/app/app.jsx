@@ -40,6 +40,7 @@ class App extends PureComponent {
       postFavoriteFilms,
       loadFavoriteFilms
     } = this.props;
+    console.log(`main`,films);
     return (<Router history={history}>
       <Switch>
         <Route exact path={AppRoute.ROOT}
@@ -60,39 +61,57 @@ class App extends PureComponent {
           }
         />
         <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
-          render={()=>
-            <MoviePageWrapper
+          render={(routeProps)=>{
+            const id = parseInt(routeProps.match.params.id, 10);
+            const chosenFilm = films.find((offer) => offer.id === id);
+            console.log(films);
+            console.log(id);
+            console.log(chosenFilm);
+            return  <MoviePageWrapper
               loadFavoriteFilms={loadFavoriteFilms}
               postFavoriteFilms={postFavoriteFilms}
               onFilmWatch={onFilmToWatchClick}
-              film = {activeFilm}
+              film = {chosenFilm}
               films = {films}
               onActiveFilm={onActiveFilmClick}
               authorizationStatus={authorizationStatus}
-            />
-          }
+            />;
+          }}
         />
-        <Route exact path={`${AppRoute.FILMS}/:id${AppRoute.REVIEW}`}
-          render={()=>
-            <AddReview
-              activeFilm = {activeFilm}
+        <PrivateRoute exact path={`${AppRoute.FILMS}/:id${AppRoute.REVIEW}`}
+          auth={authorizationStatus}
+          render={(routeProps)=> {
+            const id = parseInt(routeProps.match.params.id, 10);
+            const chosenFilm = films.find((offer) => offer.id === id);
+            return <AddReview
+              activeFilm = {chosenFilm}
               onSubmit = {comment}
-            />
-          }
+            />;
+          }}
         />
-        <Route exact path={`${AppRoute.FILMS}/:id${AppRoute.PLAYER}`}
-          render={()=>
-            <VideoPlayer
+        <PrivateRoute exact path={`${AppRoute.FILMS}/:id${AppRoute.PLAYER}`}
+          auth={authorizationStatus}
+          render={(routeProps)=> {
+            const id = parseInt(routeProps.match.params.id, 10);
+            const filmsToWatch = films.find((offer) => offer.id === id);
+            console.log(routeProps.match);
+            return <VideoPlayer
               type={`movie`}
               className={`player__video`}
               isPlaying={false}
-              videoSrc={filmToWatch.videoLink}
-              posterSrc={filmToWatch.src}
+              videoSrc={filmsToWatch.videoLink}
+              posterSrc={filmsToWatch.src}
               onExitFilmButtonClick = {onFilmToWatchClick}
               isMuted
-            />
+            />;
+          }
           }/>
-        <PrivateRoute auth={authorizationStatus} path={AppRoute.MY_LIST} exact component={MyList}/>
+        <PrivateRoute
+          auth={authorizationStatus}
+          path={AppRoute.MY_LIST} exact
+          render={()=>
+            <MyList/>
+          }/>
       </Switch>
     </Router>);
   }

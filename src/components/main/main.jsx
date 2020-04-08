@@ -29,13 +29,13 @@ const Main = (props) => {
       loadFavoriteFilms();
     }
   };
-  const historyPushWithAuth = (appRoute) => {
-    if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
-      return history.push(AppRoute.SIGN_IN);
-    } else {
-      return history.push(appRoute);
-    }
-  };
+  // const historyPushWithAuth = (appRoute) => {
+  //   if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
+  //     return history.push(AppRoute.SIGN_IN);
+  //   } else {
+  //     return history.push(appRoute);
+  //   }
+  // };
 
   return (<React.Fragment>
     <section className="movie-card">
@@ -88,7 +88,7 @@ const Main = (props) => {
               <button
                 onClick={()=>{
                   onFilmWatch(films[0]);
-                  historyPushWithAuth(`${AppRoute.FILMS}/:${id}${AppRoute.PLAYER}`);
+                  history.push(`${AppRoute.FILMS}/${id}${AppRoute.PLAYER}`);
                 }}
                 className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
@@ -98,7 +98,7 @@ const Main = (props) => {
               </button>
               <button onClick={() => {
                 changeFavorite();
-                historyPushWithAuth(AppRoute.ROOT);
+                history.push(AppRoute.MY_LIST);
               }
               }
               className="btn btn--list movie-card__button movie-card__button--favorite" type="button">

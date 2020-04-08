@@ -18,7 +18,7 @@ const SmallMovieCard = (props) => {
         e.preventDefault();
         clearTimeout(timer);
         onActiveFilm(film);
-        history.push(`${AppRoute.MOVIE_PAGE}/:${id}`);
+        history.push(`${AppRoute.MOVIE_PAGE}/${id}`);
       }}
       onMouseEnter={()=>{
         timer = setTimeout(()=>{
