@@ -9,18 +9,14 @@ const initialState = {
   showedFilmsAmount: FILMS_SHOWED_INCREMENT_AMOUNT,
   activeFilm: null,
   filmToWatch: null,
-  isLogging: false,
-  isAddReviews: false,
 };
 
 const ActionType = {
-  ADD_REVIEWS: `Add Reviews`,
   CHANGE_GENRE: `Change genre`,
   INCREMENT_SHOWED: `Increment showed`,
   RESET_SHOWED: `Reset showed`,
   ADD_ACTIVE_FILM: `Add active film`,
   SET_FILM_TO_WATCH: `SET_FILM_TO_WATCH`,
-  CHANGE_LOGGING_STATUS: `CHANGE_LOGGING_STATUS`,
 };
 
 const ActionCreator = {
@@ -42,12 +38,6 @@ const ActionCreator = {
   setFilmToWatch: (film) => ({
     type: ActionType.SET_FILM_TO_WATCH,
     payload: film
-  }),
-  changeLoggingStatus: () =>({
-    type: ActionType.CHANGE_LOGGING_STATUS,
-  }),
-  addReviews: () =>({
-    type: ActionType.ADD_REVIEWS,
   }),
 };
 
@@ -72,14 +62,6 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_FILM_TO_WATCH:
       return extend(state, {
         filmToWatch: action.payload
-      });
-    case ActionType.CHANGE_LOGGING_STATUS:
-      return extend(state, {
-        isLogging: !state.isLogging
-      });
-    case ActionType.ADD_REVIEWS:
-      return extend(state, {
-        isAddReviews: !state.isAddReviews
       });
   }
 

@@ -1,6 +1,6 @@
 import {extend} from "../../utils.js";
 import adaptFilmsData, {adaptFilm, adaptReview} from "./adapt-films-data.js";
-import {ActionCreator as AppActionCreator} from "../app-status/app-status.js";
+
 
 const initializeState = {
   films: [],
@@ -41,8 +41,7 @@ const ActionCreators = {
       payload: adaptFilmsData(films)
     };
   }
-}
-;
+};
 
 const Operation = {
   loadFilms: () => (dispatch, getState, api) => {
@@ -69,9 +68,6 @@ const Operation = {
       rating: review.rating,
       comment: review.comment
     })
-      .then(()=>{
-        dispatch(AppActionCreator.addReviews());
-      })
       .catch((err) => {
         throw err;
       });
@@ -81,6 +77,9 @@ const Operation = {
       .then((response)=>{
         dispatch(ActionCreators.loadFavoriteFilms(response.data));
       });
+  },
+  postFavoriteFilms: (id, status) => (dispatch, getState, api) => {
+    return api.post(`/favorite/${id}/${status}`);
   },
 };
 

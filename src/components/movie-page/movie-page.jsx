@@ -8,7 +8,7 @@ import Tabs from "../tabs/tabs.jsx";
 import {AuthorizationStatus} from "../../reducer/user/user";
 import {Link} from "react-router-dom";
 import history from "../../history.js";
-import {AppRoute} from "../../const";
+import {AppRoute} from "../../const.js";
 
 
 const TABS = {
@@ -27,11 +27,24 @@ const activeToTab = (tab, film, id) => {
       return <MoviePageOverview film={film}/>;
   }
 };
+
+
 const MoviePage = (props) => {
-  const {authorizationStatus, films, film, activeTab, handleClickTab, onFilmWatch, onActiveFilm, addReviews} = props;
-  const {title, genre, date, src, bg, bgSrc, id} = film;
+  const {authorizationStatus, films, film, activeTab, handleClickTab, onFilmWatch, onActiveFilm, postFavoriteFilms, loadFavoriteFilms} = props;
+  const {title, genre, date, src, bg, bgSrc, id, isFavorite} = film;
   let moreLikeThisFilms = [];
   moreLikeThisFilms = films.filter((it)=> it.genre === genre && it.id !== id).slice(0, 4);
+
+  const changeFavorite = () => {
+    if (isFavorite) {
+      postFavoriteFilms(id, 0);
+    } else {
+      postFavoriteFilms(id, 1);
+    }
+    loadFavoriteFilms();
+  };
+
+
   return (<React.Fragment>
     <section className="movie-card movie-card--full" style={{backgroundColor: `${bg}`}}>
       <div className="movie-card__hero">
@@ -51,7 +64,9 @@ const MoviePage = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
+            <div onClick={()=>{
+              history.push(AppRoute.MY_LIST);
+            }} className="user-block__avatar">
               <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
             </div>
           </div>
@@ -76,9 +91,7 @@ const MoviePage = (props) => {
                 <span>Play</span>
               </button>
               <button
-                onClick={()=>{
-                  history.push(AppRoute.MY_LIST);
-                }}
+                onClick={changeFavorite}
                 className="btn btn--list movie-card__button" type="button">
                 <svg viewBox="0 0 19 20" width="19" height="20">
                   <use xlinkHref="#add"/>
@@ -86,12 +99,12 @@ const MoviePage = (props) => {
                 <span>My list</span>
               </button>
               {authorizationStatus === AuthorizationStatus.AUTH &&
-              (<Link to={AppRoute.REVIEW} onClick={(e) => {
+              (<button onClick={(e) => {
+                history.push(AppRoute.REVIEW);
                 e.preventDefault();
-                addReviews();
               }}
 
-              href="#" className="btn movie-card__button">Add review</Link>)}
+              className="btn movie-card__button">Add review</button>)}
             </div>
           </div>
         </div>
@@ -171,10 +184,12 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
     bg: PropTypes.string.isRequired,
     bgSrc: PropTypes.string,
+    isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
   activeTab: PropTypes.string.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  addReviews: PropTypes.func.isRequired,
+  postFavoriteFilms: PropTypes.func.isRequired,
+  loadFavoriteFilms: PropTypes.func.isRequired,
 };
 
 

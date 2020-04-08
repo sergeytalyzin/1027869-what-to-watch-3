@@ -15,6 +15,7 @@ export default (data) => {
       bg: film.background_color,
       bgSrc: film.background_image,
       videoLink: film.video_link,
+      isFavorite: film.is_favorite
     }
     );
     delete newFilm.name;
@@ -26,6 +27,7 @@ export default (data) => {
     delete newFilm.preview_video_link;
     delete newFilm.run_time;
     delete newFilm.background_image;
+    delete newFilm.is_favorite;
     return newFilm;
   });
   return newData;
@@ -50,6 +52,7 @@ export const adaptFilm = (film) => {
     bg: film.background_color,
     bgSrc: film.background_image,
     videoLink: film.video_link,
+    isFavorite: film.is_favorite
   };
 };
 

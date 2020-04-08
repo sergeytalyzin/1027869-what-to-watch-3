@@ -15,7 +15,6 @@ Array [
         alt=""
         className=""
         height={175}
-        poster="somePath"
         src="somePath"
         width={280}
       />
@@ -25,7 +24,7 @@ Array [
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
       >
         Mindhunter
       </a>
@@ -44,7 +43,6 @@ Array [
         alt=""
         className=""
         height={175}
-        poster="somePath"
         src="somePath"
         width={280}
       />
@@ -54,7 +52,7 @@ Array [
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
       >
         Midnight Special
       </a>
@@ -73,7 +71,6 @@ Array [
         alt=""
         className=""
         height={175}
-        poster="somePath"
         src="somePath"
         width={280}
       />
@@ -83,7 +80,7 @@ Array [
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
       >
         Mindhunter
       </a>
@@ -102,7 +99,6 @@ Array [
         alt=""
         className=""
         height={175}
-        poster="somePath"
         src="somePath"
         width={280}
       />
@@ -112,7 +108,7 @@ Array [
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
       >
         Midnight Special
       </a>

@@ -1,5 +1,5 @@
 import {extend} from "../../utils.js";
-import {ActionCreator as AppActionCreators} from "../app-status/app-status.js";
+
 
 
 const AuthorizationStatus = {
@@ -39,7 +39,6 @@ const Operation = {
     })
       .then(() => {
         dispatch(ActionCreators.requireAuthorization(AuthorizationStatus.AUTH));
-        dispatch(AppActionCreators.changeLoggingStatus());
       });
   },
 };

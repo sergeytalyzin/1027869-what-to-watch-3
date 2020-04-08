@@ -58,6 +58,7 @@ Array [
         >
           <div
             className="user-block__avatar"
+            onClick={[Function]}
           >
             <img
               alt="User avatar"
@@ -116,6 +117,7 @@ Array [
             </button>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -131,12 +133,12 @@ Array [
                 My list
               </span>
             </button>
-            <a
+            <button
               className="btn movie-card__button"
-              href="add-review.html"
+              onClick={[Function]}
             >
               Add review
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -214,14 +216,11 @@ Array [
             >
               <span
                 className="movie-rating__level"
-              >
-                Awesome
-              </span>
+              />
               <span
                 className="movie-rating__count"
               >
                 433
-                 ratings
               </span>
             </p>
           </div>
@@ -293,7 +292,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -322,7 +321,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -351,7 +350,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -380,7 +379,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>

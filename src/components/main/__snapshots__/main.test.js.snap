@@ -9,8 +9,7 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        alt="Mindhunter"
       />
     </div>
     <h1
@@ -49,6 +48,7 @@ Array [
       >
         <div
           className="user-block__avatar"
+          onClick={[Function]}
         >
           <img
             alt="User avatar"
@@ -69,9 +69,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Mindhunter"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="somePath"
             width="218"
           />
         </div>
@@ -119,10 +119,12 @@ Array [
               </span>
             </button>
             <button
-              className="btn btn--list movie-card__button"
+              className="btn btn--list movie-card__button movie-card__button--favorite"
+              onClick={[Function]}
               type="button"
             >
               <svg
+                fill="red"
                 height="20"
                 viewBox="0 0 19 20"
                 width="19"
@@ -193,7 +195,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -203,7 +205,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -222,7 +224,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -232,7 +234,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -251,7 +253,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -261,7 +263,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -280,7 +282,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -290,7 +292,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -309,7 +311,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -319,7 +321,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -338,7 +340,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -348,7 +350,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -367,7 +369,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -377,7 +379,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>
@@ -396,7 +398,7 @@ Array [
               alt=""
               className=""
               height={175}
-              poster="somePath"
+              poster="img/mindhunter.jpg"
               src="somePath"
               width={280}
             />
@@ -406,7 +408,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
             >
               Mindhunter
             </a>

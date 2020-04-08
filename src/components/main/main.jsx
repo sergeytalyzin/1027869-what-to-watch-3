@@ -13,17 +13,22 @@ import {Link} from "react-router-dom";
 import history from "../../history.js";
 import {AppRoute} from "../../const.js";
 
-
-
 const GenreListWrapper = withActiveItem(GenreList);
-
 
 const Main = (props) => {
   const {films, allListFilms, promoFilm, onGenreClick, onChangeGenre,
     showedFilmsAmount, onClickShowMore, onClickActiveFilm,
-    authorizationStatus, onFilmWatch, filmsLength, onSignInClick} = props;
-  const {title, genre, date, bgSrc, src} = promoFilm;
+    authorizationStatus, onFilmWatch, filmsLength, postFavoriteFilms, loadFavoriteFilms} = props;
+  const {title, genre, date, bgSrc, src, isFavorite, id} = promoFilm;
 
+  const changeFavorite = () => {
+    if (isFavorite) {
+      postFavoriteFilms(id, 0);
+    } else {
+      postFavoriteFilms(id, 1);
+      loadFavoriteFilms();
+    }
+  };
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -43,18 +48,16 @@ const Main = (props) => {
 
         <div className="user-block">
           {authorizationStatus === AuthorizationStatus.AUTH ? (
-            <div className="user-block__avatar">
+            <div onClick={()=>{
+              history.push(AppRoute.MY_LIST);
+            }} className="user-block__avatar">
               <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
             </div>
           ) :
             (
               <Link
                 to={AppRoute.SIGN_IN}
-              //   onClick={(evt)=>{
-              //   evt.preventDefault();
-              //   onSignInClick();
-              // }}
-              href="#" className="user-block__link">Sign in</Link>
+                href="#" className="user-block__link">Sign in</Link>
             )}
         </div>
       </header>
@@ -83,11 +86,9 @@ const Main = (props) => {
                 </svg>
                 <span>Play</span>
               </button>
-              <button onClick={()=>{
-                history.push(AppRoute.MY_LIST);
-              }}
-              className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
+              <button onClick={changeFavorite}
+                className="btn btn--list movie-card__button movie-card__button--favorite" type="button">
+                <svg viewBox="0 0 19 20" fill="red" width="19" height="20">
                   <use xlinkHref="#add"/>
                 </svg>
                 <span>My list</span>
@@ -158,6 +159,7 @@ Main.propTypes = {
     id: PropTypes.number,
     bgSrc: PropTypes.string,
     src: PropTypes.string,
+    isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
   allListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -168,6 +170,8 @@ Main.propTypes = {
   onClickShowMore: PropTypes.func.isRequired,
   onClickActiveFilm: PropTypes.func.isRequired,
   onFilmWatch: PropTypes.func,
+  postFavoriteFilms: PropTypes.func.isRequired,
+  loadFavoriteFilms: PropTypes.func.isRequired,
 };
 
 

@@ -8,14 +8,6 @@ export const getFilmsToShowCount = (state) => {
   return state[NameSpace.APP_STATUS].showedFilmsAmount;
 };
 
-export const getLoggingStatus = (state) => {
-  return state[NameSpace.APP_STATUS].isLogging;
-};
-
-export const getAddReviews = (state) => {
-  return state[NameSpace.APP_STATUS].isAddReviews;
-};
-
 export const getFilmActive = (state) => {
   return state[NameSpace.APP_STATUS].activeFilm;
 };
